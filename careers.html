@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Careers &amp; Leadership — The Utopia Project US</title>
+<meta name="description" content="The Utopia Project US is assembling its founding leadership team across eleven pillars — Vision, Continuity, History, Resources, Law, Community, Knowledge, Sustainability, Integrity, Innovation, and Execution." />
+
+<meta property="og:title" content="Careers &amp; Leadership — The Utopia Project US" />
+<meta property="og:description" content="Eleven Pillars. Eleven Leaders. One Mission." />
+<meta property="og:image" content="/images/utopia-project-logo.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="/images/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void: #0a0d12;
+    --panel: #12161d;
+    --panel-2: #171c24;
+    --panel-line: #242a33;
+    --parchment: #e8e2d0;
+    --parchment-dim: #9a9585;
+    --gold: #e3a93f;
+    --gold-dim: #b8863a;
+    --amber: #c97a2b;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--void);
+    color: var(--parchment);
+    font-family: 'Public Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+  .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 0.7rem; color: var(--gold);
+  }
+
+  /* ---------- header (matches site) ---------- */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(10,13,18,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .brand-group { display: flex; align-items: center; gap: 0.7rem; }
+  .brand-logo img { height: 34px; width: 34px; border-radius: 6px; display: block; }
+  .breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: 0.95rem;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .breadcrumb a { color: var(--parchment); text-decoration: none; transition: color 0.15s ease; }
+  .breadcrumb a:hover, .breadcrumb a:focus-visible { color: var(--gold); }
+  .breadcrumb .crumb-sep { color: var(--parchment-dim); font-size: 0.8rem; }
+
+  nav { display: flex; align-items: center; gap: 0.9rem; }
+  nav a {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; color: var(--parchment-dim);
+    transition: color 0.15s ease;
+  }
+  nav a:hover, nav a:focus-visible { color: var(--gold); }
+  .nav-dash { color: var(--panel-line); font-size: 0.65rem; }
+  .nav-pipe { color: var(--gold-dim); font-size: 0.7rem; margin: 0 0.15rem; }
+  .status-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 999px;
+    padding: 0.3rem 0.7rem;
+    white-space: nowrap;
+  }
+  .nav-links { display: none; }
+  @media (min-width: 720px) { .nav-links { display: flex; } }
+
+  /* ---------- doc hero ---------- */
+  .doc-hero {
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .doc-hero .latin {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+    color: var(--gold); font-size: 1.05rem; margin: 0 0 0.6rem;
+  }
+  .doc-hero h1 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+    margin: 0 0 1rem; color: var(--parchment);
+  }
+  .doc-hero p {
+    max-width: 60ch; margin: 0 auto; color: var(--parchment-dim);
+    font-size: 1.02rem; line-height: 1.7;
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--parchment-dim); text-decoration: none;
+    margin-top: 2rem;
+  }
+  .back-link:hover, .back-link:focus-visible { color: var(--gold); }
+  .back-link svg { width: 13px; height: 13px; }
+
+  /* ---------- status note ---------- */
+  .note-panel {
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin: 2.5rem auto;
+    max-width: 720px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--parchment-dim);
+  }
+  .note-panel strong { color: var(--parchment); }
+
+  /* ---------- structure intro ---------- */
+  .structure-intro { padding: 3rem 0 1rem; }
+  .structure-intro h2 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2rem); color: var(--parchment);
+    margin: 0.5rem 0 1rem;
+  }
+  .structure-intro p {
+    color: var(--parchment-dim); line-height: 1.75; max-width: 70ch;
+  }
+  .tier-legend {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    margin: 1.75rem 0 0;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
+    color: var(--parchment-dim);
+  }
+  .tier-legend span strong { color: var(--gold); display: block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
+
+  /* ---------- role grid ---------- */
+  .role-grid {
+    display: grid; gap: 1.5rem;
+    grid-template-columns: 1fr;
+    padding: 2rem 0 4rem;
+  }
+  @media (min-width: 780px) { .role-grid { grid-template-columns: 1fr 1fr; } }
+
+  .role-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+    border-radius: 10px;
+    padding: 1.75rem;
+    display: flex; flex-direction: column;
+  }
+  .role-card .pillar-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    margin-bottom: 1rem;
+    width: fit-content;
+  }
+  .role-card h3 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: 1.2rem; color: var(--parchment); margin: 0 0 0.3rem;
+  }
+  .role-card .pillar-motto {
+    font-family: 'Fraunces', serif; font-style: italic;
+    color: var(--gold-dim); font-size: 0.88rem; margin: 0 0 1.1rem;
+  }
+  .role-card ul {
+    margin: 0; padding-left: 1.1rem;
+    color: var(--parchment-dim); font-size: 0.88rem; line-height: 1.9;
+    columns: 1;
+  }
+  @media (min-width: 480px) { .role-card ul.wide { columns: 2; column-gap: 1.2rem; } }
+  .role-card li { break-inside: avoid; }
+  .role-card li strong { color: var(--parchment); font-weight: 500; }
+
+  /* ---------- CTA ---------- */
+  .apply-cta {
+    text-align: center;
+    padding: 1rem 0 5rem;
+  }
+  .apply-cta h2 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2rem); color: var(--parchment);
+    margin: 0 0 0.75rem;
+  }
+  .apply-cta p {
+    color: var(--parchment-dim); max-width: 56ch; margin: 0 auto 1.75rem; line-height: 1.7;
+  }
+  .cta {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.92rem;
+    color: var(--void); background: var(--gold);
+    padding: 0.85rem 1.4rem; border-radius: 4px; text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cta:hover, .cta:focus-visible { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(227,169,63,0.25); }
+  .cta svg { width: 15px; height: 15px; }
+
+  /* ---------- footer (matches site, symmetric with header) ---------- */
+  footer {
+    position: sticky; bottom: 0; z-index: 10;
+    padding: 1rem 2rem;
+    background: rgba(10,13,18,0.88);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--panel-line);
+  }
+  .footer-inner {
+    min-height: 34px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.04em;
+    color: var(--parchment-dim);
+  }
+  .footer-motto {
+    font-family: 'Fraunces', serif; font-style: italic;
+    color: var(--gold); font-size: 0.85rem; letter-spacing: 0.02em;
+  }
+  @media (max-width: 640px) {
+    .footer-inner { justify-content: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-group">
+      <a class="brand-logo" href="index.html">
+        <img src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+      </a>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">The Utopia Project US</a>
+        <span class="crumb-sep">&rarr;</span>
+        <a href="careers.html">Careers</a>
+      </nav>
+    </div>
+    <div class="nav-links">
+      <nav>
+        <a href="mission.html">Mission</a>
+        <span class="nav-dash">&mdash;</span>
+        <a href="index.html#constitution">Constitution v2.0</a>
+        <span class="nav-pipe">|</span>
+        <a href="careers.html">Careers</a>
+        <span class="nav-dash">&mdash;</span>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="status-pill">v0.2 - Prelaunch</div>
+  </header>
+
+  <div class="doc-hero">
+    <p class="latin">Eleven Pillars. Eleven Leaders. One Mission.</p>
+    <h1>Careers &amp; Leadership</h1>
+    <p>
+      The Utopia Project US is organized around eleven pillars &mdash; the things a governing institution has to
+      protect in order to last. We're assembling the founding leadership team responsible for each one.
+    </p>
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to home
+    </a>
+  </div>
+
+  <div class="article-wrap">
+    <div class="note-panel">
+      <strong>Where we are right now:</strong> The Utopia Project US is pre-launch and has not yet completed
+      501(c)(3) formation. Every role below is currently <strong>volunteer</strong>, founding-team territory &mdash;
+      not a paid position with a start date. If that changes as the organization formalizes, this page will say so
+      plainly, the same way the rest of the site marks its own status.
+    </div>
+
+    <div class="structure-intro">
+      <span class="eyebrow">How We're Organized</span>
+      <h2>Eleven Pillars, Each With a Leader and a Department</h2>
+      <p>
+        Every pillar represents something the organization has to protect to remain trustworthy over time &mdash;
+        vision, continuity, history, resources, law, community, knowledge, sustainability, integrity, innovation,
+        and execution. Each pillar is led by a Director (or, for the four officer seats required under our Bylaws,
+        by the President, Vice President, Secretary, or Treasurer), who in turn oversees the specific functions
+        listed under their department.
+      </p>
+      <div class="tier-legend">
+        <span><strong>Tier 1</strong>What We Protect</span>
+        <span><strong>Tier 2</strong>Who Leads Each Pillar</span>
+        <span><strong>Tier 3</strong>How We Execute the Mission</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="role-grid">
+
+      <div class="role-card">
+        <span class="pillar-tag">Vision &mdash; Our Direction</span>
+        <h3>President</h3>
+        <p class="pillar-motto">Leads Pillar I</p>
+        <ul>
+          <li>Executive Assistant</li>
+          <li>Chief of Staff</li>
+          <li>Strategic Planning</li>
+          <li>Executive Communications</li>
+          <li>Special Projects</li>
+        </ul>
+      </div>
+
+      <div class="role-card">
+        <span class="pillar-tag">Continuity &mdash; Our Future</span>
+        <h3>Vice President</h3>
+        <p class="pillar-motto">Leads Pillar II</p>
+        <ul>
+          <li>Board Relations</li>
+          <li>Leadership Development</li>
+          <li>Organizational Planning</li>
+          <li>Strategic Initiatives</li>
+          <li>Emergency Continuity</li>
+        </ul>
+      </div>
+
+      <div class="role-card">
+        <span class="pillar-tag">History &mdash; Our Record</span>
+        <h3>Secretary</h3>
+        <p class="pillar-motto">Leads Pillar III</p>
+        <ul class="wide">
+          <li>Corporate Records</li>
+          <li>Board Administration</li>
+          <li>Meeting Services</li>
+          <li>Document Control</li>
+          <li>Policy Library</li>
+          <li>Public Records</li>
+        </ul>
+      </div>
+
+      <div class="role-card">
+        <span class="pillar-tag">Resources &mdash; Our Stewardship</span>
+        <h3>Treasurer</h3>
+        <p class="pillar-motto">Leads Pillar IV</p>
+        <ul class="wide">
+          <li>Accounting</li>
+          <li>Payroll</li>
+          <li>Budget Office</li>
+          <li>Financial Reporting</li>
+          <li>Grants Administration</li>
+          <li>Investment Management</li>
+          <li>Purchasing</li>
+        </ul>
+      </div>
+
+      <div class="role-card">
+        <span class="pillar-tag">Law &mdash; Our Foundation</span>
+        <h3>Director of Legal Affairs &amp; Compliance</h3>
+        <p class="pillar-motto">Leads Pillar V</p>
+        <ul class="wide">
+          <li>General Counsel</li>
+          <li>Contracts Administrator</li>
+          <li>Intellectual Property</li>
+          <li>Regulatory Compliance</li>
+          <li>Risk Management</li>
+          <li>Insurance Administration</li>
+          <li>Corporate Compliance</li>
+        </ul>
+      </div>
+
+      <div class="role-card">
+        <span class="pillar-tag">Community &mdash; Our Connection</span>
+        <h3>Director of Communications &amp; Civic Engagement</h3>
+        <p class="pillar-motto">Leads Pillar VI</p>
+        <ul class="wide">
+          <li>Public Relations</li>
+          <li>Media Relations</li>
+          <li>Social Media</li>
+          <li>Community Outreach</li>
+          <li>Volunteer Coordination</li>
+          <li>Chapter Relations</li>
+          <li>Public Events</li>
+          <li>Podcast / Video Production</li>
+          <li>Press Office</li>
+          <li>Citizen Engagement</li>
+        </ul>
+      </div>
+
+      <div class="role-card">
+        <span class="pillar-tag">Knowledge &mdash; Our Growth</span>
+        <h3>Director of Research &amp; Education</h3>
+        <p class="pillar-motto">Leads Pillar VII</p>
+        <ul class="wide">
+          <li>Constitutional Research</li>
+          <li>Public Policy Research</li>
+          <li>Historical Research</li>
+          <li>Data Analysis</li>
+          <li>Curriculum Development</li>
+          <li>Online Learning</li>
+          <li>Publications</li>
+          <li>White Papers</li>
+          <li>Fact Checking</li>
+          <li>Library Services</li>
+          <li>Academic Partnerships</li>
+        </ul>
+      </div>
+
+      <div class="role-card">
+        <span class="pillar-tag">Sustainability &mdash; Our Support</span>
+        <h3>Director of Development &amp; Fundraising</h3>
+        <p class="pillar-motto">Leads Pillar VIII</p>
+        <ul class="wide">
+          <li>Individual Giving</li>
+          <li>Major Gifts</li>
+          <li>Grant Writing</li>
+          <li>Membership Program</li>
+          <li>Planned Giving</li>
+          <li>Donor Stewardship</li>
+          <li>Fundraising Events</li>
+          <li>CRM Administration</li>
+        </ul>
+      </div>
+
+      <div class="role-card">
+        <span class="pillar-tag">Integrity &mdash; Our Standard</span>
+        <h3>Director of Ethics &amp; Oversight</h3>
+        <p class="pillar-motto">Leads Pillar IX</p>
+        <ul class="wide">
+          <li>Internal Investigations</li>
+          <li>Ethics Hotline</li>
+          <li>Internal Audit</li>
+          <li>Conflict of Interest Reviews</li>
+          <li>Governance Audits</li>
+          <li>Policy Compliance</li>
+          <li>Whistleblower Protection</li>
+        </ul>
+      </div>
+
+      <div class="role-card">
+        <span class="pillar-tag">Innovation &mdash; Our Advancement</span>
+        <h3>Director of Technology &amp; Digital Governance</h3>
+        <p class="pillar-motto">Leads Pillar X</p>
+        <ul class="wide">
+          <li>Infrastructure <em>(Systems, Network, Cloud, Disaster Recovery)</em></li>
+          <li>Software Engineering <em>(Website, Digital Constitutional Convention, Apps &amp; Portals)</em></li>
+          <li>Cybersecurity</li>
+          <li>Data &amp; AI</li>
+          <li>Help Desk</li>
+          <li>AV / Studio Tech</li>
+        </ul>
+      </div>
+
+      <div class="role-card">
+        <span class="pillar-tag">Execution &mdash; Our Results</span>
+        <h3>Director of Operations &amp; Efficiency</h3>
+        <p class="pillar-motto">Leads Pillar XI</p>
+        <ul class="wide">
+          <li>Human Resources</li>
+          <li>Recruiting</li>
+          <li>Benefits Administration</li>
+          <li>Volunteer Services</li>
+          <li>Facilities</li>
+          <li>Office Administration</li>
+          <li>Procurement</li>
+          <li>Fleet / Travel</li>
+          <li>Process Improvement</li>
+          <li>Quality Assurance</li>
+          <li>Organizational Metrics</li>
+          <li>Project Management Office (PMO)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="apply-cta">
+    <h2>Interested in a Founding Role?</h2>
+    <p>
+      Tell us which pillar speaks to you and what you'd bring to it. We're building this leadership team
+      one conversation at a time.
+    </p>
+    <a class="cta" href="mailto:info@utopiaproject.us?subject=Founding%20Leadership%20Interest">
+      Reach Out About a Role
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span class="footer-copy">&copy; 2026 Utopia Project US</span>
+      <span class="footer-motto">Veritas Super Omnia</span>
+      <span class="footer-updated" id="last-updated">Last updated: &mdash;</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var el = document.getElementById('last-updated');
+      if (!el) return;
+      var d = new Date(document.lastModified);
+      var formatted = d.toLocaleString('en-US', {
+        timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric',
+        hour: 'numeric', minute: '2-digit', hour12: true
+      });
+      el.textContent = 'Last updated: ' + formatted + ' UTC';
+    })();
+  </script>
+
+</body>
+</html>

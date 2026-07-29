@@ -61,12 +61,16 @@
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--panel-line);
   }
-  .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
-  .brand img { height: 34px; width: 34px; border-radius: 6px; }
-  .brand span {
+  .brand-group { display: flex; align-items: center; gap: 0.7rem; }
+  .brand-logo img { height: 34px; width: 34px; border-radius: 6px; display: block; }
+  .breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
     font-family: 'Fraunces', serif; font-weight: 500; font-size: 0.95rem;
-    letter-spacing: 0.05em; text-transform: uppercase; color: var(--parchment);
+    letter-spacing: 0.05em; text-transform: uppercase;
   }
+  .breadcrumb a { color: var(--parchment); text-decoration: none; transition: color 0.15s ease; }
+  .breadcrumb a:hover, .breadcrumb a:focus-visible { color: var(--gold); }
+  .breadcrumb .crumb-sep { color: var(--parchment-dim); font-size: 0.8rem; }
   nav { display: flex; align-items: center; gap: 1.75rem; }
   nav a {
     font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
@@ -75,6 +79,8 @@
     transition: color 0.15s ease;
   }
   nav a:hover, nav a:focus-visible { color: var(--gold); }
+  .nav-dash { color: var(--panel-line); font-size: 0.65rem; }
+  .nav-pipe { color: var(--gold-dim); font-size: 0.7rem; margin: 0 0.15rem; }
   .status-pill {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
@@ -250,14 +256,24 @@
 <body>
 
   <header>
-    <a class="brand" href="index.html">
-      <img src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
-      <span>The Utopia Project US</span>
-    </a>
+    <div class="brand-group">
+      <a class="brand-logo" href="index.html">
+        <img src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+      </a>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">The Utopia Project US</a>
+        <span class="crumb-sep">&rarr;</span>
+        <a href="mission.html">Mission</a>
+      </nav>
+    </div>
     <div class="nav-links">
       <nav>
         <a href="mission.html">Mission</a>
+        <span class="nav-dash">&mdash;</span>
         <a href="index.html#constitution">Constitution v2.0</a>
+        <span class="nav-pipe">|</span>
+        <a href="careers.html">Careers</a>
+        <span class="nav-dash">&mdash;</span>
         <a href="index.html#contact">Contact</a>
       </nav>
     </div>
