@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Utopia Project US — Reimagining American Governance</title>
+<meta name="description" content="A nonprofit initiative building Constitution v2.0 — a modern constitutional framework for a future democratic society, built on truth, accountability, and human dignity. Currently in active drafting." />
+
+<meta property="og:title" content="The Utopia Project US" />
+<meta property="og:description" content="Reimagining American governance from the ground up. Veritas Super Omnia — The Truth Above All Else." />
+<meta property="og:image" content="/images/utopia-project-logo.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="/images/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void: #0a0d12;
+    --panel: #12161d;
+    --panel-2: #171c24;
+    --panel-line: #242a33;
+    --parchment: #e8e2d0;
+    --parchment-dim: #9a9585;
+    --gold: #e3a93f;
+    --gold-dim: #b8863a;
+    --amber: #c97a2b;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--void);
+    color: var(--parchment);
+    font-family: 'Public Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: var(--gold);
+  }
+
+  /* ---------- header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(10,13,18,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .brand { display: flex; align-items: center; gap: 0.7rem; }
+  .brand img { height: 34px; width: 34px; border-radius: 6px; }
+  .brand span {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  nav { display: flex; align-items: center; gap: 1.75rem; }
+  nav a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--parchment-dim);
+    transition: color 0.15s ease;
+  }
+  nav a:hover, nav a:focus-visible { color: var(--gold); }
+  .status-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 999px;
+    padding: 0.3rem 0.7rem;
+    white-space: nowrap;
+  }
+  .nav-links { display: none; }
+  @media (min-width: 720px) { .nav-links { display: flex; } }
+
+  /* ---------- hero ---------- */
+  .hero {
+    padding: 4.5rem 2rem 3rem;
+    text-align: center;
+  }
+  .hero-logo {
+    width: min(440px, 78%);
+    margin: 0 auto 2.5rem;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+  }
+
+  .latin {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+    font-size: 1.05rem;
+    margin: 0 0 0.5rem;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.08;
+    margin: 0 0 1.1rem;
+    color: var(--parchment);
+  }
+  .hero p.lede {
+    max-width: 56ch;
+    margin: 0 auto 2rem;
+    font-size: 1.08rem;
+    line-height: 1.7;
+    color: var(--parchment-dim);
+  }
+  .hero p.lede strong { color: var(--gold); font-weight: 600; }
+
+  .cta-row {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  }
+  .cta {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 600; font-size: 0.92rem;
+    padding: 0.85rem 1.4rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cta.primary {
+    color: var(--void); background: var(--gold);
+  }
+  .cta.primary:hover, .cta.primary:focus-visible {
+    transform: translateY(-1px); box-shadow: 0 6px 22px rgba(227,169,63,0.25);
+  }
+  .cta.ghost {
+    color: var(--parchment); border: 1px solid var(--panel-line); background: transparent;
+  }
+  .cta.ghost:hover, .cta.ghost:focus-visible { border-color: var(--gold); color: var(--gold); }
+  .cta:focus-visible { outline: 2px solid var(--parchment); outline-offset: 3px; }
+  .cta svg { width: 15px; height: 15px; }
+
+  /* ---------- generic section ---------- */
+  section { padding: 5rem 0; border-top: 1px solid var(--panel-line); }
+  section.tight { padding: 3.5rem 0; }
+
+  .section-head { max-width: 60ch; margin-bottom: 2.5rem; }
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    margin: 0.5rem 0 0;
+    color: var(--parchment);
+  }
+
+  .split {
+    display: grid; gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 860px) {
+    .split { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+    .split.reverse > *:first-child { order: 2; }
+  }
+
+  .split p { line-height: 1.75; color: var(--parchment-dim); font-size: 1rem; }
+  .split p strong { color: var(--parchment); font-weight: 600; }
+
+  .stamp {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    padding: 0.45rem 0.85rem;
+    transform: rotate(-2deg);
+    margin-bottom: 1.4rem;
+  }
+
+  .media-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  }
+  .media-card img { width: 100%; }
+
+  /* preview cards for light-background assets (Citizen Portal / Lexicon) */
+  .preview-card {
+    background: var(--parchment);
+    border-radius: 10px;
+    padding: 0.6rem;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  }
+  .preview-card img { border-radius: 5px; }
+  .preview-caption {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; flex-wrap: wrap;
+    margin-top: 0.85rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    color: var(--parchment-dim);
+  }
+  .preview-caption a { color: var(--gold); text-decoration: none; }
+  .preview-caption a:hover { text-decoration: underline; }
+
+  /* ---------- pillars strip ---------- */
+  .pillars {
+    display: grid; gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) { .pillars { grid-template-columns: repeat(3, 1fr); } }
+  .pillar {
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+    border-radius: 8px;
+    padding: 1.6rem;
+  }
+  .pillar .eyebrow { display: block; margin-bottom: 0.6rem; }
+  .pillar h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem;
+    color: var(--parchment);
+  }
+  .pillar p { margin: 0; font-size: 0.92rem; line-height: 1.6; color: var(--parchment-dim); }
+
+  /* ---------- contact section ---------- */
+  .contact-block h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--parchment-dim);
+    margin: 0 0 0.8rem;
+  }
+  .contact-block a, .contact-block .line {
+    display: flex; align-items: center; gap: 0.6rem;
+    text-decoration: none;
+    color: var(--parchment);
+    font-size: 0.95rem;
+    margin-bottom: 0.65rem;
+  }
+  .contact-block a:hover, .contact-block a:focus-visible { color: var(--gold); }
+  .contact-block svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--gold); }
+
+  /* ---------- footer (symmetric with header, same padding/height, sticky to bottom) ---------- */
+  footer {
+    position: sticky; bottom: 0; z-index: 10;
+    padding: 1rem 2rem;
+    background: rgba(10,13,18,0.88);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--panel-line);
+  }
+  .footer-inner {
+    min-height: 34px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.04em;
+    color: var(--parchment-dim);
+  }
+  .footer-motto {
+    font-family: 'Fraunces', serif; font-style: italic;
+    color: var(--gold); font-size: 0.85rem; letter-spacing: 0.02em;
+  }
+  @media (max-width: 640px) {
+    .footer-inner { justify-content: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <img src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+      <span>The Utopia Project US</span>
+    </div>
+    <div class="nav-links">
+      <nav>
+        <a href="mission.html">Mission</a>
+        <a href="#constitution">Constitution v2.0</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="status-pill">v0.2 - Prelaunch</div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <div class="hero wrap">
+    <img class="hero-logo" src="images/utopia-project-logo.png" alt="The Utopia Project US crest" loading="eager" />
+    <p class="latin">Veritas Super Omnia &mdash; The Truth Above All Else</p>
+    <h1>Reimagining American<br>Governance, From the Ground Up</h1>
+    <p class="lede">
+      The Utopia Project US is a nonprofit civic initiative designing <strong>Constitution v2.0</strong> &mdash;
+      a modern constitutional framework for a future democratic society, built around truth, accountability,
+      technological modernization, and human dignity.
+    </p>
+    <div class="cta-row">
+      <a class="cta primary" href="mailto:info@utopiaproject.us?subject=Notify%20me%20at%20launch">
+        Get notified at launch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="cta ghost" href="#mission">Read our mission</a>
+    </div>
+  </div>
+
+  <!-- ================= MISSION ================= -->
+  <section id="mission">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <span class="eyebrow">Opening Vision</span>
+          <h2>Institutions built for the 18th century are meeting 21st&#8209;century problems.</h2>
+        </div>
+        <div>
+          <p>
+            Many modern democracies are struggling because their political and institutional systems were
+            designed for the realities of the 18th and 19th centuries &mdash; not the technological, informational,
+            and geopolitical challenges of the modern world.
+          </p>
+          <p>
+            The Utopia Project seeks to rethink governance from the ground up while preserving the strongest
+            principles of <strong>constitutional liberty, democratic representation, individual rights, and
+            human dignity</strong> &mdash; prioritizing transparency, evidence, and accountability over
+            propaganda and manipulation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONSTITUTION V2.0 ================= -->
+  <section id="constitution">
+    <div class="wrap">
+      <div class="split">
+        <div class="media-card">
+          <img src="images/constitution-under-construction.jpg" alt="A leather-bound book titled Constitution v2.0 with an amber Under Construction sign on the cover" loading="lazy" />
+        </div>
+        <div>
+          <div class="stamp">Status: drafting</div>
+          <h2 style="margin-top:0;">Constitution v2.0</h2>
+          <p>
+            Our flagship framework &mdash; a comprehensive constitutional redesign for a hypothetical future
+            nation, the <strong>United Federation of America</strong>. It combines constitutional democracy,
+            digital governance, civic accountability, anti-corruption systems, and human rights protections
+            into a single modern design.
+          </p>
+          <p>
+            Structured into Articles covering rights and liberties, government structure, elections, economics,
+            judicial systems, and civic participation &mdash; with a <strong>Five Branch Government</strong>
+            that adds independent Education and Oversight branches to the traditional three.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEXICON PREVIEW ================= -->
+  <section>
+    <div class="wrap">
+      <div class="split reverse">
+        <div class="preview-card">
+          <a href="images/constitution-v2-lexicon.png" target="_blank" rel="noopener">
+            <img src="images/constitution-v2-lexicon.png" alt="Constitution v2.0 Official Constitutional Lexicon chart, listing ten constitutional institutions with their functions and principles" loading="lazy" />
+          </a>
+          <div class="preview-caption">
+            <span>Constitution v2.0 Reference Standard &middot; Rev. 6</span>
+            <a href="images/constitution-v2-lexicon.png" target="_blank" rel="noopener">View full size &rarr;</a>
+          </div>
+        </div>
+        <div>
+          <span class="eyebrow">A Look Inside</span>
+          <h2 style="margin-top:0.5rem;">The Constitutional Lexicon</h2>
+          <p>
+            Every institution in Constitution v2.0 is named, defined, and grounded in a guiding principle &mdash;
+            from the Concordium (legislative) to the Veritium (independent oversight). This is a working
+            reference, not a finished product.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CITIZEN PORTAL ================= -->
+  <section>
+    <div class="wrap">
+      <div class="split">
+        <div class="preview-card">
+          <img src="images/citizen-portal.png" alt="Citizen Portal concept mockup showing categories like Identity and Documents, Civic Participation, and Legal Status" loading="lazy" />
+          <div class="preview-caption">
+            <span>Concept mockup &mdash; illustrative only</span>
+          </div>
+        </div>
+        <div>
+          <span class="eyebrow">Digital Democracy</span>
+          <h2 style="margin-top:0.5rem;">A Modern Civic Infrastructure</h2>
+          <p>
+            Constitution v2.0 proposes a secure digital civic infrastructure &mdash; citizen portals,
+            transparent participation systems, and modernized public services &mdash; designed to remain
+            <strong>publicly auditable, constitutionally limited, and subordinate to civil-liberty
+            protections</strong> at every step.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THE LONG VIEW ================= -->
+  <section>
+    <div class="wrap">
+      <div class="split reverse">
+        <div class="media-card">
+          <img src="images/the-future-is-ours-to-rewrite.jpg" alt="A DeLorean time machine between two lampposts marked 1787 and 2026, with the words The Future Is Ours To Rewrite" loading="lazy" />
+        </div>
+        <div>
+          <span class="eyebrow">The Long View</span>
+          <h2 style="margin-top:0.5rem;">The Future Is Ours to Rewrite</h2>
+          <p>
+            The Utopia Project is ultimately an invitation to imagine how democratic civilization might evolve
+            to meet the challenges of the modern age &mdash; without abandoning liberty, truth, human dignity,
+            or constitutional governance.
+          </p>
+          <p>
+            It's rooted in the belief that humanity is capable of building institutions that are
+            <strong>more transparent, more accountable, more resilient, and more humane</strong> than those
+            inherited from the past.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PILLARS ================= -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2rem;">
+        <span class="eyebrow">What We're Building</span>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <span class="eyebrow">01</span>
+          <h3>Constitution v2.0</h3>
+          <p>The flagship constitutional framework &mdash; drafting in progress, Article by Article.</p>
+        </div>
+        <div class="pillar">
+          <span class="eyebrow">02</span>
+          <h3>Nonprofit Formation</h3>
+          <p>Bylaws and Articles of Incorporation, ahead of our 501(c)(3) filing in Philadelphia, PA.</p>
+        </div>
+        <div class="pillar">
+          <span class="eyebrow">03</span>
+          <h3>Public Infrastructure</h3>
+          <p>Phone, web, and civic tooling &mdash; the operational backbone of the organization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER / CONTACT ================= -->
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:2rem;">
+        <span class="eyebrow">Get in Touch</span>
+        <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:clamp(1.6rem,3.4vw,2.2rem); margin:0.5rem 0 0; color:var(--parchment);">Reach The Utopia Project US</h2>
+      </div>
+      <div class="contact-block" style="max-width:420px;">
+        <a href="tel:+12154886742">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          215&#8209;4&#8209;UTOPIA
+        </a>
+        <a href="mailto:info@utopiaproject.us">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          info@utopiaproject.us
+        </a>
+        <div class="line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Philadelphia, PA &mdash; the birth of our nation
+        </div>
+        <a href="mission.html" style="margin-top:0.5rem;">Read Our Mission</a>
+        <a href="mailto:info@utopiaproject.us?subject=Notify%20me%20at%20launch">Get Notified at Launch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span class="footer-copy">&copy; 2026 Utopia Project US</span>
+      <span class="footer-motto">Veritas Super Omnia</span>
+      <span class="footer-updated" id="last-updated">Last updated: &mdash;</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var el = document.getElementById('last-updated');
+      if (!el) return;
+      var d = new Date(document.lastModified);
+      var formatted = d.toLocaleString('en-US', {
+        timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric',
+        hour: 'numeric', minute: '2-digit', hour12: true
+      });
+      el.textContent = 'Last updated: ' + formatted + ' UTC';
+    })();
+  </script>
+
+</body>
+</html>

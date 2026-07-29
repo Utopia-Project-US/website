@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Mission — The Utopia Project US</title>
+<meta name="description" content="The full vision behind The Utopia Project US and Constitution v2.0 — why we exist, what we're building, and what it is not." />
+
+<meta property="og:title" content="Our Mission — The Utopia Project US" />
+<meta property="og:description" content="Veritas Super Omnia — The Truth Above All Else." />
+<meta property="og:image" content="/images/utopia-project-logo.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="/images/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void: #0a0d12;
+    --panel: #12161d;
+    --panel-2: #171c24;
+    --panel-line: #242a33;
+    --parchment: #e8e2d0;
+    --parchment-dim: #9a9585;
+    --gold: #e3a93f;
+    --gold-dim: #b8863a;
+    --amber: #c97a2b;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--void);
+    color: var(--parchment);
+    font-family: 'Public Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 0.7rem; color: var(--gold);
+  }
+
+  /* ---------- header (matches index.html) ---------- */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(10,13,18,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+  .brand img { height: 34px; width: 34px; border-radius: 6px; }
+  .brand span {
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: 0.95rem;
+    letter-spacing: 0.05em; text-transform: uppercase; color: var(--parchment);
+  }
+  nav { display: flex; align-items: center; gap: 1.75rem; }
+  nav a {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; color: var(--parchment-dim);
+    transition: color 0.15s ease;
+  }
+  nav a:hover, nav a:focus-visible { color: var(--gold); }
+  .status-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 999px;
+    padding: 0.3rem 0.7rem;
+    white-space: nowrap;
+  }
+  .nav-links { display: none; }
+  @media (min-width: 720px) { .nav-links { display: flex; } }
+
+  /* ---------- document hero ---------- */
+  .doc-hero {
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .doc-hero img.crest {
+    width: min(280px, 60%); height: auto; border-radius: 20px;
+    margin: 0 auto 2rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+  .doc-hero .latin {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+    color: var(--gold); font-size: 1.05rem; margin: 0 0 0.6rem;
+  }
+  .doc-hero h1 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+    margin: 0 0 1rem; color: var(--parchment);
+  }
+  .doc-hero p {
+    max-width: 52ch; margin: 0 auto; color: var(--parchment-dim);
+    font-size: 1.02rem; line-height: 1.7;
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--parchment-dim); text-decoration: none;
+    margin-top: 2rem;
+  }
+  .back-link:hover, .back-link:focus-visible { color: var(--gold); }
+  .back-link svg { width: 13px; height: 13px; }
+
+  /* ---------- table of contents ---------- */
+  .toc {
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+    border-radius: 8px;
+    padding: 1.75rem 2rem;
+    margin: 3rem auto;
+  }
+  .toc h2 {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--parchment-dim); margin: 0 0 1rem;
+  }
+  .toc ol {
+    columns: 2; column-gap: 2rem;
+    margin: 0; padding: 0; list-style: none;
+  }
+  @media (max-width: 560px) { .toc ol { columns: 1; } }
+  .toc li { break-inside: avoid; margin-bottom: 0.6rem; }
+  .toc a {
+    text-decoration: none; color: var(--parchment); font-size: 0.9rem;
+    line-height: 1.4; display: block;
+  }
+  .toc a:hover, .toc a:focus-visible { color: var(--gold); }
+
+  /* ---------- article body ---------- */
+  article { padding: 1rem 0 6rem; }
+
+  .doc-section {
+    padding: 3rem 0;
+    border-top: 1px solid var(--panel-line);
+    scroll-margin-top: 5rem;
+  }
+  .doc-section:first-of-type { border-top: none; padding-top: 0; }
+
+  .doc-section .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.1em; color: var(--gold);
+    display: block; margin-bottom: 0.6rem;
+  }
+  .doc-section h2 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    margin: 0 0 1.25rem; color: var(--parchment);
+  }
+  .doc-section h3 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: 1.15rem; margin: 2rem 0 0.75rem; color: var(--gold);
+  }
+  .doc-section p {
+    line-height: 1.8; color: var(--parchment-dim); font-size: 1rem;
+    margin: 0 0 1.1rem;
+  }
+  .doc-section ul {
+    margin: 0 0 1.1rem; padding-left: 1.3rem;
+    color: var(--parchment-dim); line-height: 1.85;
+  }
+  .doc-section li { margin-bottom: 0.3rem; }
+  .doc-section strong { color: var(--parchment); font-weight: 600; }
+  .doc-section blockquote {
+    margin: 1.5rem 0; padding: 0.9rem 1.4rem;
+    border-left: 2px solid var(--amber);
+    font-family: 'Fraunces', serif; font-style: italic;
+    color: var(--gold); font-size: 1.05rem;
+  }
+  .principle-tag {
+    font-family: 'Fraunces', serif; font-style: italic;
+    color: var(--gold); font-size: 1.1rem; margin: 0 0 1.25rem;
+  }
+
+  .doc-image {
+    margin: 3rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  }
+  .doc-image.light { background: var(--parchment); padding: 0.6rem; }
+  .doc-image.light img { border-radius: 5px; }
+
+  .closing {
+    text-align: center;
+    padding: 4rem 0 0;
+  }
+  .closing .kicker {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 600;
+    font-size: 1.6rem; color: var(--gold); margin: 1.5rem 0 2.5rem;
+  }
+
+  .closing .cta {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.92rem;
+    color: var(--void); background: var(--gold);
+    padding: 0.85rem 1.4rem; border-radius: 4px; text-decoration: none;
+    margin: 0.5rem 0 2.5rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .closing .cta:hover, .closing .cta:focus-visible {
+    transform: translateY(-1px); box-shadow: 0 6px 22px rgba(227,169,63,0.25);
+  }
+  .closing .cta svg { width: 15px; height: 15px; }
+
+  /* ---------- footer (symmetric with header, same padding/height, sticky to bottom) ---------- */
+  footer {
+    position: sticky; bottom: 0; z-index: 10;
+    padding: 1rem 2rem;
+    background: rgba(10,13,18,0.88);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--panel-line);
+  }
+  .footer-inner {
+    min-height: 34px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.04em;
+    color: var(--parchment-dim);
+  }
+  .footer-motto {
+    font-family: 'Fraunces', serif; font-style: italic;
+    color: var(--gold); font-size: 0.85rem; letter-spacing: 0.02em;
+  }
+  @media (max-width: 640px) {
+    .footer-inner { justify-content: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <a class="brand" href="index.html">
+      <img src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+      <span>The Utopia Project US</span>
+    </a>
+    <div class="nav-links">
+      <nav>
+        <a href="mission.html">Mission</a>
+        <a href="index.html#constitution">Constitution v2.0</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="status-pill">v0.2 - Prelaunch</div>
+  </header>
+
+  <div class="doc-hero">
+    <img class="crest" src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+    <p class="latin">Veritas Super Omnia &mdash; The Truth Above All Else</p>
+    <h1>Our Mission</h1>
+    <p>
+      Why The Utopia Project exists, what Constitution v2.0 is trying to build, and &mdash;
+      just as importantly &mdash; what this project is not.
+    </p>
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to home
+    </a>
+  </div>
+
+  <div class="article-wrap">
+    <nav class="toc" aria-label="Table of contents">
+      <h2>On This Page</h2>
+      <ol>
+        <li><a href="#opening-vision">1. Opening Vision</a></li>
+        <li><a href="#why-struggling">2. Why Current Systems Are Struggling</a></li>
+        <li><a href="#core-mission">3. Core Mission</a></li>
+        <li><a href="#foundational-principles">4. Foundational Principles</a></li>
+        <li><a href="#human-rights">5. Human Rights &amp; Liberty Protections</a></li>
+        <li><a href="#constitution-overview">6. Constitution v2.0 &mdash; Overview</a></li>
+        <li><a href="#digital-democracy">7. Digital Democracy</a></li>
+        <li><a href="#anti-corruption">8. Anti&#8209;Corruption Systems</a></li>
+        <li><a href="#tech-governance">9. Technology &amp; Scientific Governance</a></li>
+        <li><a href="#civic-culture">10. Civic Culture &amp; Social Responsibility</a></li>
+        <li><a href="#long-term-vision">11. Long&#8209;Term Vision</a></li>
+        <li><a href="#what-this-is-not">12. What This Is Not</a></li>
+        <li><a href="#current-status">13. Current Status</a></li>
+      </ol>
+    </nav>
+  </div>
+
+  <article class="article-wrap">
+
+    <section class="doc-section" id="opening-vision">
+      <span class="num">01</span>
+      <h2>Opening Vision</h2>
+      <p>The Utopia Project is a nonprofit civic initiative focused on designing a modern constitutional framework for a future democratic society built around truth, accountability, technological modernization, human dignity, and institutional resilience.</p>
+      <p>At its core, the project argues that many modern democracies are increasingly struggling because their political and institutional systems were designed for the realities of the 18th and 19th centuries rather than the technological, informational, and geopolitical challenges of the modern world.</p>
+      <p>The Utopia Project seeks to rethink governance from the ground up while preserving the strongest principles of <strong>constitutional liberty, democratic representation, individual rights, scientific progress, and human dignity</strong>.</p>
+      <p>The project's guiding philosophical principle is:</p>
+      <p class="principle-tag">Veritas Super Omnia &mdash; The Truth Above All Else</p>
+      <p>This principle serves as the moral and constitutional foundation of the proposed system. The framework does not treat governments as arbiters of absolute truth, but instead seeks to create institutions that prioritize <strong>transparency, evidence, open inquiry, and accountability</strong> over propaganda, deception, and ideological manipulation.</p>
+      <p>The Utopia Project does not claim perfection is achievable. Instead, it argues that societies must continuously improve their institutions to adapt to new technological, ethical, economic, and democratic realities &mdash; remaining adaptable as technology, society, and human civilization continue evolving.</p>
+      <p>The project advocates peaceful democratic reform through public discussion, education, constitutional dialogue, and institutional modernization.</p>
+    </section>
+
+    <section class="doc-section" id="why-struggling">
+      <span class="num">02</span>
+      <h2>Why Current Systems Are Struggling</h2>
+      <p>The project emerged from growing concern that modern democratic systems are becoming increasingly vulnerable to:</p>
+      <ul>
+        <li>corruption</li>
+        <li>institutional paralysis</li>
+        <li>extreme political polarization</li>
+        <li>corporate capture</li>
+        <li>disinformation</li>
+        <li>algorithmic manipulation</li>
+        <li>declining public trust</li>
+        <li>and technological disruption</li>
+      </ul>
+      <p>The rise of artificial intelligence, social media influence, surveillance systems, digital propaganda, and concentrated economic power has fundamentally changed the environment in which democratic governments operate. Many existing constitutional systems were created before digital communication, multinational corporations, mass algorithmic influence, cyberwarfare, artificial intelligence, and globally interconnected economies.</p>
+      <p>The Utopia Project argues that without institutional modernization, democratic societies may continue experiencing increasing instability, distrust, corruption, and civic fragmentation. Constitution v2.0 seeks to restore trust by building systems designed around <strong>transparency, accountability, competency, and human dignity</strong>.</p>
+    </section>
+
+    <section class="doc-section" id="core-mission">
+      <span class="num">03</span>
+      <h2>Core Mission</h2>
+      <p>The Utopia Project aims to:</p>
+      <ul>
+        <li>Create a modern constitutional framework ("Constitution v2.0")</li>
+        <li>Strengthen democratic legitimacy and public trust</li>
+        <li>Reduce corruption and institutional capture</li>
+        <li>Modernize elections and civic participation</li>
+        <li>Protect individual freedoms while balancing societal responsibilities</li>
+        <li>Promote ethical governance and transparent institutions</li>
+        <li>Integrate technology responsibly into democratic systems</li>
+        <li>Build resilient systems capable of adapting to future technological change</li>
+        <li>Protect human rights and civil liberties</li>
+        <li>Promote long-term human flourishing, scientific advancement, and societal stability</li>
+      </ul>
+      <p>The project is intentionally future-oriented and designed to evolve alongside scientific and technological progress.</p>
+    </section>
+
+    <section class="doc-section" id="foundational-principles">
+      <span class="num">04</span>
+      <h2>Foundational Principles</h2>
+
+      <h3>1. Veritas Super Omnia &mdash; The Truth Above All Else</h3>
+      <p>Truthfulness is treated as the highest civic virtue and foundational requirement of governance. The system assumes democracy cannot survive if citizens are routinely deceived, institutions normalize dishonesty, or information ecosystems collapse into propaganda and manipulation.</p>
+      <p>The project distinguishes between verifiable factual claims, individual opinions, philosophical beliefs, and democratic disagreement &mdash; protecting freedom of thought and expression while encouraging evidence-based public discourse.</p>
+
+      <h3>2. Rights Balanced by Responsibilities</h3>
+      <p>The Constitution emphasizes that freedoms must coexist with civic duties and social accountability: freedom of speech balanced with accountability for deliberate deception, economic freedom balanced with ethical corporate obligations, democratic participation balanced with civic literacy.</p>
+
+      <h3>3. Universal Accountability</h3>
+      <p>No person, corporation, institution, or branch of government is considered above the law. The project seeks to reduce corruption, immunity cultures, institutional abuse, political tribalism, and systems that shield powerful individuals or organizations from accountability.</p>
+
+      <h3>4. Ethical &amp; Scientific Governance</h3>
+      <p>The project promotes evidence-based governance, scientific literacy, technological responsibility, and long-term thinking. Public policy should be informed by verifiable evidence, transparent data, scientific reasoning, ethical analysis, and measurable societal outcomes.</p>
+    </section>
+
+    <section class="doc-section" id="human-rights">
+      <span class="num">05</span>
+      <h2>Human Rights &amp; Liberty Protections</h2>
+      <p>The Utopia Project explicitly recognizes universal human rights as foundational and non-negotiable. The framework adopts the <strong>Universal Declaration of Human Rights</strong> as a foundational moral charter for Constitution v2.0.</p>
+      <p>The project supports freedom of expression, due process, equality under law, privacy protections, freedom of belief, democratic participation, and protection from unlawful government abuse.</p>
+      <p>Constitutional rights must remain superior to technological systems, government agencies, corporations, and political movements. All digital infrastructure proposed under Constitution v2.0 is intended to be transparent, auditable, constitutionally constrained, and subject to independent oversight.</p>
+      <p>The project recognizes that concentrated power &mdash; whether governmental, corporate, technological, or ideological &mdash; represents a long-term threat to liberty and democratic stability.</p>
+    </section>
+
+    <div class="doc-image">
+      <img src="images/constitution-under-construction.jpg" alt="A leather-bound book titled Constitution v2.0 with an amber Under Construction sign on the cover" loading="lazy" />
+    </div>
+
+    <section class="doc-section" id="constitution-overview">
+      <span class="num">06</span>
+      <h2>Constitution v2.0 &mdash; Overview</h2>
+      <p>Constitution v2.0 is the flagship constitutional framework developed under The Utopia Project &mdash; a comprehensive constitutional redesign intended for a hypothetical future nation known as the <strong>"United Federation of America."</strong></p>
+      <p>The document combines constitutional democracy, digital governance, civic accountability, anti-corruption systems, human rights protections, ethical capitalism grounded in strong public-interest safeguards, evidence-based governance, and technologically modern public infrastructure.</p>
+      <p>The Constitution is structured into multiple Articles covering rights and liberties, government structure, elections, economics, judicial systems, media integrity, emergency governance, corporate responsibility, and civic participation &mdash; emphasizing balanced federalism and local self-governance.</p>
+      <p>The framework is intentionally designed with structured amendment and modernization mechanisms, allowing democratic adaptation without sacrificing foundational rights and constitutional stability.</p>
+
+      <h3>The Five Branch Government</h3>
+      <p>Unlike the traditional three-branch model, Constitution v2.0 proposes a Five Branch Government: the traditional Executive, Legislative, and Judicial branches, plus two additions &mdash; the <strong>Education Branch (the Sapientium)</strong> and the <strong>Oversight Branch (the Veritium)</strong> &mdash; intended to strengthen institutional accountability, civic competency, and democratic resilience.</p>
+
+      <h3>The Education Branch &mdash; The Sapientium</h3>
+      <p>Serves as the constitutional guardian of civic literacy, scientific competency, educational standards, and institutional knowledge &mdash; not ideological control, but civic competency, critical thinking, and constitutional understanding, while preserving intellectual freedom and academic inquiry.</p>
+
+      <h3>The Oversight Branch &mdash; The Veritium</h3>
+      <p>Exists solely to investigate corruption, abuse of power, constitutional violations, and institutional misconduct across all other branches &mdash; itself remaining subject to constitutional limitations, public transparency, and independent review, to prevent institutional abuse or political weaponization.</p>
+
+      <h3>Candidate Qualification Standards</h3>
+      <p>Constitution v2.0 proposes that candidates for high public office meet baseline competency and ethical standards &mdash; constitutional literacy, public-service experience, transparent background reviews &mdash; all constitutionally constrained and publicly transparent, to protect democratic participation and prevent political abuse.</p>
+    </section>
+
+    <div class="doc-image light">
+      <img src="images/citizen-portal.png" alt="Citizen Portal concept mockup" loading="lazy" />
+    </div>
+
+    <section class="doc-section" id="digital-democracy">
+      <span class="num">07</span>
+      <h2>Digital Democracy</h2>
+      <p>The project proposes a secure digital civic infrastructure &mdash; biometric identity verification, encrypted online voting, universal digital IDs (UNIDs), citizen portals, and modernized public-service infrastructure &mdash; designed to modernize democratic participation without sacrificing the protections built into the rest of the framework.</p>
+      <p>Voting would utilize rank-choice voting, independent candidates, and publicly transparent election systems. The project argues many modern party systems increasingly incentivize tribalism, polarization, institutional capture, and ideological extremism.</p>
+      <p>Systems like these raise an obvious and legitimate concern: biometric IDs and centralized digital infrastructure are exactly the tools authoritarian governments have historically used for surveillance and control. Constitution v2.0 does not treat that risk as hypothetical. Every proposed system is bound by the same limits the framework places on power generally &mdash; publicly auditable by the Veritium, constitutionally restricted in scope, independently monitored, and always subordinate to civil-liberty protections rather than a workaround for them.</p>
+    </section>
+
+    <section class="doc-section" id="anti-corruption">
+      <span class="num">08</span>
+      <h2>Anti-Corruption Systems</h2>
+      <p>Constitution v2.0 proposes aggressive anti-corruption mechanisms intended to reduce institutional abuse and restore public trust. A dedicated Oversight Branch would exist solely to investigate and combat corruption &mdash; bribery, abuse of power, election manipulation, institutional misconduct, corporate influence, and constitutional violations.</p>
+      <p>The project also proposes transparency mandates, public audit systems, restrictions on corporate political influence, and stronger accountability standards for public officials.</p>
+      <blockquote>The project rejects the idea that "corporations are people."</blockquote>
+      <p>Corporations are viewed as legal entities created to serve public and economic functions &mdash; not sovereign political actors entitled to dominate democratic systems. The framework supports market economies balanced by strong anti-corruption safeguards, worker protections, and long-term societal stability.</p>
+    </section>
+
+    <section class="doc-section" id="tech-governance">
+      <span class="num">09</span>
+      <h2>Technology &amp; Scientific Governance</h2>
+      <p>The Utopia Project embraces science and technology while recognizing the dangers posed by uncontrolled technological power. Artificial intelligence, biotechnology, mass data systems, and surveillance capabilities are advancing faster than most governments' capacity to responsibly manage them &mdash; and Constitution v2.0 treats that gap itself as a governance problem, not just a technical one.</p>
+      <p>That's part of why the Sapientium exists as its own branch rather than a policy office: scientific and technological literacy inside government is treated as a standing institutional responsibility, not a one-time briefing. Technology here is a tool meant to strengthen what people can do &mdash; not a substitute for the judgment, consent, and accountability that legitimate government still requires.</p>
+    </section>
+
+    <section class="doc-section" id="civic-culture">
+      <span class="num">10</span>
+      <h2>Civic Culture &amp; Social Responsibility</h2>
+      <p>Strong democratic systems ultimately depend not only on institutions, but on the culture surrounding them. Constitutions can define the rules of government; they can't manufacture the habits &mdash; critical thinking, personal responsibility, empathy, and the willingness to engage with people who disagree &mdash; that make a free society actually livable day to day.</p>
+      <p>Constitution v2.0 treats civic education as infrastructure for exactly that reason: a republic that stops teaching its citizens how to participate in it doesn't stay a republic for long.</p>
+    </section>
+
+    <section class="doc-section" id="long-term-vision">
+      <span class="num">11</span>
+      <h2>Long-Term Vision</h2>
+      <p>The broader vision of The Utopia Project extends beyond a single document. Constitution v2.0 is a starting proposal, not a finished answer &mdash; the harder, longer work is the discussion it's meant to provoke about how a democratic civilization stays free, stable, and humane while the technological ground keeps shifting under it.</p>
+      <p>That includes questions this framework doesn't claim to have fully solved: environmental stewardship, the pace of automation, what accountability looks like fifty years from now. The framework's amendment mechanisms exist specifically because no single generation should get the final word.</p>
+    </section>
+
+    <section class="doc-section" id="what-this-is-not">
+      <span class="num">12</span>
+      <h2>What This Is Not</h2>
+      <p>The Utopia Project is not:</p>
+      <ul>
+        <li>a call for dictatorship</li>
+        <li>a rejection of democracy</li>
+        <li>an authoritarian movement</li>
+        <li>a corporate-controlled technocracy</li>
+        <li>an anti-human-rights ideology</li>
+        <li>a violent political movement</li>
+        <li>a system of rule by unelected technocratic elites</li>
+        <li>or a claim that perfect societies can exist</li>
+      </ul>
+      <p>The project does not advocate eliminating liberty in the name of efficiency, technology, or centralized power. Instead, it seeks to explore how democratic systems might evolve to remain functional, accountable, and resilient in an increasingly complex technological world.</p>
+    </section>
+
+    <section class="doc-section" id="current-status">
+      <span class="num">13</span>
+      <h2>Current Status</h2>
+      <p>The project is currently in active conceptual and drafting stages, including constitutional article development, companion guides, website infrastructure, nonprofit organization development, educational materials, and governance-model refinement.</p>
+      <p>The long-term goals are to:</p>
+      <ul>
+        <li>Develop a coherent constitutional framework</li>
+        <li>Encourage public discussion and civic engagement</li>
+        <li>Explore democratic modernization in the technological age</li>
+        <li>Promote institutional accountability and ethical governance</li>
+        <li>Build a movement centered on democratic resilience, truth, and human dignity</li>
+      </ul>
+    </section>
+
+    <div class="closing">
+      <p style="max-width:48ch; margin:0 auto; color:var(--parchment-dim); line-height:1.8;">
+        The Utopia Project is ultimately an invitation to imagine how democratic civilization might evolve to meet
+        the challenges of the modern age without abandoning liberty, truth, human dignity, or constitutional
+        governance &mdash; rooted in the belief that humanity is capable of building institutions that are more
+        transparent, more accountable, more resilient, and more humane than those inherited from the past.
+      </p>
+      <p class="kicker">The Future Is Ours To Rewrite.</p>
+      <a class="cta" href="mailto:info@utopiaproject.us?subject=Notify%20me%20at%20launch">
+        Get notified as Constitution v2.0 develops
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="doc-image" style="max-width:520px; margin-left:auto; margin-right:auto;">
+        <img src="images/the-future-is-ours-to-rewrite.jpg" alt="A DeLorean time machine between two lampposts marked 1787 and 2026, with the words The Future Is Ours To Rewrite" loading="lazy" />
+      </div>
+    </div>
+
+  </article>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span class="footer-copy">&copy; 2026 Utopia Project US</span>
+      <span class="footer-motto">Veritas Super Omnia</span>
+      <span class="footer-updated" id="last-updated">Last updated: &mdash;</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var el = document.getElementById('last-updated');
+      if (!el) return;
+      var d = new Date(document.lastModified);
+      var formatted = d.toLocaleString('en-US', {
+        timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric',
+        hour: 'numeric', minute: '2-digit', hour12: true
+      });
+      el.textContent = 'Last updated: ' + formatted + ' UTC';
+    })();
+  </script>
+
+</body>
+</html>
