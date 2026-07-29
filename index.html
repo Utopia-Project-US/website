@@ -109,6 +109,40 @@
   .nav-links { display: none; }
   @media (min-width: 720px) { .nav-links { display: flex; } }
 
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+
+  .menu-toggle {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; flex-shrink: 0;
+    background: transparent; border: 1px solid var(--panel-line); border-radius: 6px;
+    color: var(--parchment); cursor: pointer; padding: 0;
+  }
+  .menu-toggle svg { width: 17px; height: 17px; }
+  @media (min-width: 720px) { .menu-toggle { display: none; } }
+
+  .mobile-menu {
+    max-height: 0; overflow: hidden;
+    background: rgba(10,13,18,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--panel-line);
+    transition: max-height 0.25s ease;
+  }
+  .mobile-menu.open { max-height: 320px; }
+  .mobile-menu nav { display: flex; flex-direction: column; padding: 0.5rem 2rem 1.25rem; }
+  .mobile-menu nav a {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--parchment); text-decoration: none;
+    padding: 0.85rem 0; border-bottom: 1px solid var(--panel-line);
+  }
+  .mobile-menu nav a:last-child { border-bottom: none; }
+  .mobile-menu nav a:hover, .mobile-menu nav a:focus-visible { color: var(--gold); }
+  @media (min-width: 720px) { .mobile-menu { display: none !important; } }
+
+  @media (max-width: 480px) {
+    .crumb-parent, .breadcrumb .crumb-sep { display: none; }
+  }
+
   /* ---------- hero ---------- */
   .hero {
     padding: 4.5rem 2rem 3rem;
@@ -312,19 +346,45 @@
         <a href="index.html">The Utopia Project US</a>
       </nav>
     </div>
-    <div class="nav-links">
-      <nav>
-        <a href="mission.html">Mission</a>
-        <span class="nav-dash">&mdash;</span>
-        <a href="#constitution">Constitution v2.0</a>
-        <span class="nav-pipe">|</span>
-        <a href="careers.html">Careers</a>
-        <span class="nav-dash">&mdash;</span>
-        <a href="#contact">Contact</a>
-      </nav>
+    <div class="header-right">
+      <div class="nav-links">
+        <nav>
+          <a href="mission.html">Mission</a>
+          <span class="nav-dash">&mdash;</span>
+          <a href="#constitution">Constitution v2.0</a>
+          <span class="nav-pipe">|</span>
+          <a href="careers.html">Careers</a>
+          <span class="nav-dash">&mdash;</span>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="status-pill">v0.2 - Prelaunch</div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
-    <div class="status-pill">v0.2 - Prelaunch</div>
   </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <nav>
+      <a href="mission.html">Mission</a>
+      <a href="#constitution">Constitution v2.0</a>
+      <a href="careers.html">Careers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('menu-toggle');
+      var menu = document.getElementById('mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    })();
+  </script>
 
   <!-- ================= HERO ================= -->
   <div class="hero wrap">
