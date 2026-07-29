@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cultural Influences — The Utopia Project US</title>
+<meta name="description" content="Music, movies, and television that echo The Utopia Project's ideals of truth, accountability, and human dignity — curated and annotated." />
+
+<meta property="og:title" content="Cultural Influences — The Utopia Project US" />
+<meta property="og:description" content="Moments in film, television, and music that reflect what The Utopia Project stands for." />
+<meta property="og:image" content="/images/utopia-project-logo.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="/images/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --void: #0a0d12;
+    --panel: #12161d;
+    --panel-2: #171c24;
+    --panel-line: #242a33;
+    --parchment: #e8e2d0;
+    --parchment-dim: #9a9585;
+    --gold: #e3a93f;
+    --gold-dim: #b8863a;
+    --amber: #c97a2b;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--void);
+    color: var(--parchment);
+    font-family: 'Public Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+  .article-wrap { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 0.7rem; color: var(--gold);
+  }
+
+  /* ---------- header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    display: grid; grid-template-columns: auto 1fr auto;
+    align-items: center; column-gap: 1rem;
+    padding: 1rem 2rem;
+    background: rgba(10,13,18,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .brand-group { display: flex; align-items: center; gap: 0.7rem; }
+  .brand-logo img { height: 34px; width: 34px; border-radius: 6px; display: block; }
+  .breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: 0.95rem;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .breadcrumb a { color: var(--parchment); text-decoration: none; transition: color 0.15s ease; }
+  .breadcrumb a:hover, .breadcrumb a:focus-visible { color: var(--gold); }
+  .breadcrumb .crumb-sep { color: var(--parchment-dim); font-size: 0.8rem; }
+
+  nav { display: flex; align-items: center; gap: 1.75rem; }
+  nav a {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; color: var(--parchment-dim);
+    transition: color 0.15s ease;
+  }
+  nav a:hover, nav a:focus-visible { color: var(--gold); }
+  .nav-pipe { color: var(--gold-dim); font-size: 0.7rem; margin: 0 0.4rem; }
+  .status-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 999px;
+    padding: 0.3rem 0.7rem;
+    white-space: nowrap;
+  }
+  .nav-links { display: none; justify-content: center; }
+  @media (min-width: 720px) { .nav-links { display: flex; } }
+
+  .header-right { display: flex; align-items: center; gap: 1rem; justify-self: end; }
+
+  .music-toggle {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; flex-shrink: 0;
+    background: transparent; border: 1px solid var(--panel-line); border-radius: 6px;
+    color: var(--parchment-dim); cursor: pointer; padding: 0;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .music-toggle svg { width: 16px; height: 16px; }
+  .music-toggle.playing { color: var(--gold); border-color: var(--gold-dim); }
+  .music-toggle .icon-off { display: block; }
+  .music-toggle .icon-on { display: none; }
+  .music-toggle.playing .icon-off { display: none; }
+  .music-toggle.playing .icon-on { display: block; }
+
+  .menu-toggle {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; flex-shrink: 0;
+    background: transparent; border: 1px solid var(--panel-line); border-radius: 6px;
+    color: var(--parchment); cursor: pointer; padding: 0;
+  }
+  .menu-toggle svg { width: 17px; height: 17px; }
+  @media (min-width: 720px) { .menu-toggle { display: none; } }
+
+  .mobile-menu {
+    max-height: 0; overflow: hidden;
+    background: rgba(10,13,18,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--panel-line);
+    transition: max-height 0.25s ease;
+  }
+  .mobile-menu.open { max-height: 320px; }
+  .mobile-menu nav { display: flex; flex-direction: column; padding: 0.5rem 2rem 1.25rem; }
+  .mobile-menu nav a {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--parchment); text-decoration: none;
+    padding: 0.85rem 0; border-bottom: 1px solid var(--panel-line);
+  }
+  .mobile-menu nav a:last-child { border-bottom: none; }
+  .mobile-menu nav a:hover, .mobile-menu nav a:focus-visible { color: var(--gold); }
+  @media (min-width: 720px) { .mobile-menu { display: none !important; } }
+
+  @media (max-width: 480px) {
+    .crumb-parent, .breadcrumb .crumb-sep { display: none; }
+  }
+
+  /* ---------- doc hero ---------- */
+  .doc-hero {
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--panel-line);
+  }
+  .doc-hero .latin {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+    color: var(--gold); font-size: 1.05rem; margin: 0 auto 0.6rem;
+  }
+  .doc-hero h1 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+    margin: 0 0 1rem; color: var(--parchment);
+  }
+  .doc-hero p {
+    max-width: 60ch; margin: 0 auto 1rem; color: var(--parchment-dim);
+    font-size: 1.02rem; line-height: 1.75;
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--parchment-dim); text-decoration: none;
+    margin-top: 1.5rem;
+  }
+  .back-link:hover, .back-link:focus-visible { color: var(--gold); }
+  .back-link svg { width: 13px; height: 13px; }
+
+  /* ---------- controls ---------- */
+  .controls {
+    position: sticky; top: 66px; z-index: 5;
+    background: rgba(10,13,18,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--panel-line);
+    padding: 1.25rem 0;
+  }
+  .controls-inner {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem;
+  }
+  .control-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .control-group label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--parchment-dim);
+  }
+  .control-group select {
+    font-family: 'Public Sans', sans-serif; font-size: 0.85rem;
+    color: var(--parchment); background: var(--panel);
+    border: 1px solid var(--panel-line); border-radius: 6px;
+    padding: 0.5rem 0.75rem; min-width: 160px;
+    cursor: pointer;
+  }
+  .control-group select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .result-count {
+    margin-left: auto;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+    color: var(--parchment-dim); letter-spacing: 0.04em;
+  }
+
+  /* ---------- clip list ---------- */
+  .clip-list { padding: 3rem 0 5rem; display: flex; flex-direction: column; gap: 2.5rem; }
+
+  .clip-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+    border-radius: 10px;
+    padding: 2rem;
+  }
+  .clip-head {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    justify-content: space-between; align-items: flex-start;
+    margin-bottom: 1.25rem;
+  }
+  .clip-meta { flex: 1; min-width: 240px; }
+  .clip-meta .eyebrow { display: block; margin-bottom: 0.5rem; }
+  .clip-meta h2 {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.25rem;
+    color: var(--parchment); margin: 0 0 0.5rem;
+  }
+  .clip-meta .clip-sub {
+    font-size: 0.88rem; color: var(--parchment-dim); line-height: 1.6;
+  }
+  .clip-meta .clip-sub strong { color: var(--parchment); font-weight: 500; }
+  .clip-thumb {
+    flex-shrink: 0; width: 220px; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  }
+  .clip-thumb img { width: 100%; display: block; transition: transform 0.2s ease; }
+  .clip-thumb:hover img { transform: scale(1.03); }
+
+  .clip-card p { color: var(--parchment-dim); line-height: 1.75; font-size: 0.95rem; margin: 0 0 1.1rem; }
+  .clip-card blockquote {
+    margin: 1.25rem 0; padding: 0.9rem 1.4rem;
+    border-left: 2px solid var(--amber);
+    font-family: 'Fraunces', serif; font-style: italic;
+    color: var(--gold); font-size: 1rem; line-height: 1.7;
+  }
+  .clip-card .field-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--parchment-dim);
+    display: block; margin-bottom: 0.5rem;
+  }
+
+  .empty-state, .loading-state, .error-state {
+    text-align: center; padding: 4rem 0; color: var(--parchment-dim);
+  }
+  .error-state { color: var(--amber); }
+
+  /* ---------- footer ---------- */
+  footer {
+    position: sticky; bottom: 0; z-index: 10;
+    padding: 1rem 2rem;
+    background: rgba(10,13,18,0.88);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--panel-line);
+  }
+  .footer-inner {
+    min-height: 34px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.04em;
+    color: var(--parchment-dim);
+  }
+  .footer-motto {
+    font-family: 'Fraunces', serif; font-style: italic;
+    color: var(--gold); font-size: 0.85rem; letter-spacing: 0.02em;
+  }
+  @media (max-width: 640px) {
+    .footer-inner { justify-content: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-group">
+      <a class="brand-logo" href="index.html">
+        <img src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+      </a>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html" class="crumb-parent">The Utopia Project US</a>
+        <span class="crumb-sep">&rarr;</span>
+        <a href="cultural-influences.html">Cultural Influences</a>
+      </nav>
+    </div>
+    <div class="nav-links">
+      <nav>
+        <a href="mission.html">Mission</a>
+        <a href="index.html#constitution">Constitution v2.0</a>
+        <a href="cultural-influences.html">Cultural Influences</a>
+        <span class="nav-pipe">|</span>
+        <a href="careers.html">Careers</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <div class="status-pill">v0.2 - Prelaunch</div>
+      <button class="music-toggle" id="music-toggle" aria-label="Play background music" aria-pressed="false">
+        <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </button>
+      <audio id="bg-audio" preload="none"></audio>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <nav>
+      <a href="mission.html">Mission</a>
+      <a href="index.html#constitution">Constitution v2.0</a>
+      <a href="cultural-influences.html">Cultural Influences</a>
+      <a href="careers.html">Careers</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+
+  <div class="doc-hero">
+    <p class="latin">Art as Catalyst</p>
+    <h1>Cultural Influences</h1>
+    <p>
+      Music, film, and television have always been forces that uplift and transform — moments that don't just
+      entertain, but provoke thought and remind us that art can be a catalyst for positive change.
+    </p>
+    <p>
+      These are the clips that reflect what The Utopia Project stands for: honesty, accountability, human dignity,
+      and the belief that a better future is worth building.
+    </p>
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to home
+    </a>
+  </div>
+
+  <div class="controls">
+    <div class="wrap controls-inner">
+      <div class="control-group">
+        <label for="filter-type">Media Type</label>
+        <select id="filter-type">
+          <option value="All">All</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="sort-by">Sort By</label>
+        <select id="sort-by">
+          <option value="clip_number">Clip Number</option>
+          <option value="artist">Artist</option>
+          <option value="date_released">Date Released</option>
+          <option value="media_title">Media Title</option>
+          <option value="media_type">Media Type</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="sort-order">Order</label>
+        <select id="sort-order">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+      <div class="result-count" id="result-count"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div id="clip-list" class="clip-list">
+      <div class="loading-state">Loading clips&hellip;</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span class="footer-copy">&copy; 2026 Utopia Project US</span>
+      <span class="footer-motto">Veritas Super Omnia</span>
+      <span class="footer-updated" id="last-updated">Last updated: &mdash;</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('menu-toggle');
+      var menu = document.getElementById('mobile-menu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var TRACK_KEY = 'utopia-bg-track';
+      var PLAYING_KEY = 'utopia-bg-playing';
+      var tracks = ['audio/abracadabra.mp3', 'audio/vote.mp3'];
+
+      var chosen = sessionStorage.getItem(TRACK_KEY);
+      if (!chosen) {
+        chosen = tracks[Math.floor(Math.random() * tracks.length)];
+        sessionStorage.setItem(TRACK_KEY, chosen);
+      }
+
+      var audio = document.getElementById('bg-audio');
+      var btn2 = document.getElementById('music-toggle');
+      if (!audio || !btn2) return;
+
+      audio.src = chosen;
+      audio.loop = true;
+      audio.volume = 0.35;
+
+      function setPlayingUI(isPlaying) {
+        btn2.classList.toggle('playing', isPlaying);
+        btn2.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+        btn2.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+      }
+
+      function tryPlay() {
+        var p = audio.play();
+        if (p && p.then) {
+          p.then(function () {
+            setPlayingUI(true);
+            sessionStorage.setItem(PLAYING_KEY, '1');
+          }).catch(function () {
+            setPlayingUI(false);
+          });
+        }
+      }
+
+      if (sessionStorage.getItem(PLAYING_KEY) === '1') {
+        tryPlay();
+      }
+
+      btn2.addEventListener('click', function () {
+        if (audio.paused) {
+          tryPlay();
+        } else {
+          audio.pause();
+          setPlayingUI(false);
+          sessionStorage.setItem(PLAYING_KEY, '0');
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var el = document.getElementById('last-updated');
+      if (!el) return;
+      var d = new Date(document.lastModified);
+      var formatted = d.toLocaleString('en-US', {
+        timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric',
+        hour: 'numeric', minute: '2-digit', hour12: true
+      });
+      el.textContent = 'Last updated: ' + formatted + ' UTC';
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var clips = [];
+      var listEl = document.getElementById('clip-list');
+      var typeSelect = document.getElementById('filter-type');
+      var sortSelect = document.getElementById('sort-by');
+      var orderSelect = document.getElementById('sort-order');
+      var countEl = document.getElementById('result-count');
+
+      function escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        var div = document.createElement('div');
+        div.textContent = String(str);
+        return div.innerHTML;
+      }
+
+      function youtubeThumb(url) {
+        try {
+          var u = new URL(url);
+          var id = u.searchParams.get('v');
+          if (!id) {
+            var parts = u.pathname.split('/');
+            id = parts[parts.length - 1];
+          }
+          return 'https://img.youtube.com/vi/' + id + '/0.jpg';
+        } catch (e) {
+          return '';
+        }
+      }
+
+      function formatDate(dateStr) {
+        if (!dateStr) return '';
+        var d = new Date(dateStr + 'T00:00:00');
+        if (isNaN(d.getTime())) return dateStr;
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      function render() {
+        var type = typeSelect.value;
+        var sortBy = sortSelect.value;
+        var order = orderSelect.value;
+
+        var filtered = clips.filter(function (c) {
+          return type === 'All' || c.media_type === type;
+        });
+
+        filtered.sort(function (a, b) {
+          var av = a[sortBy] || '';
+          var bv = b[sortBy] || '';
+          if (sortBy === 'clip_number') { av = Number(av); bv = Number(bv); }
+          if (av < bv) return order === 'asc' ? -1 : 1;
+          if (av > bv) return order === 'asc' ? 1 : -1;
+          return 0;
+        });
+
+        countEl.textContent = filtered.length + (filtered.length === 1 ? ' clip' : ' clips');
+
+        if (filtered.length === 0) {
+          listEl.innerHTML = '<div class="empty-state">No clips match this filter.</div>';
+          return;
+        }
+
+        listEl.innerHTML = filtered.map(function (c) {
+          var thumb = youtubeThumb(c.youtube_link);
+          return (
+            '<article class="clip-card">' +
+              '<div class="clip-head">' +
+                '<div class="clip-meta">' +
+                  '<span class="eyebrow">Clip #' + escapeHtml(c.clip_number) + ' &mdash; ' + escapeHtml(c.media_type) + '</span>' +
+                  '<h2>' + escapeHtml(c.clip_title) + '</h2>' +
+                  '<div class="clip-sub">' +
+                    '<strong>' + escapeHtml(c.artist) + '</strong> &middot; ' + escapeHtml(c.media_title) +
+                    (c.episode_title ? ' &mdash; ' + escapeHtml(c.episode_title) : '') +
+                    '<br>' + formatDate(c.date_released) +
+                  '</div>' +
+                '</div>' +
+                (thumb ? '<a class="clip-thumb" href="' + escapeHtml(c.youtube_link) + '" target="_blank" rel="noopener noreferrer"><img src="' + thumb + '" alt="' + escapeHtml(c.media_title) + '" loading="lazy" /></a>' : '') +
+              '</div>' +
+              '<span class="field-label">Summary</span>' +
+              '<p>' + escapeHtml(c.summary) + '</p>' +
+              (c.key_quote ? '<blockquote>' + escapeHtml(c.key_quote) + '</blockquote>' : '') +
+              '<span class="field-label">Why It Matters</span>' +
+              '<p>' + escapeHtml(c.why_it_matters) + '</p>' +
+            '</article>'
+          );
+        }).join('');
+      }
+
+      fetch('data/cultural-influences.json')
+        .then(function (res) {
+          if (!res.ok) throw new Error('Failed to load clip data');
+          return res.json();
+        })
+        .then(function (data) {
+          clips = data;
+
+          var types = Array.from(new Set(clips.map(function (c) { return c.media_type; }))).sort();
+          types.forEach(function (t) {
+            var opt = document.createElement('option');
+            opt.value = t;
+            opt.textContent = t;
+            typeSelect.appendChild(opt);
+          });
+
+          render();
+
+          typeSelect.addEventListener('change', render);
+          sortSelect.addEventListener('change', render);
+          orderSelect.addEventListener('change', render);
+        })
+        .catch(function (err) {
+          listEl.innerHTML = '<div class="error-state">Could not load clip data. (' + escapeHtml(err.message) + ')</div>';
+        });
+    })();
+  </script>
+
+</body>
+</html>
