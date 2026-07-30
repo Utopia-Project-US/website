@@ -17,7 +17,7 @@ This list is intentionally shorter than the project's original 2025 concept docu
 
 ---
 
-## 2. Current Structure (as of v0.5)
+## 2. Current Structure (as of v0.3)
 
 ```
 website/
@@ -93,7 +93,7 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 **Why:** Early pages had drifted out of sync as each was built somewhat independently. The original Careers content, inherited from the old site, described positions and titles that didn't match a pre-formation, all-volunteer nonprofit — corrected once the organization's real leadership structure existed on paper. Cultural Influences became the first concrete test of the "does this actually need a database" question — and the answer was no.
 **Result:** A visually and structurally consistent site across all pages; a Careers page that's honest about the organization's actual current stage; a Cultural Influences page with zero ongoing infrastructure dependency.
 
-### v0.5 — Full visual system rebuild
+### v0.3 — Full visual system rebuild
 **What changed:** Replaced the original dark theme with a cream/navy/gold "constitutional paper" palette, rebuilt across all pages. Introduced the Official Seal as a featured visual element (mission page). Reworked the Lexicon and Citizen Portal images to sit natively on the page instead of framed as light boxes inside a dark theme. Added a custom, on-brand 404 page (ported from the original site's tagline library, rebuilt without any React/Next.js dependency, with a real working minimal site search replacing a non-functional one). Version indicator bumped from v0.2 to v0.5 to reflect the scope of the combined changes.
 **Why:** The project's most "official" visual assets — the Seal and the Constitutional Lexicon — were already built in a cream/navy/gold register, deliberately evoking an actual founding document. The site's dark theme, chosen early for a landing page, had never been checked against that instinct. Once compared side by side, the parchment palette was the more authentic register for a document claiming constitutional weight — and it was a comparatively cheap rebuild at four pages, versus a costly one after fifteen Constitution Articles existed in the old palette.
 **Result:** Visual consistency across the project's key assets for the first time. Established as the site's standing design default going forward — new work starts from this palette; deviation requires a deliberate reason, not a default drift. (The dark theme was archived, not discarded, in case a light/dark toggle is ever worth building later.)
