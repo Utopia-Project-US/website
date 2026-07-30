@@ -88,21 +88,33 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 ## 5. Version History
 
 ### v0.1 — Initial static landing page
+
 **Date:** *July 25, 2026*
+
 **What changed:** Replaced the prior Next.js/Supabase/Cloudflare codebase with a from-scratch static HTML homepage and mission page. Established the site's first visual identity (dark background, amber/gold accents).
+
 **Why:** The prior project needed a full restart — the organization relocated its legal home from NC to PA, and the existing codebase was unfinished and entangled with infrastructure (a Supabase project, an old Vercel deployment) that no longer matched the org's actual setup. A clean restart was judged easier than untangling the old one.
+
 **Result:** Site live on Vercel, under a properly organized GitHub organization (`Utopia-Project-US`), with four private repos (`bylaws`, `constitution2`, `phone`, `website`) replacing a scattered personal-account setup.
 
 ### v0.2 — Structural correctness, Careers, Cultural Influences
+
 **Date:** *late July 27, 2026*
+
 **What changed:** Fixed a CSS specificity bug that had been silently breaking hero-text centering on two pages. Rebuilt the Careers page from an old, mismatched draft (a 24-role corporate C-suite listing) into an accurate reflection of the org's real governance structure — President, VP, Secretary, Treasurer, and seven Directors, mapped directly from the Eleven Pillars leadership chart. Added the Cultural Influences page, deliberately built against a static JSON data file instead of reviving the old Supabase connection. Standardized header, footer, and navigation across all pages (sticky footer, consistent nav grouping, mobile hamburger menu). Added a background music feature with session-based random track selection.
+
 **Why:** Early pages had drifted out of sync as each was built somewhat independently. The original Careers content, inherited from the old site, described positions and titles that didn't match a pre-formation, all-volunteer nonprofit — corrected once the organization's real leadership structure existed on paper. Cultural Influences became the first concrete test of the "does this actually need a database" question — and the answer was no.
+
 **Result:** A visually and structurally consistent site across all pages; a Careers page that's honest about the organization's actual current stage; a Cultural Influences page with zero ongoing infrastructure dependency.
 
 ### v0.3 — Full visual system rebuild
+
 **Date:** *July 30, 2026*
+
 **What changed:** Replaced the original dark theme with a cream/navy/gold "constitutional paper" palette, rebuilt across all pages. Introduced the Official Seal as a featured visual element (mission page). Reworked the Lexicon and Citizen Portal images to sit natively on the page instead of framed as light boxes inside a dark theme. Added a custom, on-brand 404 page (ported from the original site's tagline library, rebuilt without any React/Next.js dependency, with a real working minimal site search replacing a non-functional one). Version indicator advanced from v0.2 to v0.3.
+
 **Why:** The project's most "official" visual assets — the Seal and the Constitutional Lexicon — were already built in a cream/navy/gold register, deliberately evoking an actual founding document. The site's dark theme, chosen early for a landing page, had never been checked against that instinct. Once compared side by side, the parchment palette was the more authentic register for a document claiming constitutional weight — and it was a comparatively cheap rebuild at four pages, versus a costly one after fifteen Constitution Articles existed in the old palette.
+
 **Result:** Visual consistency across the project's key assets for the first time. Established as the site's standing design default going forward — new work starts from this palette; deviation requires a deliberate reason, not a default drift. (The dark theme's source remains recoverable in git history — worth tagging explicitly if it isn't already, so it's a named bookmark rather than something to go hunting for later.)
 
 ---
