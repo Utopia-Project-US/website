@@ -2,6 +2,10 @@
 
 `utopiaproject.us` — the public-facing site for a nonprofit civic initiative designing **Constitution v2.0**, a modern constitutional framework built around truth, accountability, and human dignity.
 
+## TL;DR
+
+This site is deliberately simple: static HTML, no framework, no database, no build step. It replaced a much heavier 2025 plan (Next.js, Supabase, Stripe, live accounts, a $1/month verification model) that was architected for a scale and feature set the organization hasn't reached yet. The governing rule since: build for a real, current requirement — never an anticipated one. Full reasoning in **§4**; the actual decision-by-decision history is in **§5**; what's coming next is in **§6–7**.
+
 ---
 
 ## 1. Website Goals
@@ -77,26 +81,29 @@ The original plan was architected for full national civic participation from day
 **What we kept, or would keep:**
 Not everything in the original plan was over-scoped. **Plausible/PostHog-style privacy-friendly analytics** remains a genuinely reasonable, low-cost, low-complexity choice whenever analytics are actually added — it just hasn't been needed yet. And **Cloudflare** remains in active use today, just in a narrower role: as the DNS and domain registrar, not as the hosting/compute layer.
 
-**The general rule this produced:** match infrastructure to a real, current requirement — not to an anticipated one, and not to whichever tool sounds most sophisticated. Every major technical decision since has been measured against this rule, including ones that added complexity when it was actually earned (see v0.5 below).
+**The general rule this produced:** match infrastructure to a real, current requirement — not to an anticipated one, and not to whichever tool sounds most sophisticated. Every major technical decision since has been measured against this rule, including ones that added complexity when it was actually earned (see v0.3 below).
 
 ---
 
 ## 5. Version History
 
 ### v0.1 — Initial static landing page
+**Date:** *July 25, 2026*
 **What changed:** Replaced the prior Next.js/Supabase/Cloudflare codebase with a from-scratch static HTML homepage and mission page. Established the site's first visual identity (dark background, amber/gold accents).
 **Why:** The prior project needed a full restart — the organization relocated its legal home from NC to PA, and the existing codebase was unfinished and entangled with infrastructure (a Supabase project, an old Vercel deployment) that no longer matched the org's actual setup. A clean restart was judged easier than untangling the old one.
 **Result:** Site live on Vercel, under a properly organized GitHub organization (`Utopia-Project-US`), with four private repos (`bylaws`, `constitution2`, `phone`, `website`) replacing a scattered personal-account setup.
 
 ### v0.2 — Structural correctness, Careers, Cultural Influences
+**Date:** *late July 27, 2026*
 **What changed:** Fixed a CSS specificity bug that had been silently breaking hero-text centering on two pages. Rebuilt the Careers page from an old, mismatched draft (a 24-role corporate C-suite listing) into an accurate reflection of the org's real governance structure — President, VP, Secretary, Treasurer, and seven Directors, mapped directly from the Eleven Pillars leadership chart. Added the Cultural Influences page, deliberately built against a static JSON data file instead of reviving the old Supabase connection. Standardized header, footer, and navigation across all pages (sticky footer, consistent nav grouping, mobile hamburger menu). Added a background music feature with session-based random track selection.
 **Why:** Early pages had drifted out of sync as each was built somewhat independently. The original Careers content, inherited from the old site, described positions and titles that didn't match a pre-formation, all-volunteer nonprofit — corrected once the organization's real leadership structure existed on paper. Cultural Influences became the first concrete test of the "does this actually need a database" question — and the answer was no.
 **Result:** A visually and structurally consistent site across all pages; a Careers page that's honest about the organization's actual current stage; a Cultural Influences page with zero ongoing infrastructure dependency.
 
 ### v0.3 — Full visual system rebuild
-**What changed:** Replaced the original dark theme with a cream/navy/gold "constitutional paper" palette, rebuilt across all pages. Introduced the Official Seal as a featured visual element (mission page). Reworked the Lexicon and Citizen Portal images to sit natively on the page instead of framed as light boxes inside a dark theme. Added a custom, on-brand 404 page (ported from the original site's tagline library, rebuilt without any React/Next.js dependency, with a real working minimal site search replacing a non-functional one). Version indicator bumped from v0.2 to v0.5 to reflect the scope of the combined changes.
+**Date:** *July 30, 2026*
+**What changed:** Replaced the original dark theme with a cream/navy/gold "constitutional paper" palette, rebuilt across all pages. Introduced the Official Seal as a featured visual element (mission page). Reworked the Lexicon and Citizen Portal images to sit natively on the page instead of framed as light boxes inside a dark theme. Added a custom, on-brand 404 page (ported from the original site's tagline library, rebuilt without any React/Next.js dependency, with a real working minimal site search replacing a non-functional one). Version indicator advanced from v0.2 to v0.3.
 **Why:** The project's most "official" visual assets — the Seal and the Constitutional Lexicon — were already built in a cream/navy/gold register, deliberately evoking an actual founding document. The site's dark theme, chosen early for a landing page, had never been checked against that instinct. Once compared side by side, the parchment palette was the more authentic register for a document claiming constitutional weight — and it was a comparatively cheap rebuild at four pages, versus a costly one after fifteen Constitution Articles existed in the old palette.
-**Result:** Visual consistency across the project's key assets for the first time. Established as the site's standing design default going forward — new work starts from this palette; deviation requires a deliberate reason, not a default drift. (The dark theme was archived, not discarded, in case a light/dark toggle is ever worth building later.)
+**Result:** Visual consistency across the project's key assets for the first time. Established as the site's standing design default going forward — new work starts from this palette; deviation requires a deliberate reason, not a default drift. (The dark theme's source remains recoverable in git history — worth tagging explicitly if it isn't already, so it's a named bookmark rather than something to go hunting for later.)
 
 ---
 
@@ -109,18 +116,20 @@ The defining event of v1.0: **publishing all 15 Articles of Constitution v2.0, o
 - **Permanent URL structure**, decided in advance: `/constitution/article-i` through `/constitution/article-xv`, `/explainers/article-i` and so on — stable from day one, since these will eventually anchor Digital Constitutional Convention discussion threads.
 - **Blog**, with its own template and an auto-generated RSS feed, doubling as the announcement channel for each week's Article release.
 - **Migrate the four existing pages** (Home, Mission, Careers, Cultural Influences) into the same Astro structure, rather than leaving them as legacy files outside the new system.
-- **Donation infrastructure**, once the IRS determination letter exists (which unlocks nonprofit-rate pricing across every payment platform under consideration) — cards, PayPal, and Apple Pay bundled under a single donation platform. Zelle was evaluated and ruled out (no receipting, inconsistent bank support, no real cost advantage worth the gap).
+- **Donation infrastructure**, once the IRS determination letter exists (which unlocks nonprofit-rate pricing across every payment platform under consideration) — cards, PayPal, and Apple Pay bundled under **Givebutter**, selected over Zeffy and Donorbox on cost-and-features grounds (comparable $0-by-default cost to Zeffy, but with the ability to disable donor tip-prompting entirely, plus a stronger built-in feature set). Zelle was evaluated separately and ruled out (no receipting, inconsistent bank support, no real cost advantage worth the gap).
 - **Analytics**, likely Plausible or similar — the one piece of the original 2025 stack that was right-sized from the start.
+- **Add "Contributors" and "Maintained By" sections to this README** — deliberately deferred until v1.0.
 
 ## 7. Roadmap — v2.0 (Digital Constitutional Convention)
 
 Everything requiring real accounts, sessions, and live user interaction is scoped here, deliberately kept out of v1.0:
 
-- **Account system** — sign-in, citizen profiles, an achievements/reputation layer, a "Jury Dashboard" concept for structured moderation participation.
-- **The Digital Constitutional Convention** (formerly referred to as "Town Hall") — structured public deliberation on the Constitution, modeled closer to Wikipedia's ArbCom (elected trust + due process) than to a social media comment section. Built as its own separate system — most likely Discourse or similar — linked to and embedded within Article pages, not merged into the main site's codebase.
+- **Account system** — sign-in, citizen profiles, an achievements/reputation layer, a "Jury Dashboard" concept for structured moderation participation. Identity verification, if built, uses a real KYC-style vendor (Stripe Identity, Persona, ID.me) — not a low-dollar charge, which verifies a working card, not a person, and is itself a known fraud-testing technique.
+- **The Digital Constitutional Convention** (formerly referred to as "Town Hall") — structured public deliberation on the Constitution, deliberately modeled closer to Wikipedia's ArbCom than to a social media comment section: elected/trusted moderators operating through a structured process with evidence and a right of response, not raw up/down votes deciding outcomes. Design principles established so far: reading stays open to everyone (matching the project's transparency principle), only verified accounts can post; trust/reputation accrues over time rather than every privilege gating on the initial signup step alone; and a non-volunteer legal backstop (staff or board) exists behind the community process, since the organization carries legal exposure for the platform regardless of how moderation is distributed. Built as its own separate system — most likely Discourse or similar — linked to and embedded within Article pages, not merged into the main site's codebase.
+- **Dark/light theme toggle** — the original dark theme remains available in git history and could become one half of a real toggle later. Not built by default, since the parchment palette is the project's actual visual identity, not one of two equal options.
+- **Color-coded wayfinding** — tinting the breadcrumb bar to match whichever content section a visitor is in, inspired by the original site's sidebar navigation. Genuinely cheap to build and doesn't strictly require waiting for v2.0 — worth pulling forward into v1.0 if there's room, listed here only because it was never explicitly greenlit.
 - **Category-based mega-navigation** — a six-category dropdown navigation system (About, Constitution, Learn, Community, Media & Press, Get Involved), inherited conceptually from the original site design. Deferred until real content exists across *all six* categories, not just Constitution — a mega-menu built today would mostly point at empty categories.
 - **Possible revival of the animated Constitution presentation concept** — a glowing, book-opening reveal for the Constitution index page. Scoped as real craft work, not core infrastructure; a candidate for a v1.1 polish pass once the weekly publishing rhythm is established, rather than a launch-day requirement.
-- **Light/dark theme toggle** — the original dark theme is archived and could become one half of a real toggle later. Not built by default, since the parchment palette is the project's actual visual identity, not one of two equal options.
 
 ---
 
