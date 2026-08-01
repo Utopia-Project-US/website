@@ -21,7 +21,7 @@ This list is intentionally shorter than the project's original 2025 concept docu
 
 ---
 
-## 2. Current Structure (as of v0.3)
+## 2. Current Structure (as of v0.5)
 
 ```
 website/
@@ -29,6 +29,12 @@ website/
 ├── mission.html                  # Full mission statement
 ├── careers.html                  # Careers & Leadership (Eleven Pillars structure)
 ├── cultural-influences.html      # Curated media library
+├── the-drafting-room.html        # The Drafting Room publication index
+├── drafting-room/
+│   └── paper-no-1.html           # Paper No. 1 — Founder's Introduction
+├── drafting-room.css             # Shared Drafting Room publication styles
+├── drafting-room.js              # Shared Drafting Room navigation/music behavior
+├── rss.xml                       # RSS 2.0 feed for The Drafting Room
 ├── 404.html                      # Custom not-found page (auto-served by Vercel)
 ├── data/
 │   └── cultural-influences.json  # Clip data — no database, just a file
@@ -87,6 +93,26 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 
 ## 5. Version History
 
+### v0.5 — The Drafting Room and RSS
+
+**Date:** *August 1, 2026*
+
+**What changed:** Launched **The Drafting Room** as the project's public essay and announcement section. Published **Paper No. 1 — Founder's Introduction** at a permanent URL, rebuilt from the approved draft in the site's cream/navy/gold visual system, and added Todd McGuckin's purpose-designed calligraphic author mark. Added The Drafting Room to desktop and mobile navigation across the site, included it in the 404-page search, and adjusted the navigation breakpoint so the expanded menu remains usable at intermediate screen widths. Added a standards-compliant RSS 2.0 feed, RSS autodiscovery metadata, and a subscription link in the homepage Contact section. Canonical and Open Graph URLs were aligned with the site's `www.utopiaproject.us` redirect.
+
+**Why:** The project needed a durable publication channel for the reasoning behind Constitution v2.0, beginning with a personal explanation of why the work exists. RSS provides a platform-independent way for readers to follow future papers and constitutional releases without introducing accounts, a mailing-list platform, or a database.
+
+**Result:** The site now has a permanent, branded publishing surface with its first paper live, discoverable from every primary page, searchable from the 404 page, and subscribable through any RSS reader.
+
+### v0.4 — Browser and device identity
+
+**Date:** *August 1, 2026*
+
+**What changed:** Replaced the single general-purpose favicon with a complete browser and device icon set: 16×16 and 32×32 PNG favicons, a multi-size `.ico` file, and a 180×180 Apple touch icon. Updated every public page to declare the appropriate icon variants.
+
+**Why:** The original single favicon did not provide consistent rendering across browser tabs, bookmarks, pinned shortcuts, and mobile home screens.
+
+**Result:** The Utopia Project US now presents a consistent visual identity across modern browsers and Apple touch surfaces.
+
 ### v0.3 — Full visual system rebuild
 
 **Date:** *July 30, 2026*
@@ -126,8 +152,8 @@ The defining event of v1.0: **publishing all 15 Articles of Constitution v2.0, o
 - **Migrate to a static site generator (Astro).** Four hand-copied HTML files was manageable; fifteen-plus paired Article/Explainer documents plus an ongoing blog is not, without a shared template. Astro ships zero JavaScript by default, keeping the current site's performance profile while solving the duplication problem.
 - **Constitution index page** — a single table of contents showing all 15 Articles, published and upcoming, each cross-linked to its Explainer.
 - **Permanent URL structure**, decided in advance: `/constitution/article-i` through `/constitution/article-xv`, `/explainers/article-i` and so on — stable from day one, since these will eventually anchor Digital Constitutional Convention discussion threads.
-- **Blog**, with its own template and an auto-generated RSS feed, doubling as the announcement channel for each week's Article release.
-- **Migrate the four existing pages** (Home, Mission, Careers, Cultural Influences) into the same Astro structure, rather than leaving them as legacy files outside the new system.
+- **Expand The Drafting Room publishing workflow** so future papers and weekly Article announcements are generated from structured content rather than hand-maintained HTML; preserve the existing permanent URLs and RSS feed.
+- **Migrate the existing pages** (Home, Mission, Careers, Cultural Influences, The Drafting Room, and published papers) into the same Astro structure, rather than leaving them as separate static files.
 - **Donation infrastructure**, once the IRS determination letter exists (which unlocks nonprofit-rate pricing across every payment platform under consideration) — cards, PayPal, and Apple Pay bundled under **Givebutter**, selected over Zeffy and Donorbox on cost-and-features grounds (comparable $0-by-default cost to Zeffy, but with the ability to disable donor tip-prompting entirely, plus a stronger built-in feature set). Zelle was evaluated separately and ruled out (no receipting, inconsistent bank support, no real cost advantage worth the gap).
 - **Analytics**, likely Plausible or similar — the one piece of the original 2025 stack that was right-sized from the start.
 - **Add "Contributors" and "Maintained By" sections to this README** — deliberately deferred until v1.0.
@@ -154,7 +180,17 @@ Everything requiring real accounts, sessions, and live user interaction is scope
 
 ## 9. Editing Conventions
 
-- Every page currently carries its own copy of the shared header/footer/CSS — a known, temporary state of affairs pending the Astro migration. Until then, cross-page changes (nav links, palette, version pill) must be applied to every file individually.
+- The original core pages currently carry their own copies of the shared header/footer/CSS. The Drafting Room pages share `drafting-room.css` and `drafting-room.js`. This remains a temporary arrangement pending the Astro migration; cross-page changes to the core site must still be applied to each file individually.
 - Design tokens (colors, fonts) are CSS custom properties at the top of each page's `<style>` block.
 - Images are pre-resized and compressed for web before committing; originals are not kept in this repo.
 - The version pill in the header is updated by hand with each meaningful release — see §5 for the convention (`vX.X - STATUS`, casing typed directly rather than via CSS transform).
+
+## 10. Historical Versions and Recovery
+
+Historical website releases are preserved in Git rather than duplicated inside the live `archive/` directory. This keeps the deployed site smaller and avoids maintaining two competing copies of the same files.
+
+- **v0.2 and later:** Each committed state can be reconstructed exactly from this repository's history by checking out or exporting the appropriate commit.
+- **v0.1:** The current repository begins with the v0.2-era site. The original v0.1 implementation is described in this README but cannot be reconstructed exactly from this repository alone; an older repository, backup, or deployment snapshot would be required.
+- **Going forward:** Create an annotated Git tag for each named release (`v0.5`, `v0.6`, and so on). Tags make milestone recovery straightforward without copying full site snapshots into `archive/`.
+
+The `archive/` directory should be reserved for historical source material that is not already represented in Git, not for routine release snapshots.
