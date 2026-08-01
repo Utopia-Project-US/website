@@ -349,7 +349,7 @@
   /* ---------- CTA ---------- */
   .apply-cta {
     text-align: center;
-    padding: 1rem 0 5rem;
+    padding: 1rem 0 2rem;
   }
   .apply-cta h2 {
     font-family: 'Fraunces', serif; font-weight: 600;
@@ -394,6 +394,7 @@
   }
 </style>
 <link rel="stylesheet" href="assets/styles/brand-lockup.css" />
+<link rel="stylesheet" href="assets/styles/site-shell.css" />
 </head>
 <body>
 
@@ -412,20 +413,15 @@
       <nav>
         <a href="pages/about/mission.html">Mission</a>
         <a href="index.html#constitution">Constitution v2.0</a>
-        <a href="pages/learn/drafting-room/index.html">The Drafting Room</a>
-        <a href="pages/learn/cultural-influences.html">Cultural Influences</a>
+        <a href="pages/community/drafting-room/index.html">The Drafting Room</a>
+        <a href="pages/newsroom/cultural-influences.html">Cultural Influences</a>
         <span class="nav-pipe">|</span>
         <a href="pages/get-involved/careers.html">Careers</a>
         <a href="index.html#contact">Contact</a>
       </nav>
     </div>
     <div class="header-right">
-      <div class="status-pill">v0.5 - PRELAUNCH</div>
-      <button class="music-toggle" id="music-toggle" aria-label="Play background music" aria-pressed="false">
-        <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
-        <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-      </button>
-      <audio id="bg-audio" preload="none"></audio>
+      <div class="status-pill">v0.5 BETA</div>
       <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
@@ -436,8 +432,8 @@
     <nav>
       <a href="pages/about/mission.html">Mission</a>
       <a href="index.html#constitution">Constitution v2.0</a>
-      <a href="pages/learn/drafting-room/index.html">The Drafting Room</a>
-      <a href="pages/learn/cultural-influences.html">Cultural Influences</a>
+      <a href="pages/community/drafting-room/index.html">The Drafting Room</a>
+      <a href="pages/newsroom/cultural-influences.html">Cultural Influences</a>
       <a href="pages/get-involved/careers.html">Careers</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -457,13 +453,6 @@
   </div>
 
   <div class="article-wrap">
-    <div class="note-panel">
-      <strong>Where we are right now:</strong> The Utopia Project US is pre-launch and has not yet completed
-      501(c)(3) formation. Every role below is currently <strong>volunteer</strong>, founding-team territory &mdash;
-      not a paid position with a start date. If that changes as the organization formalizes, this page will say so
-      plainly, the same way the rest of the site marks its own status.
-    </div>
-
     <div class="structure-intro">
       <span class="eyebrow">How We're Organized</span>
       <h2>Eleven Pillars, Each With a Leader and a Department</h2>
@@ -710,11 +699,27 @@
     </a>
   </div>
 
+  <div class="article-wrap">
+    <div class="note-panel">
+      <strong>Where we are right now:</strong> The Utopia Project US is pre-launch and has not yet completed
+      501(c)(3) formation. Every role above is currently <strong>volunteer</strong>, founding-team territory &mdash;
+      not a paid position with a start date. If that changes as the organization formalizes, this page will say so
+      plainly, the same way the rest of the site marks its own status.
+    </div>
+  </div>
+
   <footer>
-    <div class="wrap footer-inner">
+    <div class="wrap footer-inner has-music">
       <span class="footer-copy">&copy; 2026 Utopia Project US</span>
       <span class="footer-motto">Veritas Super Omnia</span>
-      <span class="footer-updated" id="last-updated">Last updated: &mdash;</span>
+      <span class="footer-updated" id="last-updated">Updated: &mdash;</span>
+      <div class="footer-music">
+        <audio id="bg-audio" preload="none"></audio>
+        <button class="music-toggle" id="music-toggle" aria-label="Play background music" aria-pressed="false">
+                <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+                <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              </button>
+      </div>
     </div>
   </footer>
 
@@ -789,13 +794,13 @@
       var el = document.getElementById('last-updated');
       if (!el) return;
       var d = new Date(document.lastModified);
-      var formatted = d.toLocaleString('en-US', {
-        timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric',
-        hour: 'numeric', minute: '2-digit', hour12: true
+      var formatted = d.toLocaleDateString('en-US', {
+        year: 'numeric', month: 'long', day: 'numeric'
       });
-      el.textContent = 'Last updated: ' + formatted + ' UTC';
+      el.textContent = 'Updated: ' + formatted;
     })();
   </script>
 
+  <script src="assets/scripts/site-shell.js"></script>
 </body>
 </html>

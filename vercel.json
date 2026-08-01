@@ -11,15 +11,15 @@
     },
     {
       "source": "/cultural-influences.html",
-      "destination": "/pages/learn/cultural-influences.html"
+      "destination": "/pages/newsroom/cultural-influences.html"
     },
     {
       "source": "/the-drafting-room.html",
-      "destination": "/pages/learn/drafting-room/index.html"
+      "destination": "/pages/community/drafting-room/index.html"
     },
     {
       "source": "/drafting-room/paper-no-1.html",
-      "destination": "/pages/learn/drafting-room/papers/paper-no-1.html"
+      "destination": "/pages/community/drafting-room/papers/paper-no-1.html"
     },
     {
       "source": "/images/:path*",

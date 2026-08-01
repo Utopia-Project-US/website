@@ -58,9 +58,8 @@
   var updated = document.getElementById('last-updated');
   if (updated) {
     var modified = new Date(document.lastModified);
-    updated.textContent = 'Last updated: ' + modified.toLocaleString('en-US', {
-      timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric',
-      hour: 'numeric', minute: '2-digit', hour12: true
-    }) + ' UTC';
+    updated.textContent = 'Updated: ' + modified.toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
   }
 })();

@@ -92,6 +92,41 @@ templates/
 - The main navigation remains limited to completed public destinations. Scaffold pages are not linked there merely because files exist.
 - Reusable working templates live under `templates/`, which is excluded from search indexing along with `archive/` and `site-work/`.
 
+### Current six-category synchronization (August 1, 2026)
+
+The approved public category order is now:
+
+1. **About**
+2. **Constitution v2.0**
+3. **Learn**
+4. **Community**
+5. **Newsroom**
+6. **Get Involved**
+
+The corresponding current page organization is:
+
+```text
+pages/
+├── about/
+├── constitution/
+├── learn/
+├── community/
+│   ├── index.html
+│   └── drafting-room/
+├── newsroom/
+│   ├── index.html
+│   ├── cultural-influences.html
+│   ├── board-minutes/
+│   ├── press-releases/
+│   ├── news-coverage.html
+│   └── media.html
+├── get-involved/
+├── policies/                     # Footer and legal support content
+└── utility/                      # Search and site-map support content
+```
+
+`policies/` and `utility/` remain support sections rather than seventh and eighth main categories. The Drafting Room now belongs to Community as the project blog, while Cultural Influences belongs to Newsroom. Stable public addresses are preserved through Vercel rewrites even though the physical files have moved.
+
 The earlier incremental structure notes remain below as part of the README's retained history.
 
 The repository separates public content pages from shared assets and operational files. The filesystem is organized by subject area rather than by navigation order: navigation can change as the site evolves, while stable content categories remain understandable and scalable.
@@ -118,8 +153,11 @@ website/
 │   ├── images/
 │   │   └── eleven-pillars-of-leadership.png # Full-resolution Careers model
 │   ├── scripts/
+│   │   ├── drafting-room.js                  # Drafting Room page behavior
+│   │   └── site-shell.js                     # Shared panels, drawer, footer, and navigation model
 │   └── styles/
-│       └── brand-lockup.css                 # Permanent stacked header wordmark
+│       ├── brand-lockup.css                  # Permanent stacked header wordmark
+│       └── site-shell.css                    # Shared responsive site shell and controls
 ├── archive/                                # Locked historical release copies
 ├── site-work/                              # Git-backed work in progress
 ├── rss.xml                                 # The Drafting Room RSS feed
@@ -221,6 +259,8 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 
 **Version status:** These changes refine the approved v0.5 release and do **not** advance the website version pill. Future version changes remain subject to explicit approval by the project owner.
 
+**Subsequent status-label refinement:** The numbered release remains v0.5, while the public status label changes from `PRELAUNCH` to `BETA`. The displayed pill is therefore `v0.5 BETA`, without a dash.
+
 **What changed:**
 
 - Reorganized customer-facing pages into scalable subject folders under `pages/`, moved shared resources under `assets/`, preserved established public addresses through `vercel.json`, and added the approved information-architecture scaffold. Unfinished scaffold pages remain outside the main navigation and carry `noindex` directives.
@@ -231,11 +271,30 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 - Added `assets/data/cultural-influences.js` as a local-file-compatible mirror of the static JSON collection so Cultural Influences works both when opened directly and when deployed through Vercel.
 - Added the full-resolution **Eleven Pillars of Leadership** graphic to Careers and clearly identified it as the proposed organization being built. Desktop and iPad visitors see the complete tappable graphic; phone visitors retain the existing role-card presentation and receive a full-resolution download link. The detailed HTML role content remains available to assistive technology at larger widths.
 - Standardized the public header around a permanent four-line **THE / UTOPIA / PROJECT / US** wordmark at every viewport width. A shared `assets/styles/brand-lockup.css` file keeps the icon and stacked text at matching visual heights, scales them together on narrow phones, and prevents the older page breadcrumb from accidentally acting as a wrapped brand name.
+- Reclaimed mobile header space by reducing the stacked wordmark to the navigation-category type scale and shrinking the logo to the same visual height. Moved the background-music control from the header to the right side of the sticky footer on all six music-enabled pages, leaving the hamburger right-aligned. Centered the shorter `v0.5 BETA` pill in the mobile header.
+- Superseded the interim right-side hamburger and footer-music arrangement with the approved responsive site shell. The header and footer now run edge to edge around a three-column desktop body: Site Navigation on the left, page content in the center, and Digital Constitutional Convention controls with Site Audio beneath them on the right.
+- Made the crest the mobile navigation control, with a visible hamburger badge that changes to an X while open. The navigation drawer always enters from the left so its mobile behavior mirrors the desktop Site Navigation panel. The adjacent four-line wordmark remains a separate Home link.
+- Added a single shared navigation model in `assets/scripts/site-shell.js`. Completed public destinations are links; unfinished destinations are inert text with a **Coming Soon** label, preventing the site shell from introducing dead links. The DCC preview is also visibly marked **Coming Soon**, and its future controls are disabled rather than presented as usable links.
+- Restored the approved footer hierarchy on every public page: copyright left, motto centered, and update date right, with all three stacked and centered on mobile. The label is now **Updated**, and the time and time zone have been removed. Music-enabled pages move their existing control into the right utility panel on desktop and into the mobile drawer beneath the DCC preview.
+- Reworked Site Navigation into clearly separated pastel category panels inspired by the original website: About Us (rose), Constitution v2.0 (yellow), Learn (green), Newsroom (orange), and Get Involved (violet). The active category receives a stronger border while all unfinished destinations remain inert and visibly marked **Coming Soon**.
+- Added one universal breadcrumb bar above the content area on every public page. Its color automatically matches the active navigation category, while Home, policy, utility, and error pages use the neutral gray treatment. Older page-local breadcrumbs remain in the source as a no-script fallback but are hidden after the shared shell initializes, avoiding duplicate breadcrumbs for normal visitors.
+- **Superseding navigation refinement:** Replaced the interim five-category interpretation with the exact six-box visual model from the original design: About Us (rose), Constitution v2.0 (yellow), Learn (green), Community (blue), Media & Press (orange), and Get Involved (violet). Removed the separate Home control from Site Navigation. Future destinations remain non-links, but their visible **Coming Soon** pills were removed so every label fits cleanly within its category box; assistive labels and title text continue to identify those destinations as forthcoming.
+- Established one shared `292px` desktop side-column width for both Site Navigation and Convention Controls. The full-width header and footer use the same left/center/right column geometry at desktop sizes, keeping the crest, content area, DCC controls, copyright, motto, and update date aligned symmetrically. Below the desktop threshold, both side panels collapse together into the existing left-side navigation drawer.
+- Explicitly locked the shared Site Navigation container to one full-width vertical column. This overrides broad flexbox rules retained by several original pages and guarantees that all six pastel category boxes stack vertically in both the desktop left panel and the mobile drawer, matching the right-panel card arrangement.
+- Unified the left and right panel design language. Each pastel Navigation category now uses the same border, corner radius, interior padding, vertical spacing, and Fraunces heading treatment as the Digital Constitutional Convention and Site Audio cards. Added the **Navigation** utility heading above the first left-side card to balance the existing **Convention Controls** heading on the right.
+- Synchronized the six main categories to the approved concise nomenclature and order: **About**, **Constitution v2.0**, **Learn**, **Community**, **Newsroom**, and **Get Involved**. Added the Community page folder, moved The Drafting Room from Learn to Community, moved Cultural Influences from Learn to Newsroom, updated all physical local-file links, and retained the established public Drafting Room and Cultural Influences addresses through updated Vercel rewrites.
 - Separated documentation responsibilities: the project-root README now explains the entire Utopia Project workspace, while this file remains the authoritative website architecture, maintenance, and release record.
+- Moved the universal color-coded breadcrumb bar into the persistent full-width header. On desktop, the header now follows the same symmetrical three-column geometry as the body and footer: logo and wordmark left, breadcrumb centered, and the `v0.5 BETA` pill right. On smaller screens, the crest and version pill share the first row while the breadcrumb spans a second full-width row. Standardized the shared footer copyright to `© 2026 Utopia Project US. All Rights Reserved.` while retaining the centered motto and right-aligned update date; these changes remain part of v0.5 maintenance pending the owner-approved v0.6 release.
+- Promoted the six hidden category scaffolds into public overview pages for **About**, **Constitution v2.0**, **Learn**, **Community**, **Newsroom**, and **Get Involved**. Each overview now explains every subcategory and why it matters; available destinations are linked while unfinished destinations remain descriptions rather than dead links. Category headings in Site Navigation and category levels in breadcrumbs now link to these overviews. Renamed Community’s former **Blog** label to **The Drafting Room**, standardized breadcrumb typography against legacy page styles, and expanded Paper No. 1 to the full hierarchy `Home / Community / The Drafting Room / Paper No. 1`.
+- Strengthened the visual hierarchy inside every Navigation card while retaining left alignment for fast scanning. Major category headings remain dark and prominent, a subtle category-colored divider now separates each heading from its destinations, live links use the primary text color and stronger weight, and unfinished destinations use a muted gray with no interactive hover or pointer treatment. The inactive gray was selected to retain readable contrast across all six pastel backgrounds.
+- Prevented the desktop footer’s copyright and update fields from wrapping inside their sidebar-aligned grid cells, allowing each field to use the otherwise open center space while preserving the symmetrical left/center/right anchors. Narrow screens now stack the three footer fields before their combined text can collide. Restored both date and time to the update field, explicitly formatted in the `America/New_York` time zone and labeled **Philly time** so daylight-saving changes are handled correctly without displaying an inaccurate fixed `EST` label.
+- Moved the Careers page’s **Where we are right now** disclosure from directly beneath the introductory hero to the bottom of the page, after the leadership model, role details, and founding-role invitation. Its wording and visual treatment remain intact, with “roles below” adjusted to “roles above” to match its new position.
 
 **Why:** The site needed a filesystem that could scale to constitutional Articles, Explainers, educational material, policies, and Newsroom content without crowding the root directory. At the same time, the project owner reviews pages by opening them locally, so the physical organization and address system must work without relying on Vercel. The Careers model also needed to communicate the depth of the proposed organization without implying that its future departments are already staffed.
 
 **Result:** v0.5 now has a scalable content architecture, stable deployed aliases, dependable direct-local viewing, validated section navigation, an explicit Article/Explainer publishing model, a clearer homepage starting point, and a responsive Careers presentation that is ambitious, transparent, and accessible.
+
+**Subsequent shell result:** The unified responsive shell keeps navigation consistently on the left across desktop and mobile, reserves the right panel for DCC and audio utilities, and restores the approved three-part footer without changing the v0.5 release number.
 
 ### v0.5 — The Drafting Room and RSS
 
@@ -312,6 +371,7 @@ Everything requiring real accounts, sessions, and live user interaction is scope
 - **Color-coded wayfinding** — tinting the breadcrumb bar to match whichever content section a visitor is in, inspired by the original site's sidebar navigation. Genuinely cheap to build and doesn't strictly require waiting for v2.0 — worth pulling forward into v1.0 if there's room, listed here only because it was never explicitly greenlit.
 - **Category-based mega-navigation** — a six-category dropdown navigation system (About, Constitution, Learn, Community, Media & Press, Get Involved), inherited conceptually from the original site design. Deferred until real content exists across *all six* categories, not just Constitution — a mega-menu built today would mostly point at empty categories.
 - **Approved information-architecture clarification (August 1, 2026):** Newsroom replaces the earlier "Media & Press" label. Community participation remains a v2.0 Convention concern and is not scaffolded in the prelaunch informational site.
+- **Superseding category clarification (August 1, 2026):** Community is now scaffolded as a public information category for the Blog, future official social channels, events, partners, and the forthcoming Town Hall. This does not open pre-Convention constitutional proposals or public deliberation; those functions remain deferred to the Digital Constitutional Convention.
 - **Possible revival of the animated Constitution presentation concept** — a glowing, book-opening reveal for the Constitution index page. Scoped as real craft work, not core infrastructure; a candidate for a v1.1 polish pass once the weekly publishing rhythm is established, rather than a launch-day requirement.
 
 ---
@@ -338,6 +398,7 @@ Everything requiring real accounts, sessions, and live user interaction is scope
 - Archive only meaningful numbered releases, using the agreed page-folder and `pagename-vX.Y-YYYYMMDD.ext` naming convention. Archived files are read-only.
 - Design tokens (colors, fonts) are CSS custom properties at the top of each page's `<style>` block.
 - The permanent stacked header wordmark is centralized in `assets/styles/brand-lockup.css`. Adjust its icon and typography together so their visual heights remain aligned, and keep the stylesheet linked after page-specific styles so the shared lockup remains consistent.
+- Music-enabled pages place `#music-toggle` and `#bg-audio` inside a final `.footer-music` element within `.footer-inner.has-music`; the header retains only the centered status pill and right-aligned mobile menu control.
 - Images are pre-resized and compressed for web before committing; originals are not kept in this repo.
 - The version pill in the header is updated by hand with each meaningful release — see §5 for the convention (`vX.X - STATUS`, casing typed directly rather than via CSS transform).
 
