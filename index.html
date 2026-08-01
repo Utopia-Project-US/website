@@ -16,6 +16,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 <link rel="icon" href="/images/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="/rss.xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,7 +111,7 @@
     white-space: nowrap;
   }
   .nav-links { display: none; justify-content: center; }
-  @media (min-width: 720px) { .nav-links { display: flex; } }
+  @media (min-width: 1080px) { .nav-links { display: flex; } }
 
   .header-right { display: flex; align-items: center; gap: 1rem; justify-self: end; }
 
@@ -135,7 +136,7 @@
     color: var(--parchment); cursor: pointer; padding: 0;
   }
   .menu-toggle svg { width: 17px; height: 17px; }
-  @media (min-width: 720px) { .menu-toggle { display: none; } }
+  @media (min-width: 1080px) { .menu-toggle { display: none; } }
 
   .mobile-menu {
     max-height: 0; overflow: hidden;
@@ -154,7 +155,7 @@
   }
   .mobile-menu nav a:last-child { border-bottom: none; }
   .mobile-menu nav a:hover, .mobile-menu nav a:focus-visible { color: var(--gold); }
-  @media (min-width: 720px) { .mobile-menu { display: none !important; } }
+  @media (min-width: 1080px) { .mobile-menu { display: none !important; } }
 
   @media (max-width: 480px) {
     .crumb-parent, .breadcrumb .crumb-sep { display: none; }
@@ -368,6 +369,7 @@
       <nav>
         <a href="mission.html">Mission</a>
         <a href="#constitution">Constitution v2.0</a>
+        <a href="the-drafting-room.html">The Drafting Room</a>
         <a href="cultural-influences.html">Cultural Influences</a>
         <span class="nav-pipe">|</span>
         <a href="careers.html">Careers</a>
@@ -391,6 +393,7 @@
     <nav>
       <a href="mission.html">Mission</a>
       <a href="#constitution">Constitution v2.0</a>
+      <a href="the-drafting-room.html">The Drafting Room</a>
       <a href="cultural-influences.html">Cultural Influences</a>
       <a href="careers.html">Careers</a>
       <a href="#contact">Contact</a>
@@ -650,6 +653,10 @@
         <a href="mailto:info@utopiaproject.us">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
           info@utopiaproject.us
+        </a>
+        <a href="rss.xml" type="application/rss+xml">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="19" r="1" fill="currentColor" stroke="none"/><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/></svg>
+          Subscribe to The Drafting Room via RSS
         </a>
         <div class="line">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
