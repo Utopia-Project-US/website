@@ -59,6 +59,16 @@ body.site-shell-ready > header {
   position: sticky;
   top: 0;
   z-index: 100;
+  color: var(--shell-ink) !important;
+  background: var(--shell-paper) !important;
+  border-bottom: 1px solid var(--shell-line) !important;
+}
+
+body.site-shell-ready > header .status-pill,
+body.site-shell-ready > header .version-pill {
+  color: #8a2f3d !important;
+  background: transparent !important;
+  border-color: #8a2f3d !important;
 }
 
 .site-shell-middle {
@@ -405,7 +415,12 @@ body.site-shell-ready > header {
 
 /* Full-width footer with left, centered, and right-aligned information. */
 footer,
-.site-footer { width: 100%; }
+.site-footer {
+  width: 100%;
+  color: var(--shell-muted) !important;
+  background: var(--shell-paper) !important;
+  border-top: 1px solid var(--shell-line) !important;
+}
 
 footer .footer-inner,
 .site-footer .footer-inner {
@@ -423,11 +438,16 @@ footer .footer-inner,
 
 .footer-inner > .footer-copy {
   justify-self: start;
+  color: var(--shell-muted) !important;
   white-space: nowrap;
 }
-.footer-inner > .footer-motto { justify-self: center; }
+.footer-inner > .footer-motto {
+  justify-self: center;
+  color: var(--shell-gold) !important;
+}
 .footer-inner > .footer-updated {
   justify-self: end;
+  color: var(--shell-muted) !important;
   white-space: nowrap;
 }
 .footer-inner > .footer-music { display: none; }
