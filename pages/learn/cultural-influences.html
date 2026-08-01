@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <base href="../../" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Cultural Influences — The Utopia Project US</title>
@@ -8,15 +9,15 @@
 
 <meta property="og:title" content="Cultural Influences — The Utopia Project US" />
 <meta property="og:description" content="Moments in film, television, and music that reflect what The Utopia Project stands for." />
-<meta property="og:image" content="/images/utopia-project-logo.png" />
+<meta property="og:image" content="assets/images/utopia-project-logo.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-<link rel="icon" href="/images/favicon.ico" />
-<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="/rss.xml" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+<link rel="icon" href="assets/images/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="rss.xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -285,22 +286,22 @@
   <header>
     <div class="brand-group">
       <a class="brand-logo" href="index.html">
-        <img src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+        <img src="assets/images/utopia-project-logo.png" alt="The Utopia Project US crest" />
       </a>
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html" class="crumb-parent">The Utopia Project US</a>
         <span class="crumb-sep">&rarr;</span>
-        <a href="cultural-influences.html">Cultural Influences</a>
+        <a href="pages/learn/cultural-influences.html">Cultural Influences</a>
       </nav>
     </div>
     <div class="nav-links">
       <nav>
-        <a href="mission.html">Mission</a>
+        <a href="pages/about/mission.html">Mission</a>
         <a href="index.html#constitution">Constitution v2.0</a>
-        <a href="the-drafting-room.html">The Drafting Room</a>
-        <a href="cultural-influences.html">Cultural Influences</a>
+        <a href="pages/learn/drafting-room/index.html">The Drafting Room</a>
+        <a href="pages/learn/cultural-influences.html">Cultural Influences</a>
         <span class="nav-pipe">|</span>
-        <a href="careers.html">Careers</a>
+        <a href="pages/get-involved/careers.html">Careers</a>
         <a href="index.html#contact">Contact</a>
       </nav>
     </div>
@@ -319,11 +320,11 @@
 
   <div class="mobile-menu" id="mobile-menu">
     <nav>
-      <a href="mission.html">Mission</a>
+      <a href="pages/about/mission.html">Mission</a>
       <a href="index.html#constitution">Constitution v2.0</a>
-      <a href="the-drafting-room.html">The Drafting Room</a>
-      <a href="cultural-influences.html">Cultural Influences</a>
-      <a href="careers.html">Careers</a>
+      <a href="pages/learn/drafting-room/index.html">The Drafting Room</a>
+      <a href="pages/learn/cultural-influences.html">Cultural Influences</a>
+      <a href="pages/get-involved/careers.html">Careers</a>
       <a href="index.html#contact">Contact</a>
     </nav>
   </div>
@@ -388,6 +389,7 @@
     </div>
   </footer>
 
+  <script src="assets/data/cultural-influences.js"></script>
   <script>
     (function () {
       var btn = document.getElementById('menu-toggle');
@@ -404,7 +406,7 @@
     (function () {
       var TRACK_KEY = 'utopia-bg-track';
       var PLAYING_KEY = 'utopia-bg-playing';
-      var tracks = ['audio/abracadabra.mp3', 'audio/vote.mp3'];
+      var tracks = ['assets/audio/abracadabra.mp3', 'assets/audio/vote.mp3'];
 
       var chosen = sessionStorage.getItem(TRACK_KEY);
       if (!chosen) {
@@ -555,11 +557,7 @@
         }).join('');
       }
 
-      fetch('data/cultural-influences.json')
-        .then(function (res) {
-          if (!res.ok) throw new Error('Failed to load clip data');
-          return res.json();
-        })
+      Promise.resolve(window.UTOPIA_CULTURAL_INFLUENCES || [])
         .then(function (data) {
           clips = data;
 

@@ -21,6 +21,131 @@ This list is intentionally shorter than the project's original 2025 concept docu
 
 ---
 
+## 2. Current Structure (scalable static layout)
+
+### Approved information-architecture scaffold (August 1, 2026)
+
+The approved scaffold expands the subject hierarchy without adding unfinished destinations to the main navigation. Every unfinished HTML scaffold carries a `noindex` directive until its public content is reviewed.
+
+```
+pages/
+├── about/
+│   ├── index.html
+│   ├── our-story.html
+│   ├── mission.html
+│   ├── leadership.html
+│   ├── contributors-and-advisors.html
+│   ├── governance.html
+│   ├── transparency.html
+│   └── project-roadmap.html
+├── constitution/
+│   ├── index.html
+│   ├── declaration.html
+│   ├── preamble.html
+│   ├── comparison.html
+│   ├── version-history.html
+│   ├── articles/
+│   │   └── index.html
+│   └── explainers/
+│       └── index.html
+├── learn/
+│   ├── index.html
+│   ├── drafting-room/
+│   ├── cultural-influences.html
+│   ├── constitutional-glossary.html
+│   ├── plain-language-guides/
+│   ├── case-studies/
+│   ├── teaching-resources/
+│   └── faq.html
+├── newsroom/
+│   ├── index.html
+│   ├── board-minutes/
+│   ├── press-releases/
+│   ├── news-coverage.html
+│   └── media.html
+├── get-involved/
+│   ├── index.html
+│   ├── careers.html
+│   ├── partnerships.html
+│   ├── donate.html
+│   └── contact.html
+├── policies/
+│   ├── privacy.html
+│   ├── terms.html
+│   ├── accessibility.html
+│   ├── copyright-and-reuse.html
+│   └── corrections.html
+└── utility/
+    ├── search.html
+    └── site-map.html
+
+templates/
+├── constitution-article.html
+└── constitution-explainer.html
+```
+
+**Approved scope boundaries:**
+
+- Article Explainers contain what the Article means, why its direction was chosen, and the supporting sources; there are no separate Design Principles or Sources pages.
+- Drafting Process, Adoption and Transition, and downloadable constitutional editions remain deferred to v2.0 and are not scaffolded.
+- Pre-Convention public-comment, proposal, and deliberation pages are not scaffolded. Structured participation waits for the Digital Constitutional Convention; social channels may provide informal discussion after official accounts exist.
+- The main navigation remains limited to completed public destinations. Scaffold pages are not linked there merely because files exist.
+- Reusable working templates live under `templates/`, which is excluded from search indexing along with `archive/` and `site-work/`.
+
+The earlier incremental structure notes remain below as part of the README's retained history.
+
+The repository separates public content pages from shared assets and operational files. The filesystem is organized by subject area rather than by navigation order: navigation can change as the site evolves, while stable content categories remain understandable and scalable.
+
+```
+website/
+├── index.html                              # Homepage; root location required
+├── 404.html                                # Custom not-found page; root location required by Vercel
+├── pages/                                  # Customer-facing content pages
+│   ├── about/
+│   │   ├── mission.html
+│   │   └── careers.html
+│   ├── research/
+│   │   └── cultural-influences.html
+│   └── drafting-room/
+│       ├── index.html
+│       └── papers/
+│           └── paper-no-1.html
+├── assets/                                 # Shared resources, never page content
+│   ├── audio/
+│   ├── data/
+│   │   ├── cultural-influences.json        # Editorial source data
+│   │   └── cultural-influences.js          # Local-file-compatible browser data mirror
+│   ├── images/
+│   │   └── eleven-pillars-of-leadership.png # Full-resolution Careers model
+│   ├── scripts/
+│   └── styles/
+├── archive/                                # Locked historical release copies
+├── site-work/                              # Git-backed work in progress
+├── rss.xml                                 # The Drafting Room RSS feed
+├── robots.txt                              # Search-engine exclusions
+├── vercel.json                             # Stable public-route mapping and headers
+└── README.md                               # This file
+```
+
+Future constitutional material follows the same hierarchy:
+
+```
+pages/constitution/
+├── index.html
+├── articles/
+│   ├── article-01.html
+│   ├── article-02.html
+│   └── ...
+└── explainers/
+    ├── article-01.html
+    ├── article-02.html
+    └── ...
+```
+
+Public URLs are intentionally independent of physical storage. Vercel rewrites keep established addresses such as `/mission.html` and `/drafting-room/paper-no-1.html` working even though their source files are grouped under `pages/`. This prevents broken bookmarks, RSS entries, and search results while allowing the repository to scale.
+
+The original v0.3 structure section is retained below for historical reference.
+
 ## 2. Current Structure (as of v0.3)
 
 ```
@@ -55,6 +180,8 @@ Every page shares the same hand-maintained header, footer, navigation, and desig
 
 No build step. No package manager. No server. Editing a page means editing an HTML file and pushing.
 
+**Local-file compatibility note:** Cultural Influences remains a static-data feature with no database. The JSON file is the editorial source record; the equivalent JavaScript data file allows the same material to load when the website is opened directly from disk, where browsers commonly block `fetch()` requests for local JSON. The two files must remain synchronized whenever the collection changes.
+
 ---
 
 ## 4. Why We Simplified
@@ -86,6 +213,47 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 ---
 
 ## 5. Version History
+
+### v0.5 Maintenance — Scalable structure, local compatibility, and Careers model
+
+**Date:** *August 1, 2026*
+
+**Version status:** These changes refine the approved v0.5 release and do **not** advance the website version pill. Future version changes remain subject to explicit approval by the project owner.
+
+**What changed:**
+
+- Reorganized customer-facing pages into scalable subject folders under `pages/`, moved shared resources under `assets/`, preserved established public addresses through `vercel.json`, and added the approved information-architecture scaffold. Unfinished scaffold pages remain outside the main navigation and carry `noindex` directives.
+- Added the formal Constitution Article and Explainer templates, including status and version metadata, official text, plain-language explanation, embedded sources, comparison material, paired links, and revision histories. Templates remain excluded from search indexing.
+- Added the six-part **Start Here** homepage section and then moved it into the former **What We're Building** position, replacing that older section rather than duplicating it.
+- Repaired direct local-file use after the folder reorganization. Each HTML page now declares a depth-appropriate `<base>` address back to the website root, and internal graphics, scripts, styles, audio, and navigation use physical project-relative destinations. Vercel continues to preserve the shorter established public aliases for deployed visitors.
+- Repaired fragment navigation affected by the new base-address system. Mission table-of-contents links, homepage section links, and accessibility skip links now identify both the physical page and the destination fragment, preventing local browsers from opening the website folder instead of the intended section.
+- Added `assets/data/cultural-influences.js` as a local-file-compatible mirror of the static JSON collection so Cultural Influences works both when opened directly and when deployed through Vercel.
+- Added the full-resolution **Eleven Pillars of Leadership** graphic to Careers and clearly identified it as the proposed organization being built. Desktop and iPad visitors see the complete tappable graphic; phone visitors retain the existing role-card presentation and receive a full-resolution download link. The detailed HTML role content remains available to assistive technology at larger widths.
+- Separated documentation responsibilities: the project-root README now explains the entire Utopia Project workspace, while this file remains the authoritative website architecture, maintenance, and release record.
+
+**Why:** The site needed a filesystem that could scale to constitutional Articles, Explainers, educational material, policies, and Newsroom content without crowding the root directory. At the same time, the project owner reviews pages by opening them locally, so the physical organization and address system must work without relying on Vercel. The Careers model also needed to communicate the depth of the proposed organization without implying that its future departments are already staffed.
+
+**Result:** v0.5 now has a scalable content architecture, stable deployed aliases, dependable direct-local viewing, validated section navigation, an explicit Article/Explainer publishing model, a clearer homepage starting point, and a responsive Careers presentation that is ambitious, transparent, and accessible.
+
+### v0.5 — The Drafting Room and RSS
+
+**Date:** *August 1, 2026*
+
+**What changed:** Launched **The Drafting Room** as the project's public essay and announcement section. Published **Paper No. 1 — Founder's Introduction** at a permanent URL, rebuilt from the approved draft in the site's cream/navy/gold visual system, and added Todd McGuckin's purpose-designed calligraphic author mark. Added The Drafting Room to desktop and mobile navigation across the site, included it in the 404-page search, and adjusted the navigation breakpoint so the expanded menu remains usable at intermediate screen widths. Added a standards-compliant RSS 2.0 feed, RSS autodiscovery metadata, and a subscription link in the homepage Contact section. Canonical and Open Graph URLs were aligned with the site's `www.utopiaproject.us` redirect.
+
+**Why:** The project needed a durable publication channel for the reasoning behind Constitution v2.0, beginning with a personal explanation of why the work exists. RSS provides a platform-independent way for readers to follow future papers and constitutional releases without introducing accounts, a mailing-list platform, or a database.
+
+**Result:** The site now has a permanent, branded publishing surface with its first paper live, discoverable from every primary page, searchable from the 404 page, and subscribable through any RSS reader.
+
+### v0.4 — Browser and device identity
+
+**Date:** *August 1, 2026*
+
+**What changed:** Replaced the single general-purpose favicon with a complete browser and device icon set: 16×16 and 32×32 PNG favicons, a multi-size `.ico` file, and a 180×180 Apple touch icon. Updated every public page to declare the appropriate icon variants.
+
+**Why:** The original single favicon did not provide consistent rendering across browser tabs, bookmarks, pinned shortcuts, and mobile home screens.
+
+**Result:** The Utopia Project US now presents a consistent visual identity across modern browsers and Apple touch surfaces.
 
 ### v0.3 — Full visual system rebuild
 
@@ -141,6 +309,7 @@ Everything requiring real accounts, sessions, and live user interaction is scope
 - **Dark/light theme toggle** — the original dark theme remains available in git history and could become one half of a real toggle later. Not built by default, since the parchment palette is the project's actual visual identity, not one of two equal options.
 - **Color-coded wayfinding** — tinting the breadcrumb bar to match whichever content section a visitor is in, inspired by the original site's sidebar navigation. Genuinely cheap to build and doesn't strictly require waiting for v2.0 — worth pulling forward into v1.0 if there's room, listed here only because it was never explicitly greenlit.
 - **Category-based mega-navigation** — a six-category dropdown navigation system (About, Constitution, Learn, Community, Media & Press, Get Involved), inherited conceptually from the original site design. Deferred until real content exists across *all six* categories, not just Constitution — a mega-menu built today would mostly point at empty categories.
+- **Approved information-architecture clarification (August 1, 2026):** Newsroom replaces the earlier "Media & Press" label. Community participation remains a v2.0 Convention concern and is not scaffolded in the prelaunch informational site.
 - **Possible revival of the animated Constitution presentation concept** — a glowing, book-opening reveal for the Constitution index page. Scoped as real craft work, not core infrastructure; a candidate for a v1.1 polish pass once the weekly publishing rhythm is established, rather than a launch-day requirement.
 
 ---
@@ -155,6 +324,58 @@ Everything requiring real accounts, sessions, and live user interaction is scope
 ## 9. Editing Conventions
 
 - Every page currently carries its own copy of the shared header/footer/CSS — a known, temporary state of affairs pending the Astro migration. Until then, cross-page changes (nav links, palette, version pill) must be applied to every file individually.
+- Customer-facing content belongs under the appropriate subject folder in `pages/`; only the homepage and host-required error page remain at the website root.
+- Use root-absolute internal references such as `/assets/images/seal.png` and `/mission.html`. Do not calculate paths with chains of `../`; pages may move deeper as Articles and Explainers are added.
+- **Superseding local/server compatibility rule (August 1, 2026):** The preceding root-absolute rule is retained only as history and must no longer be followed. Every HTML file declares a depth-appropriate relative `<base>` address that resolves to the website root. Internal references then use project-relative physical paths without a leading slash, such as `assets/images/seal.png` and `pages/about/mission.html`. This works both when files are opened directly and when the site is deployed.
+- Fragment links on pages that use `<base>` must name the physical page before the fragment—for example, `pages/about/mission.html#opening-vision` rather than `#opening-vision`. Bare fragments resolve against the base directory and can open a local folder instead of the intended section.
+- When a page moves to a different folder depth, update its `<base>` value and validate all local graphics, navigation targets, and fragments before publication.
+- Preserve established public URLs through `vercel.json` rewrites when moving a source file. Filesystem organization must not silently break bookmarks, RSS entries, canonical URLs, or search results.
+- Place shared media, data, styles, and scripts under `assets/` by type. A resource belongs next to a page only when it is truly unique to that page and will never be shared.
+- When Cultural Influences changes, update both `assets/data/cultural-influences.json` and its equivalent local-compatible `assets/data/cultural-influences.js`, then validate that their data is identical.
+- Draft only the files actively being changed in `site-work/`. After a draft is approved and published, remove that published draft while leaving unrelated work in progress intact.
+- Archive only meaningful numbered releases, using the agreed page-folder and `pagename-vX.Y-YYYYMMDD.ext` naming convention. Archived files are read-only.
 - Design tokens (colors, fonts) are CSS custom properties at the top of each page's `<style>` block.
 - Images are pre-resized and compressed for web before committing; originals are not kept in this repo.
 - The version pill in the header is updated by hand with each meaningful release — see §5 for the convention (`vX.X - STATUS`, casing typed directly rather than via CSS transform).
+
+## 10. Article and Explainer Content Model
+
+Every published constitutional Article and Explainer uses a stable permanent URL and a paired identifier. Working templates live in `templates/constitution-article.html` and `templates/constitution-explainer.html`; template files are not public content and remain excluded from search indexing.
+
+### Article requirements
+
+- Article number and title
+- Permanent slug
+- Status: Draft, Under Review, Revised, or Published
+- Current version, first publication date, and latest revision date
+- Plain-language summary clearly distinguished from official text
+- Complete official Article text with stable section and clause numbering
+- Approval authority and status
+- Permanent link to the paired Explainer
+- Link to the relevant constitutional comparison
+- Dated revision history describing every material change and its authority
+- Related Drafting Room papers where useful
+
+### Explainer requirements
+
+- Paired Article number, title, and permanent link
+- Status, version, publication date, and latest revision date
+- **What the Article means:** operation, scope, powers, limits, rights, and intended effect
+- **Why this direction:** the legal, historical, institutional, and policy reasoning behind the text
+- **Sources and evidence:** citations embedded directly in the relevant Explainer
+- Material alternatives, tradeoffs, foreseeable objections, and limitations
+- What the Article preserves, changes, adds, or removes relative to the current Constitution
+- Dated revision history coordinated with any revision to the paired Article
+
+### Publication rule
+
+An Article and its Explainer are treated as a pair. Neither should be added to public navigation until both have approved content, working cross-links, complete version metadata, and a validated revision record.
+
+## 11. Documentation Boundary
+
+The two top-level README files have intentionally different responsibilities:
+
+- `/README.md` at the project root is the organization-wide orientation document. It contains the mission, workspace folder map, current priorities, sources of authority, working conventions, and public contacts.
+- `website/README.md` (this file) documents the public website: its goals, physical structure, technical choices, release history, roadmaps, editing rules, and approved content model.
+
+Project-wide information should not be duplicated here unless it directly affects website operation or publication. Website-specific technical and release material should not be copied into the project-root README; the root document should link readers here instead.

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/mission.html",
+      "destination": "/pages/about/mission.html"
+    },
+    {
+      "source": "/careers.html",
+      "destination": "/pages/get-involved/careers.html"
+    },
+    {
+      "source": "/cultural-influences.html",
+      "destination": "/pages/learn/cultural-influences.html"
+    },
+    {
+      "source": "/the-drafting-room.html",
+      "destination": "/pages/learn/drafting-room/index.html"
+    },
+    {
+      "source": "/drafting-room/paper-no-1.html",
+      "destination": "/pages/learn/drafting-room/papers/paper-no-1.html"
+    },
+    {
+      "source": "/images/:path*",
+      "destination": "/assets/images/:path*"
+    },
+    {
+      "source": "/audio/:path*",
+      "destination": "/assets/audio/:path*"
+    },
+    {
+      "source": "/data/:path*",
+      "destination": "/assets/data/:path*"
+    },
+    {
+      "source": "/drafting-room.css",
+      "destination": "/assets/styles/drafting-room.css"
+    },
+    {
+      "source": "/drafting-room.js",
+      "destination": "/assets/scripts/drafting-room.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/archive/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/site-work/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/templates/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    }
+  ]
+}

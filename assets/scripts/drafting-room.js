@@ -13,13 +13,13 @@
   if (audio && musicButton) {
     var trackKey = 'utopia-bg-track';
     var playingKey = 'utopia-bg-playing';
-    var audioRoot = document.body.getAttribute('data-audio-root') || 'audio/';
+    var audioRoot = document.body.getAttribute('data-audio-root') || 'assets/audio/';
     var tracks = ['abracadabra.mp3', 'vote.mp3'];
     var storedTrack = sessionStorage.getItem(trackKey);
     var chosen = storedTrack ? storedTrack.split('/').pop() : '';
     if (!chosen) {
       chosen = tracks[Math.floor(Math.random() * tracks.length)];
-      sessionStorage.setItem(trackKey, 'audio/' + chosen);
+      sessionStorage.setItem(trackKey, 'assets/audio/' + chosen);
     }
     audio.src = audioRoot + chosen;
     audio.loop = true;

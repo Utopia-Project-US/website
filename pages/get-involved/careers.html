@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <base href="../../" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Careers &amp; Leadership — The Utopia Project US</title>
@@ -8,15 +9,15 @@
 
 <meta property="og:title" content="Careers &amp; Leadership — The Utopia Project US" />
 <meta property="og:description" content="Eleven Pillars. Eleven Leaders. One Mission." />
-<meta property="og:image" content="/images/utopia-project-logo.png" />
+<meta property="og:image" content="assets/images/utopia-project-logo.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-<link rel="icon" href="/images/favicon.ico" />
-<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="/rss.xml" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+<link rel="icon" href="assets/images/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="rss.xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -209,6 +210,85 @@
   }
   .tier-legend span strong { color: var(--gold); display: block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
 
+  /* ---------- proposed organizational model ---------- */
+  .leadership-model {
+    display: none;
+    max-width: 1480px;
+    margin: 1.5rem auto 3rem;
+    padding: 0 2rem;
+  }
+  .model-frame {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--panel-line);
+    border-radius: 10px;
+    box-shadow: 0 18px 45px rgba(23,35,63,0.10);
+  }
+  .model-image-link {
+    display: block;
+    background: #fff;
+  }
+  .model-image-link img {
+    width: 100%;
+    height: auto;
+  }
+  .model-caption {
+    padding: 1.25rem 1.5rem 1.4rem;
+    border-top: 1px solid var(--panel-line);
+  }
+  .model-caption p {
+    max-width: 90ch;
+    margin: 0;
+    color: var(--parchment-dim);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .model-caption strong { color: var(--parchment); }
+  .model-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin-top: 0.9rem;
+  }
+  .model-actions a,
+  .mobile-model-download a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+    text-underline-offset: 0.2em;
+  }
+  .model-actions a:hover,
+  .model-actions a:focus-visible,
+  .mobile-model-download a:hover,
+  .mobile-model-download a:focus-visible { color: var(--gold-dim); }
+  .mobile-model-download {
+    margin: 1.5rem auto 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+    border-radius: 8px;
+  }
+  .mobile-model-download h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0.45rem 0 0.65rem;
+    color: var(--parchment);
+  }
+  .mobile-model-download p {
+    margin: 0 0 0.9rem;
+    color: var(--parchment-dim);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  @media (min-width: 768px) {
+    .leadership-model { display: block; }
+    .mobile-model-download { display: none; }
+  }
+
   /* ---------- role grid ---------- */
   .role-grid {
     display: grid; gap: 1.5rem;
@@ -216,6 +296,20 @@
     padding: 2rem 0 4rem;
   }
   @media (min-width: 780px) { .role-grid { grid-template-columns: 1fr 1fr; } }
+
+  @media (min-width: 768px) {
+    .role-grid {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: normal !important;
+      border: 0 !important;
+    }
+  }
 
   .role-card {
     background: var(--panel);
@@ -305,22 +399,22 @@
   <header>
     <div class="brand-group">
       <a class="brand-logo" href="index.html">
-        <img src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+        <img src="assets/images/utopia-project-logo.png" alt="The Utopia Project US crest" />
       </a>
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html" class="crumb-parent">The Utopia Project US</a>
         <span class="crumb-sep">&rarr;</span>
-        <a href="careers.html">Careers</a>
+        <a href="pages/get-involved/careers.html">Careers</a>
       </nav>
     </div>
     <div class="nav-links">
       <nav>
-        <a href="mission.html">Mission</a>
+        <a href="pages/about/mission.html">Mission</a>
         <a href="index.html#constitution">Constitution v2.0</a>
-        <a href="the-drafting-room.html">The Drafting Room</a>
-        <a href="cultural-influences.html">Cultural Influences</a>
+        <a href="pages/learn/drafting-room/index.html">The Drafting Room</a>
+        <a href="pages/learn/cultural-influences.html">Cultural Influences</a>
         <span class="nav-pipe">|</span>
-        <a href="careers.html">Careers</a>
+        <a href="pages/get-involved/careers.html">Careers</a>
         <a href="index.html#contact">Contact</a>
       </nav>
     </div>
@@ -339,11 +433,11 @@
 
   <div class="mobile-menu" id="mobile-menu">
     <nav>
-      <a href="mission.html">Mission</a>
+      <a href="pages/about/mission.html">Mission</a>
       <a href="index.html#constitution">Constitution v2.0</a>
-      <a href="the-drafting-room.html">The Drafting Room</a>
-      <a href="cultural-influences.html">Cultural Influences</a>
-      <a href="careers.html">Careers</a>
+      <a href="pages/learn/drafting-room/index.html">The Drafting Room</a>
+      <a href="pages/learn/cultural-influences.html">Cultural Influences</a>
+      <a href="pages/get-involved/careers.html">Careers</a>
       <a href="index.html#contact">Contact</a>
     </nav>
   </div>
@@ -385,10 +479,48 @@
         <span><strong>Tier 3</strong>How We Execute the Mission</span>
       </div>
     </div>
+
+    <aside class="mobile-model-download" aria-labelledby="mobile-model-title">
+      <span class="eyebrow">Full Organizational Model</span>
+      <h2 id="mobile-model-title">See how all eleven pillars fit together</h2>
+      <p>
+        The role cards below are the phone-friendly presentation of our proposed structure. The complete visual
+        model is also available as a full-resolution image.
+      </p>
+      <a href="assets/images/eleven-pillars-of-leadership.png" download>Download the full model (PNG, 1.6 MB) &darr;</a>
+    </aside>
   </div>
 
+  <section class="leadership-model" aria-labelledby="leadership-model-caption">
+    <div class="model-frame">
+      <a class="model-image-link" href="assets/images/eleven-pillars-of-leadership.png" target="_blank" rel="noopener">
+        <picture>
+          <source media="(min-width: 768px)" srcset="assets/images/eleven-pillars-of-leadership.png" />
+          <img
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+            width="1536"
+            height="1024"
+            loading="lazy"
+            alt="Proposed Eleven Pillars organizational model showing each pillar, its accountable officer or director, and the future department functions that support it. A complete text presentation follows for screen-reader users."
+          />
+        </picture>
+      </a>
+      <div class="model-caption" id="leadership-model-caption">
+        <p>
+          <strong>The organization we are building.</strong> This proposed model connects each of our Eleven Pillars
+          to an accountable director and the departments that will ultimately carry out its mission. We are sharing
+          it now so prospective directors can see both the scope of the vision and the thought behind it.
+        </p>
+        <div class="model-actions">
+          <a href="assets/images/eleven-pillars-of-leadership.png" target="_blank" rel="noopener">View full resolution &nearr;</a>
+          <a href="assets/images/eleven-pillars-of-leadership.png" download>Download PNG (1.6 MB) &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="wrap">
-    <div class="role-grid">
+    <section class="role-grid" aria-label="Detailed leadership roles and departments">
 
       <div class="role-card">
         <span class="pillar-tag">Vision &mdash; Our Direction</span>
@@ -562,7 +694,7 @@
         </ul>
       </div>
 
-    </div>
+    </section>
   </div>
 
   <div class="apply-cta">
@@ -601,7 +733,7 @@
     (function () {
       var TRACK_KEY = 'utopia-bg-track';
       var PLAYING_KEY = 'utopia-bg-playing';
-      var tracks = ['audio/abracadabra.mp3', 'audio/vote.mp3'];
+      var tracks = ['assets/audio/abracadabra.mp3', 'assets/audio/vote.mp3'];
 
       var chosen = sessionStorage.getItem(TRACK_KEY);
       if (!chosen) {
