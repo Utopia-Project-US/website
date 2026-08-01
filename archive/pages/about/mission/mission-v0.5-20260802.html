@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="../../" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Our Mission — The Utopia Project US</title>
@@ -9,15 +8,15 @@
 
 <meta property="og:title" content="Our Mission — The Utopia Project US" />
 <meta property="og:description" content="Veritas Super Omnia — The Truth Above All Else." />
-<meta property="og:image" content="assets/images/utopia-project-logo.png" />
+<meta property="og:image" content="/images/utopia-project-logo.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
-<link rel="icon" href="assets/images/favicon.ico" />
-<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="rss.xml" />
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<link rel="icon" href="/images/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="/rss.xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -306,35 +305,38 @@
     .footer-inner { justify-content: center; text-align: center; }
   }
 </style>
-<link rel="stylesheet" href="assets/styles/brand-lockup.css" />
-<link rel="stylesheet" href="assets/styles/site-shell.css" />
 </head>
 <body>
 
   <header>
     <div class="brand-group">
       <a class="brand-logo" href="index.html">
-        <img src="assets/images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+        <img src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
       </a>
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html" class="crumb-parent">The Utopia Project US</a>
         <span class="crumb-sep">&rarr;</span>
-        <a href="pages/about/mission.html">Mission</a>
+        <a href="mission.html">Mission</a>
       </nav>
     </div>
     <div class="nav-links">
       <nav>
-        <a href="pages/about/mission.html">Mission</a>
+        <a href="mission.html">Mission</a>
         <a href="index.html#constitution">Constitution v2.0</a>
-        <a href="pages/community/drafting-room/index.html">The Drafting Room</a>
-        <a href="pages/newsroom/cultural-influences.html">Cultural Influences</a>
+        <a href="the-drafting-room.html">The Drafting Room</a>
+        <a href="cultural-influences.html">Cultural Influences</a>
         <span class="nav-pipe">|</span>
-        <a href="pages/get-involved/careers.html">Careers</a>
+        <a href="careers.html">Careers</a>
         <a href="index.html#contact">Contact</a>
       </nav>
     </div>
     <div class="header-right">
-      <div class="status-pill">v0.6 BETA</div>
+      <div class="status-pill">v0.5 - PRELAUNCH</div>
+      <button class="music-toggle" id="music-toggle" aria-label="Play background music" aria-pressed="false">
+        <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </button>
+      <audio id="bg-audio" preload="none"></audio>
       <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
@@ -343,17 +345,17 @@
 
   <div class="mobile-menu" id="mobile-menu">
     <nav>
-      <a href="pages/about/mission.html">Mission</a>
+      <a href="mission.html">Mission</a>
       <a href="index.html#constitution">Constitution v2.0</a>
-      <a href="pages/community/drafting-room/index.html">The Drafting Room</a>
-      <a href="pages/newsroom/cultural-influences.html">Cultural Influences</a>
-      <a href="pages/get-involved/careers.html">Careers</a>
+      <a href="the-drafting-room.html">The Drafting Room</a>
+      <a href="cultural-influences.html">Cultural Influences</a>
+      <a href="careers.html">Careers</a>
       <a href="index.html#contact">Contact</a>
     </nav>
   </div>
 
   <div class="doc-hero">
-    <img class="crest" src="assets/images/seal.png" alt="The Official Seal of Constitution v2.0" />
+    <img class="crest" src="images/seal.png" alt="The Official Seal of Constitution v2.0" />
     <p class="latin">Veritas Super Omnia &mdash; The Truth Above All Else</p>
     <h1>Our Mission</h1>
     <p>
@@ -370,19 +372,19 @@
     <nav class="toc" aria-label="Table of contents">
       <h2>On This Page</h2>
       <ol>
-        <li><a href="pages/about/mission.html#opening-vision">1. Opening Vision</a></li>
-        <li><a href="pages/about/mission.html#why-struggling">2. Why Current Systems Are Struggling</a></li>
-        <li><a href="pages/about/mission.html#core-mission">3. Core Mission</a></li>
-        <li><a href="pages/about/mission.html#foundational-principles">4. Foundational Principles</a></li>
-        <li><a href="pages/about/mission.html#human-rights">5. Human Rights &amp; Liberty Protections</a></li>
-        <li><a href="pages/about/mission.html#constitution-overview">6. Constitution v2.0 &mdash; Overview</a></li>
-        <li><a href="pages/about/mission.html#digital-democracy">7. Digital Democracy</a></li>
-        <li><a href="pages/about/mission.html#anti-corruption">8. Anti&#8209;Corruption Systems</a></li>
-        <li><a href="pages/about/mission.html#tech-governance">9. Technology &amp; Scientific Governance</a></li>
-        <li><a href="pages/about/mission.html#civic-culture">10. Civic Culture &amp; Social Responsibility</a></li>
-        <li><a href="pages/about/mission.html#long-term-vision">11. Long&#8209;Term Vision</a></li>
-        <li><a href="pages/about/mission.html#what-this-is-not">12. What This Is Not</a></li>
-        <li><a href="pages/about/mission.html#current-status">13. Current Status</a></li>
+        <li><a href="#opening-vision">1. Opening Vision</a></li>
+        <li><a href="#why-struggling">2. Why Current Systems Are Struggling</a></li>
+        <li><a href="#core-mission">3. Core Mission</a></li>
+        <li><a href="#foundational-principles">4. Foundational Principles</a></li>
+        <li><a href="#human-rights">5. Human Rights &amp; Liberty Protections</a></li>
+        <li><a href="#constitution-overview">6. Constitution v2.0 &mdash; Overview</a></li>
+        <li><a href="#digital-democracy">7. Digital Democracy</a></li>
+        <li><a href="#anti-corruption">8. Anti&#8209;Corruption Systems</a></li>
+        <li><a href="#tech-governance">9. Technology &amp; Scientific Governance</a></li>
+        <li><a href="#civic-culture">10. Civic Culture &amp; Social Responsibility</a></li>
+        <li><a href="#long-term-vision">11. Long&#8209;Term Vision</a></li>
+        <li><a href="#what-this-is-not">12. What This Is Not</a></li>
+        <li><a href="#current-status">13. Current Status</a></li>
       </ol>
     </nav>
   </div>
@@ -467,7 +469,7 @@
     </section>
 
     <div class="doc-image">
-      <img src="assets/images/constitution-under-construction.jpg" alt="A leather-bound book titled Constitution v2.0 with an amber Under Construction sign on the cover" loading="lazy" />
+      <img src="images/constitution-under-construction.jpg" alt="A leather-bound book titled Constitution v2.0 with an amber Under Construction sign on the cover" loading="lazy" />
     </div>
 
     <section class="doc-section" id="constitution-overview">
@@ -492,7 +494,7 @@
     </section>
 
     <div class="doc-image light">
-      <img src="assets/images/citizen-portal.png" alt="Citizen Portal concept mockup" loading="lazy" />
+      <img src="images/citizen-portal.png" alt="Citizen Portal concept mockup" loading="lazy" />
     </div>
 
     <section class="doc-section" id="digital-democracy">
@@ -577,24 +579,17 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <div class="doc-image" style="max-width:520px; margin-left:auto; margin-right:auto;">
-        <img src="assets/images/the-future-is-ours-to-rewrite.jpg" alt="A DeLorean time machine between two lampposts marked 1787 and 2026, with the words The Future Is Ours To Rewrite" loading="lazy" />
+        <img src="images/the-future-is-ours-to-rewrite.jpg" alt="A DeLorean time machine between two lampposts marked 1787 and 2026, with the words The Future Is Ours To Rewrite" loading="lazy" />
       </div>
     </div>
 
   </article>
 
   <footer>
-    <div class="wrap footer-inner has-music">
+    <div class="wrap footer-inner">
       <span class="footer-copy">&copy; 2026 Utopia Project US</span>
       <span class="footer-motto">Veritas Super Omnia</span>
-      <span class="footer-updated" id="last-updated">Updated: &mdash;</span>
-      <div class="footer-music">
-        <audio id="bg-audio" preload="none"></audio>
-        <button class="music-toggle" id="music-toggle" aria-label="Play background music" aria-pressed="false">
-                <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
-                <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-              </button>
-      </div>
+      <span class="footer-updated" id="last-updated">Last updated: &mdash;</span>
     </div>
   </footer>
 
@@ -614,7 +609,7 @@
     (function () {
       var TRACK_KEY = 'utopia-bg-track';
       var PLAYING_KEY = 'utopia-bg-playing';
-      var tracks = ['assets/audio/abracadabra.mp3', 'assets/audio/vote.mp3'];
+      var tracks = ['audio/abracadabra.mp3', 'audio/vote.mp3'];
 
       var chosen = sessionStorage.getItem(TRACK_KEY);
       if (!chosen) {
@@ -669,13 +664,13 @@
       var el = document.getElementById('last-updated');
       if (!el) return;
       var d = new Date(document.lastModified);
-      var formatted = d.toLocaleDateString('en-US', {
-        year: 'numeric', month: 'long', day: 'numeric'
+      var formatted = d.toLocaleString('en-US', {
+        timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric',
+        hour: 'numeric', minute: '2-digit', hour12: true
       });
-      el.textContent = 'Updated: ' + formatted;
+      el.textContent = 'Last updated: ' + formatted + ' UTC';
     })();
   </script>
 
-  <script src="assets/scripts/site-shell.js"></script>
 </body>
 </html>

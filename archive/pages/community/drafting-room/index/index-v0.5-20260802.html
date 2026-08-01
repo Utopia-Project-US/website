@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="../../../" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Drafting Room — The Utopia Project US</title>
@@ -10,49 +9,52 @@
 
 <meta property="og:title" content="The Drafting Room — The Utopia Project US" />
 <meta property="og:description" content="Papers on constitutional design, institutional resilience, and the work of building Constitution v2.0." />
-<meta property="og:image" content="https://www.utopiaproject.us/assets/images/utopia-project-logo.png" />
+<meta property="og:image" content="https://www.utopiaproject.us/images/utopia-project-logo.png" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.utopiaproject.us/the-drafting-room.html" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
-<link rel="icon" href="assets/images/favicon.ico" />
-<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="rss.xml" />
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<link rel="icon" href="/images/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="/rss.xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles/drafting-room.css" />
-<link rel="stylesheet" href="assets/styles/brand-lockup.css" />
-<link rel="stylesheet" href="assets/styles/site-shell.css" />
+<link rel="stylesheet" href="drafting-room.css" />
 </head>
-<body data-audio-root="assets/audio/">
+<body data-audio-root="audio/">
   <header class="site-header">
     <div class="brand-group">
       <a class="brand-logo" href="index.html">
-        <img src="assets/images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+        <img src="images/utopia-project-logo.png" alt="The Utopia Project US crest" />
       </a>
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html" class="crumb-parent">The Utopia Project US</a>
         <span class="crumb-sep">&rarr;</span>
-        <a href="pages/community/drafting-room/index.html" aria-current="page">The Drafting Room</a>
+        <a href="the-drafting-room.html" aria-current="page">The Drafting Room</a>
       </nav>
     </div>
     <div class="nav-links">
       <nav aria-label="Main navigation">
-        <a href="pages/about/mission.html">Mission</a>
+        <a href="mission.html">Mission</a>
         <a href="index.html#constitution">Constitution v2.0</a>
-        <a href="pages/community/drafting-room/index.html" aria-current="page">The Drafting Room</a>
-        <a href="pages/newsroom/cultural-influences.html">Cultural Influences</a>
+        <a href="the-drafting-room.html" aria-current="page">The Drafting Room</a>
+        <a href="cultural-influences.html">Cultural Influences</a>
         <span class="nav-pipe">|</span>
-        <a href="pages/get-involved/careers.html">Careers</a>
+        <a href="careers.html">Careers</a>
         <a href="index.html#contact">Contact</a>
       </nav>
     </div>
     <div class="header-right">
-      <div class="status-pill">v0.6 BETA</div>
+      <div class="status-pill">v0.5 - PRELAUNCH</div>
+      <button class="music-toggle" id="music-toggle" aria-label="Play background music" aria-pressed="false">
+        <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </button>
+      <audio id="bg-audio" preload="none"></audio>
       <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
@@ -61,11 +63,11 @@
 
   <div class="mobile-menu" id="mobile-menu">
     <nav aria-label="Mobile navigation">
-      <a href="pages/about/mission.html">Mission</a>
+      <a href="mission.html">Mission</a>
       <a href="index.html#constitution">Constitution v2.0</a>
-      <a href="pages/community/drafting-room/index.html" aria-current="page">The Drafting Room</a>
-      <a href="pages/newsroom/cultural-influences.html">Cultural Influences</a>
-      <a href="pages/get-involved/careers.html">Careers</a>
+      <a href="the-drafting-room.html" aria-current="page">The Drafting Room</a>
+      <a href="cultural-influences.html">Cultural Influences</a>
+      <a href="careers.html">Careers</a>
       <a href="index.html#contact">Contact</a>
     </nav>
   </div>
@@ -84,7 +86,7 @@
           <a class="rss-link" href="rss.xml" type="application/rss+xml">Subscribe via RSS &rarr;</a>
         </div>
 
-        <a class="paper-card" href="pages/community/drafting-room/papers/paper-no-1.html">
+        <a class="paper-card" href="drafting-room/paper-no-1.html">
           <time class="date" datetime="2026-08-01">Saturday,<br>August 1, 2026</time>
           <div>
             <span class="paper-number">Paper No. 1</span>
@@ -98,21 +100,13 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-inner has-music">
+    <div class="wrap footer-inner">
       <span>&copy; 2026 Utopia Project US</span>
       <span class="footer-motto">Veritas Super Omnia</span>
-      <span id="last-updated">Updated: &mdash;</span>
-      <div class="footer-music">
-        <audio id="bg-audio" preload="none"></audio>
-        <button class="music-toggle" id="music-toggle" aria-label="Play background music" aria-pressed="false">
-                <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
-                <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-              </button>
-      </div>
+      <span id="last-updated">Last updated: &mdash;</span>
     </div>
   </footer>
 
-  <script src="assets/scripts/drafting-room.js"></script>
-  <script src="assets/scripts/site-shell.js"></script>
+  <script src="drafting-room.js"></script>
 </body>
 </html>

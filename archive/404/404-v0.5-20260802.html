@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="./" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>404 — The Utopia Project US</title>
 <meta name="robots" content="noindex" />
 
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
-<link rel="icon" href="assets/images/favicon.ico" />
-<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="rss.xml" />
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<link rel="icon" href="/images/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="The Drafting Room RSS Feed" href="/rss.xml" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -155,35 +154,33 @@
   }
   .footer-motto { font-family: 'Fraunces', serif; font-style: italic; color: var(--gold); font-size: 0.85rem; }
 </style>
-<link rel="stylesheet" href="assets/styles/brand-lockup.css" />
-<link rel="stylesheet" href="assets/styles/site-shell.css" />
 </head>
 <body>
 
   <header>
     <div class="brand-group">
-      <a class="brand-logo" href="index.html">
-        <img src="assets/images/utopia-project-logo.png" alt="The Utopia Project US crest" />
+      <a class="brand-logo" href="/">
+        <img src="/images/utopia-project-logo.png" alt="The Utopia Project US crest" />
       </a>
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">The Utopia Project US</a>
+        <a href="/">The Utopia Project US</a>
       </nav>
     </div>
     <div></div>
     <div class="header-right">
-      <div class="status-pill">v0.6 BETA</div>
+      <div class="status-pill">v0.5 - PRELAUNCH</div>
     </div>
   </header>
 
   <main>
     <div class="content-in">
       <div class="book-frame">
-        <img src="assets/images/constitution-under-construction.jpg" alt="Constitution v2.0, under construction" />
+        <img src="/images/constitution-under-construction.jpg" alt="Constitution v2.0, under construction" />
       </div>
 
       <h1 id="tagline">Loading&hellip;</h1>
 
-      <a class="back-link" href="index.html">&larr; Return to Homepage</a>
+      <a class="back-link" href="/">&larr; Return to Homepage</a>
 
       <div class="site-search">
         <input type="text" id="search-input" placeholder="Search site&hellip;" autocomplete="off" />
@@ -193,11 +190,11 @@
       <div class="helpful">
         <p>Try these instead</p>
         <ul>
-          <li><a href="pages/about/mission.html">Our Mission</a></li>
-          <li><a href="index.html#constitution">Constitution v2.0</a></li>
-          <li><a href="pages/community/drafting-room/index.html">The Drafting Room</a></li>
-          <li><a href="pages/newsroom/cultural-influences.html">Cultural Influences</a></li>
-          <li><a href="pages/get-involved/careers.html">Careers</a></li>
+          <li><a href="/mission.html">Our Mission</a></li>
+          <li><a href="/#constitution">Constitution v2.0</a></li>
+          <li><a href="/the-drafting-room.html">The Drafting Room</a></li>
+          <li><a href="/cultural-influences.html">Cultural Influences</a></li>
+          <li><a href="/careers.html">Careers</a></li>
         </ul>
       </div>
     </div>
@@ -255,12 +252,12 @@
     // Minimal working site search — real pages only, filters as you type
     var pages = [
       { title: "Home", url: "/" },
-      { title: "Our Mission", url: "mission.html" },
+      { title: "Our Mission", url: "/mission.html" },
       { title: "Constitution v2.0", url: "/#constitution" },
-      { title: "The Drafting Room", url: "the-drafting-room.html" },
-      { title: "Founder’s Introduction — Paper No. 1", url: "drafting-room/paper-no-1.html" },
-      { title: "Cultural Influences", url: "cultural-influences.html" },
-      { title: "Careers & Leadership", url: "careers.html" },
+      { title: "The Drafting Room", url: "/the-drafting-room.html" },
+      { title: "Founder’s Introduction — Paper No. 1", url: "/drafting-room/paper-no-1.html" },
+      { title: "Cultural Influences", url: "/cultural-influences.html" },
+      { title: "Careers & Leadership", url: "/careers.html" },
       { title: "Contact", url: "/#contact" }
     ];
 
@@ -282,6 +279,5 @@
     });
   </script>
 
-  <script src="assets/scripts/site-shell.js"></script>
 </body>
 </html>

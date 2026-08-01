@@ -253,11 +253,39 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 
 ## 5. Version History
 
-### v0.5 Maintenance — Scalable structure, local compatibility, and Careers model
+### v0.6 — Responsive site shell, scalable navigation, and category overviews
 
-**Date:** *August 1, 2026*
+**Date:** *August 2, 2026*
 
-**Version status:** These changes refine the approved v0.5 release and do **not** advance the website version pill. Future version changes remain subject to explicit approval by the project owner.
+**Status:** `BETA`
+
+**What changed:**
+
+- Reorganized the public site into a scalable subject-based structure under `pages/`, with shared styles, scripts, images, audio, and data under `assets/`. Established durable folders for About, Constitution v2.0, Learn, Community, Newsroom, Get Involved, policies, and utilities so future constitutional Articles and Explainers can grow without crowding the website root.
+- Preserved direct local-file review and deployed-server compatibility through depth-aware `<base>` addresses, project-relative physical links, corrected fragment navigation, and Vercel rewrites that retain established public URLs after physical files move.
+- Replaced the duplicated page-by-page navigation experience with a shared responsive site shell. Desktop now uses a symmetrical three-column body with Site Navigation on the left, content in the center, and Digital Constitutional Convention controls with Site Audio on the right; the header and footer align to the same geometry and run edge to edge.
+- Made mobile navigation a first-class experience. The crest is now an interactive left-side navigation control with a hamburger badge that becomes an X, opening a full-height drawer from the same side where Site Navigation lives on desktop. The drawer contains the complete six-category navigation plus the forthcoming Convention controls and available audio control.
+- Established the approved six-category order and concise names: **About**, **Constitution v2.0**, **Learn**, **Community**, **Newsroom**, and **Get Involved**. The Drafting Room now belongs to Community, Cultural Influences belongs to Newsroom, and support policies and utilities remain outside the six primary categories.
+- Rebuilt Site Navigation as six vertically stacked pastel cards that share the right-panel design language. Category headings link to real overview pages, subtle category-colored dividers establish hierarchy, live links are visually prominent, and unfinished destinations are accessible muted text rather than dead links.
+- Promoted all six category overview pages from hidden scaffolds to public orientation pages. Each overview explains every subcategory, why it matters to the project, and links only to destinations whose public content is ready.
+- Moved the universal category-colored breadcrumb into the persistent header. Breadcrumb typography is now consistent across legacy and scaffold-derived pages, category levels link to their overview pages, and Drafting Room papers support the complete hierarchy—for example, `Home / Community / The Drafting Room / Paper No. 1`.
+- Standardized the permanent header identity around the crest and four-line **THE / UTOPIA / PROJECT / US** wordmark. The header now keeps the logo and navigation control left, breadcrumb center, and burgundy version pill right on desktop, tablet, and mobile. Shared parchment colors prevent individual page styles from changing the header or footer appearance.
+- Replaced the homepage’s former **What We’re Building** section with the approved six-part **Start Here** experience so a new visitor can understand the mission, the constitutional work, the supporting reasoning, the publication channel, the project’s current stage, and the appropriate next step from the homepage.
+- Added and documented the formal paired content model for every constitutional Article and Explainer, including stable identifiers, official text, plain-language meaning, design reasoning, embedded sources, comparisons, status, version metadata, and coordinated revision histories. Working templates remain excluded from search indexing.
+- Expanded Careers with the full-resolution **Eleven Pillars of Leadership** proposed organizational model. Desktop and tablet display the complete graphic; phones retain readable role cards and receive a download link. The prelaunch and volunteer-status disclosure now closes the page immediately before the footer.
+- Standardized the footer as `© 2026 Utopia Project US. All Rights Reserved.` on the left, **Veritas Super Omnia** centered, and a right-aligned update timestamp explicitly calculated in Philadelphia’s `America/New_York` time zone and labeled **Philly time**. Long desktop fields remain on one line, while narrow screens stack before the fields can collide.
+- Strengthened publication discipline: `site-work/` contains only active drafts and is emptied after publication; archives are created only for pages with significant changes in a numbered release, use page-specific folders and `pagename-vX.Y-YYYYMMDD.ext` filenames, are checksum-verified and read-only, and are recorded in `archive/manifest.tsv`. Git remains the user-controlled backup and deployment mechanism; Codex does not commit or push.
+- Advanced every public version pill from `v0.5 BETA` to `v0.6 BETA` after owner approval. The detailed development record below is retained as the chronological work log that led to this release.
+
+**Why:** The site had outgrown a flat collection of individually styled pages. It needed a coherent information architecture, dependable local and hosted behavior, a navigation system that scales to constitutional publishing, and a mobile experience equal in quality to desktop.
+
+**Result:** v0.6 presents one consistent public website across desktop, tablet, and mobile; gives every main category a meaningful destination; clearly distinguishes live content from future work; preserves historical releases through a disciplined archive; and provides a stable foundation for the project’s next phase of public communication.
+
+#### v0.6 Development Record — Scalable structure, local compatibility, and Careers model
+
+**Work completed:** *August 1, 2026*
+
+**Release status:** This work was completed while v0.5 remained live and was formally incorporated into the owner-approved v0.6 release dated August 2, 2026.
 
 **Subsequent status-label refinement:** The numbered release remains v0.5, while the public status label changes from `PRELAUNCH` to `BETA`. The displayed pill is therefore `v0.5 BETA`, without a dash.
 
@@ -290,6 +318,7 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 - Prevented the desktop footer’s copyright and update fields from wrapping inside their sidebar-aligned grid cells, allowing each field to use the otherwise open center space while preserving the symmetrical left/center/right anchors. Narrow screens now stack the three footer fields before their combined text can collide. Restored both date and time to the update field, explicitly formatted in the `America/New_York` time zone and labeled **Philly time** so daylight-saving changes are handled correctly without displaying an inaccurate fixed `EST` label.
 - Moved the Careers page’s **Where we are right now** disclosure from directly beneath the introductory hero to the bottom of the page, after the leadership model, role details, and founding-role invitation. Its wording and visual treatment remain intact, with “roles below” adjusted to “roles above” to match its new position.
 - Made the shared shell’s parchment header and footer colors authoritative across every public page. This supersedes the dark navy header and footer inherited by the six category overviews from their former scaffold stylesheet, preventing the site chrome from changing color when visitors move between established pages and category pages. The burgundy version pill, muted footer information, and gold motto are now standardized with the same shared overrides.
+- Right-aligned the public version pill consistently on desktop, tablet, and mobile. The shared shell now explicitly neutralizes the older narrow-screen rule that absolutely centered the pill, keeping it inside the right-aligned header cell opposite the left-side brand and navigation control at every viewport size.
 
 **Why:** The site needed a filesystem that could scale to constitutional Articles, Explainers, educational material, policies, and Newsroom content without crowding the root directory. At the same time, the project owner reviews pages by opening them locally, so the physical organization and address system must work without relying on Vercel. The Careers model also needed to communicate the depth of the proposed organization without implying that its future departments are already staffed.
 

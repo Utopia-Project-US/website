@@ -1,0 +1,8 @@
+live_path	archive_path	version	published_date	retired_date	reason
+404.html	archive/404/404-v0.5-20260802.html	v0.5	20260801	20260802	Substantial structural refactor into the shared responsive site shell
+index.html	archive/index/index-v0.5-20260802.html	v0.5	20260801	20260802	Homepage content and structure substantially revised for the Start Here experience and responsive shell
+pages/about/mission.html	archive/pages/about/mission/mission-v0.5-20260802.html	v0.5	20260801	20260802	Mission page relocated and substantially standardized with semantic structure and repaired section navigation
+pages/community/drafting-room/index.html	archive/pages/community/drafting-room/index/index-v0.5-20260802.html	v0.5	20260801	20260802	Drafting Room relocated to Community and substantially integrated into the shared shell and hierarchy
+pages/community/drafting-room/papers/paper-no-1.html	archive/pages/community/drafting-room/papers/paper-no-1/paper-no-1-v0.5-20260802.html	v0.5	20260801	20260802	Paper relocated to Community and substantially integrated into the shared shell and full breadcrumb hierarchy
+pages/get-involved/careers.html	archive/pages/get-involved/careers/careers-v0.5-20260802.html	v0.5	20260801	20260802	Careers page substantially rebuilt with the proposed leadership model and responsive Eleven Pillars presentation
+pages/newsroom/cultural-influences.html	archive/pages/newsroom/cultural-influences/cultural-influences-v0.5-20260802.html	v0.5	20260801	20260802	Cultural Influences relocated to Newsroom and substantially integrated into the shared shell and hierarchy

@@ -66,9 +66,17 @@ body.site-shell-ready > header {
 
 body.site-shell-ready > header .status-pill,
 body.site-shell-ready > header .version-pill {
+  position: static !important;
+  inset: auto !important;
   color: #8a2f3d !important;
   background: transparent !important;
   border-color: #8a2f3d !important;
+  transform: none !important;
+}
+
+body.site-shell-ready > header .header-right {
+  justify-self: end !important;
+  justify-content: flex-end !important;
 }
 
 .site-shell-middle {
