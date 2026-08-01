@@ -119,6 +119,7 @@ website/
 │   │   └── eleven-pillars-of-leadership.png # Full-resolution Careers model
 │   ├── scripts/
 │   └── styles/
+│       └── brand-lockup.css                 # Permanent stacked header wordmark
 ├── archive/                                # Locked historical release copies
 ├── site-work/                              # Git-backed work in progress
 ├── rss.xml                                 # The Drafting Room RSS feed
@@ -229,6 +230,7 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 - Repaired fragment navigation affected by the new base-address system. Mission table-of-contents links, homepage section links, and accessibility skip links now identify both the physical page and the destination fragment, preventing local browsers from opening the website folder instead of the intended section.
 - Added `assets/data/cultural-influences.js` as a local-file-compatible mirror of the static JSON collection so Cultural Influences works both when opened directly and when deployed through Vercel.
 - Added the full-resolution **Eleven Pillars of Leadership** graphic to Careers and clearly identified it as the proposed organization being built. Desktop and iPad visitors see the complete tappable graphic; phone visitors retain the existing role-card presentation and receive a full-resolution download link. The detailed HTML role content remains available to assistive technology at larger widths.
+- Standardized the public header around a permanent four-line **THE / UTOPIA / PROJECT / US** wordmark at every viewport width. A shared `assets/styles/brand-lockup.css` file keeps the icon and stacked text at matching visual heights, scales them together on narrow phones, and prevents the older page breadcrumb from accidentally acting as a wrapped brand name.
 - Separated documentation responsibilities: the project-root README now explains the entire Utopia Project workspace, while this file remains the authoritative website architecture, maintenance, and release record.
 
 **Why:** The site needed a filesystem that could scale to constitutional Articles, Explainers, educational material, policies, and Newsroom content without crowding the root directory. At the same time, the project owner reviews pages by opening them locally, so the physical organization and address system must work without relying on Vercel. The Careers model also needed to communicate the depth of the proposed organization without implying that its future departments are already staffed.
@@ -335,6 +337,7 @@ Everything requiring real accounts, sessions, and live user interaction is scope
 - Draft only the files actively being changed in `site-work/`. After a draft is approved and published, remove that published draft while leaving unrelated work in progress intact.
 - Archive only meaningful numbered releases, using the agreed page-folder and `pagename-vX.Y-YYYYMMDD.ext` naming convention. Archived files are read-only.
 - Design tokens (colors, fonts) are CSS custom properties at the top of each page's `<style>` block.
+- The permanent stacked header wordmark is centralized in `assets/styles/brand-lockup.css`. Adjust its icon and typography together so their visual heights remain aligned, and keep the stylesheet linked after page-specific styles so the shared lockup remains consistent.
 - Images are pre-resized and compressed for web before committing; originals are not kept in this repo.
 - The version pill in the header is updated by hand with each meaningful release — see §5 for the convention (`vX.X - STATUS`, casing typed directly rather than via CSS transform).
 

@@ -1,0 +1,83 @@
+/*
+ * Shared Utopia Project US header lockup
+ *
+ * The four-line wordmark is intentional at every viewport width. The icon and
+ * stacked text are kept at the same visual height so the lockup reads as one
+ * unit rather than as a wrapped breadcrumb or page title.
+ */
+
+.brand-group {
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.brand-logo::after,
+.brand span::after {
+  content: "THE\A UTOPIA\A PROJECT\A US";
+  display: block;
+  white-space: pre;
+  color: currentColor;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.34;
+  letter-spacing: 0.14em;
+  text-align: left;
+}
+
+.brand-logo img,
+.brand img {
+  width: 79px !important;
+  height: 79px !important;
+  flex: 0 0 79px !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+}
+
+/* The shared scaffold header already keeps the brand name in a real span. */
+.brand {
+  align-items: center !important;
+  gap: 0.8rem !important;
+}
+
+.brand span {
+  display: block;
+  overflow: visible;
+  color: inherit;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Older public pages used the header breadcrumb as their horizontal wordmark. */
+.brand-group > .breadcrumb {
+  display: none !important;
+}
+
+@media (max-width: 420px) {
+  .brand-logo,
+  .brand {
+    gap: 0.65rem !important;
+  }
+
+  .brand-logo::after,
+  .brand span::after {
+    font-size: 0.82rem;
+    line-height: 1.33;
+    letter-spacing: 0.12em;
+  }
+
+  .brand-logo img,
+  .brand img {
+    width: 70px !important;
+    height: 70px !important;
+    flex-basis: 70px !important;
+  }
+}
