@@ -236,6 +236,96 @@
     return card;
   }
 
+  function buildMusicControl() {
+    var music = element('div', 'footer-music site-music-control');
+    var audio = element('audio');
+    audio.id = 'bg-audio';
+    audio.preload = 'none';
+
+    var button = element('button', 'music-toggle');
+    button.type = 'button';
+    button.id = 'music-toggle';
+    button.setAttribute('aria-label', 'Play background music');
+    button.setAttribute('aria-pressed', 'false');
+    button.innerHTML =
+      '<svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><line x1="2" y1="2" x2="22" y2="22"/></svg>' +
+      '<svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>';
+    button.appendChild(element('span', 'music-toggle-label', 'Play music'));
+
+    music.appendChild(audio);
+    music.appendChild(button);
+    return music;
+  }
+
+  function initializeAudio(music) {
+    if (!music) return;
+    var audio = music.querySelector('audio');
+    var button = music.querySelector('.music-toggle');
+    var label = music.querySelector('.music-toggle-label');
+    if (!audio || !button) return;
+
+    var trackKey = 'utopia-bg-track';
+    var playingKey = 'utopia-bg-playing';
+    var tracks = ['abracadabra.mp3', 'vote.mp3'];
+
+    function readSession(key) {
+      try { return window.sessionStorage.getItem(key); }
+      catch (error) { return null; }
+    }
+
+    function writeSession(key, value) {
+      try { window.sessionStorage.setItem(key, value); }
+      catch (error) { /* Audio remains usable when browser storage is disabled. */ }
+    }
+
+    var storedTrack = readSession(trackKey);
+    var chosen = storedTrack ? storedTrack.split('/').pop() : '';
+    if (tracks.indexOf(chosen) === -1) {
+      chosen = tracks[Math.floor(Math.random() * tracks.length)];
+    }
+    writeSession(trackKey, 'assets/audio/' + chosen);
+
+    audio.src = new URL('assets/audio/' + chosen, document.baseURI).href;
+    audio.loop = true;
+    audio.volume = 0.35;
+
+    function setPlayingUI(isPlaying) {
+      button.classList.toggle('playing', isPlaying);
+      button.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+      button.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+      if (label) label.textContent = isPlaying ? 'Pause music' : 'Play music';
+    }
+
+    function tryPlay() {
+      var playPromise = audio.play();
+      if (playPromise && playPromise.then) {
+        playPromise.catch(function () { setPlayingUI(false); });
+      }
+    }
+
+    audio.addEventListener('play', function () {
+      setPlayingUI(true);
+      writeSession(playingKey, '1');
+    });
+    audio.addEventListener('pause', function () { setPlayingUI(false); });
+    audio.addEventListener('error', function () {
+      setPlayingUI(false);
+      button.setAttribute('aria-label', 'Background music could not be loaded');
+    });
+
+    button.addEventListener('click', function () {
+      if (audio.paused) {
+        tryPlay();
+      } else {
+        writeSession(playingKey, '0');
+        audio.pause();
+      }
+    });
+
+    setPlayingUI(false);
+    if (readSession(playingKey) === '1') tryPlay();
+  }
+
   function buildPanel(side, currentKey) {
     var aside = element('aside', 'site-panel site-panel-' + side);
     var inner = element('div', 'site-panel-inner');
@@ -294,8 +384,17 @@
   function normalizeFooter(footer) {
     if (!footer) return null;
     var inner = footer.querySelector('.footer-inner') || footer;
-    var music = inner.querySelector('.footer-music');
-    if (music) music.remove();
+    var oldMusic = inner.querySelector('.footer-music');
+    if (oldMusic) {
+      var oldAudio = oldMusic.querySelector('audio');
+      if (oldAudio) {
+        oldAudio.pause();
+        oldAudio.removeAttribute('src');
+        oldAudio.load();
+      }
+      oldMusic.remove();
+    }
+    var music = buildMusicControl();
 
     while (inner.firstChild) inner.removeChild(inner.firstChild);
 
@@ -325,7 +424,7 @@
     inner.appendChild(copy);
     inner.appendChild(motto);
     inner.appendChild(updated);
-    if (music) inner.appendChild(music);
+    inner.appendChild(music);
     return music;
   }
 
@@ -371,6 +470,7 @@
     var context = getPageContext(main);
     var trigger = normalizeBrand(header);
     var music = normalizeFooter(footer);
+    initializeAudio(music);
     var headerInner = header.querySelector(':scope > .header-inner') || header;
     headerInner.appendChild(buildBreadcrumb(context));
 
@@ -418,11 +518,7 @@
       if (!media.matches && trigger && document.body.classList.contains('site-drawer-open')) {
         closeDrawer(trigger, drawer, false);
       }
-      if (music) {
-        target.appendChild(music);
-      } else if (!target.querySelector('.site-audio-unavailable')) {
-        target.appendChild(element('span', 'site-audio-unavailable', 'Audio is available on selected pages.'));
-      }
+      target.appendChild(music);
     }
     placeAudio();
     if (media.addEventListener) media.addEventListener('change', placeAudio);

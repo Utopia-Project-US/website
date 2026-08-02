@@ -194,8 +194,13 @@ body.site-shell-ready > header .header-right {
   justify-content: space-between;
   gap: 0.5rem;
   min-height: 2rem;
-  font-size: 0.78rem;
-  line-height: 1.3;
+  font-family: "Public Sans", system-ui, sans-serif !important;
+  font-size: 0.78rem !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
   text-decoration: none;
 }
 
@@ -258,11 +263,11 @@ body.site-shell-ready > header .header-right {
 
 .site-nav-list a {
   color: var(--shell-ink);
-  font-weight: 600;
 }
 
 .site-nav-future {
   color: #4f596b;
+  font-weight: 500 !important;
   cursor: default;
 }
 
@@ -330,7 +335,45 @@ body.site-shell-ready > header .header-right {
 
 .site-audio-card { margin-top: 0.85rem; }
 .site-audio-slot { margin-top: 0.75rem; }
-.site-audio-slot .footer-music { margin: 0; }
+.site-audio-slot .footer-music {
+  display: block !important;
+  margin: 0;
+}
+.site-audio-slot .music-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 2.45rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--shell-line);
+  border-radius: 0.4rem;
+  color: var(--shell-navy);
+  background: var(--shell-paper-light);
+  font: 700 0.68rem/1.2 "Public Sans", system-ui, sans-serif !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  cursor: pointer;
+}
+.site-audio-slot .music-toggle:hover,
+.site-audio-slot .music-toggle:focus-visible {
+  border-color: var(--shell-gold);
+}
+.site-audio-slot .music-toggle.playing {
+  color: #fff;
+  background: var(--shell-navy);
+  border-color: var(--shell-navy);
+}
+.site-audio-slot .music-toggle svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+}
+.site-audio-slot .music-toggle .icon-off { display: block; }
+.site-audio-slot .music-toggle .icon-on { display: none; }
+.site-audio-slot .music-toggle.playing .icon-off { display: none; }
+.site-audio-slot .music-toggle.playing .icon-on { display: block; }
 .site-audio-unavailable {
   color: var(--shell-muted);
   font: 600 0.65rem/1.4 "IBM Plex Mono", ui-monospace, monospace;
