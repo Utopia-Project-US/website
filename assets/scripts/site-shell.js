@@ -43,7 +43,7 @@
       href: 'pages/community/index.html',
       items: [
         { label: 'Town Hall', future: true },
-        { label: 'Social Media', future: true },
+        { label: 'Social Media', href: 'pages/community/social-media.html' },
         { label: 'The Drafting Room', href: 'pages/community/drafting-room/index.html' },
         { label: 'Events', future: true },
         { label: 'Partner Directory', future: true }

@@ -10,6 +10,10 @@
       "destination": "/pages/get-involved/careers.html"
     },
     {
+      "source": "/social-media.html",
+      "destination": "/pages/community/social-media.html"
+    },
+    {
       "source": "/cultural-influences.html",
       "destination": "/pages/newsroom/cultural-influences.html"
     },
