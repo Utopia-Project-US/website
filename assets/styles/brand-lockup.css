@@ -1,5 +1,5 @@
 /* Shared compatibility rules for the permanent header lockup. The visible
-   logo and four-line wordmark are now created by site-shell.js so the logo can
+   logo and two-line wordmark are now created by site-shell.js so the logo can
    become the left-side navigation control on smaller screens. */
 
 .brand-group { flex-shrink: 0; }
