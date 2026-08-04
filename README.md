@@ -161,7 +161,13 @@ website/
 │   │   ├── cultural-influences.json        # Editorial source data
 │   │   └── cultural-influences.js          # Local-file-compatible browser data mirror
 │   ├── images/
-│   │   └── eleven-pillars-of-leadership.png # Full-resolution Careers model
+│   │   ├── citizen-portal.png                # Redrafting America civic-services concept
+│   │   ├── constitution-v2-lexicon.png       # Landscape constitutional reference chart
+│   │   ├── constitution-v2-lexicon-portrait.png # Portrait constitutional reference chart
+│   │   ├── eleven-pillars-of-leadership.png  # Full-resolution Careers model
+│   │   ├── redrafting-america-logo-design-spec.png # One-page brand standard
+│   │   ├── seal.png                          # Web national-seal concept
+│   │   └── united-republic-seal-print.png    # Print national-seal concept
 │   ├── scripts/
 │   │   ├── drafting-room.js                  # Drafting Room page behavior
 │   │   └── site-shell.js                     # Shared panels, drawer, footer, and navigation model
@@ -281,6 +287,7 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 - Verified automatically managed Let's Encrypt certificates and HTTPS on the canonical website and redirect domains. Vercel owns certificate renewal for the attached domains.
 - Cleaned obsolete Microsoft 365 DNS records from the personal `mcguckin.me` and `mcguckin.net` zones while preserving Apple Mail, web, Home Assistant, gateway, and other unrelated records. Their SPF policies now authorize iCloud only; `mcguckin.name` required no Microsoft cleanup.
 - Replaced the former public identity with the approved Redrafting America Web and Print logos, regenerated browser/device icons, standardized organization and contact copy, and retained the memorable public telephone display `215-4-UTOPIA` with its numeric dial target.
+- Rebuilt the site's principal civic graphics for the new identity: expanded the Citizen Portal to sixteen service categories, modernized the Eleven Pillars governance chart without changing its organizational model, produced Web and Print **United Republic of America** seal concepts, added Redrafting America ownership lines to both Constitutional Lexicon layouts, and created a one-page logo design specification. Every new master carries `© 2026 Redrafting America` where the format permits.
 - Chose **Ex Uno Floremus — From One, We Flourish** as the single logo-adjacent motto. **Veritas Super Omnia — The Truth Above All Else** remains the project's governing principle and footer motto.
 - Reserved `redraftingamerica` as the planned social handle throughout the site. Because no replacement social accounts exist yet, every platform card is muted, marked **Coming soon**, and contains no outbound account link; the main **Social Media** destination remains active so accounts can be added incrementally.
 - Enlarged the desktop header wordmark to use the available left navigation column without crossing the navigation-card boundary. The crest and two-line **REDRAFTING / AMERICA** wordmark now share the same visual height.
