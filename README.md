@@ -263,6 +263,34 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 
 ## 5. Version History
 
+### v0.7 — Redrafting America organization and infrastructure migration
+
+**Date:** *August 4, 2026*
+
+**Status:** `BETA`
+
+**Catalyst:** The nonprofit changed its name from **The Utopia Project** to **Redrafting America**, requiring the public identity, accounts, repositories, hosting, domains, email authentication, and telephone prompts to move together rather than as isolated website edits.
+
+**What changed:**
+
+- Completed the Microsoft 365 identity transition to `redraftingamerica.org`. Public website contact now uses the existing `info@redraftingamerica.org` shared mailbox, the founder retains `todd.mcguckin@redraftingamerica.org`, and `social@redraftingamerica.org` remains available for future channel administration.
+- Confirmed that `dmarc@redraftingamerica.org` is an alias on the `info@redraftingamerica.org` shared mailbox and published the initial monitoring policy `v=DMARC1; p=none; rua=mailto:dmarc@redraftingamerica.org; adkim=r; aspf=r; pct=100`. This collects aggregate reports without quarantining or rejecting mail while every legitimate sender is inventoried.
+- Created the **Redrafting America** GitHub organization, assigned `RTM135` as an owner, and transferred all nine organization repositories—including the `.github` repository and other dot-folder content—without discarding history. The public website repository is now `redrafting-america/redrafting-america`, and the organization uses a GitHub Project board to track migration and ongoing work.
+- Renamed and transferred the Vercel project to the `redrafting-america` team, retained the GitHub deployment connection, and verified production deployment from the new repository. The canonical website is `https://redraftingamerica.org`; `www.redraftingamerica.org` permanently redirects to the apex.
+- Added path- and query-preserving permanent redirects from `utopiaproject.us`, `www.utopiaproject.us`, `redrafting.us`, `www.redrafting.us`, `redraftingamerica.us`, and `www.redraftingamerica.us` to the canonical apex. The former `utopiaproject.us` redirect will remain active through the domain's planned expiration in 2027.
+- Verified automatically managed Let's Encrypt certificates and HTTPS on the canonical website and redirect domains. Vercel owns certificate renewal for the attached domains.
+- Cleaned obsolete Microsoft 365 DNS records from the personal `mcguckin.me` and `mcguckin.net` zones while preserving Apple Mail, web, Home Assistant, gateway, and other unrelated records. Their SPF policies now authorize iCloud only; `mcguckin.name` required no Microsoft cleanup.
+- Replaced the former public identity with the approved Redrafting America Web and Print logos, regenerated browser/device icons, standardized organization and contact copy, and retained the memorable public telephone display `215-4-UTOPIA` with its numeric dial target.
+- Chose **Ex Uno Floremus — From One, We Flourish** as the single logo-adjacent motto. **Veritas Super Omnia — The Truth Above All Else** remains the project's governing principle and footer motto.
+- Reserved `redraftingamerica` as the planned social handle throughout the site. Because no replacement social accounts exist yet, every platform card is muted, marked **Coming soon**, and contains no outbound account link; the main **Social Media** destination remains active so accounts can be added incrementally.
+- Enlarged the desktop header wordmark to use the available left navigation column without crossing the navigation-card boundary. The crest and two-line **REDRAFTING / AMERICA** wordmark now share the same visual height.
+- Updated UniFi Talk's organization-facing voice prompts from The Utopia Project to Redrafting America while retaining the existing `215-4-UTOPIA` telephone number and confirming the new website address in the greeting.
+- Advanced every current public version pill from `v0.6 BETA` to `v0.7 BETA` after the migration, DNS, communications, visual, redirect, certificate, and deployment work was completed and verified.
+
+**Validation:** Production pages were checked in the browser after deployment; GitHub and Vercel reported successful checks; the canonical and redirect hosts were tested over HTTPS; redirects were confirmed as HTTP 301 with paths and query strings preserved; Microsoft 365 SPF and DKIM remained present; DMARC was queried from a public resolver; and the personal zones were queried to confirm that Microsoft records were gone while Apple Mail records remained.
+
+**Result:** v0.7 is the first release in which the nonprofit's public identity and supporting infrastructure consistently operate as **Redrafting America**, while the former name survives only where intentionally retained for history, archives, the memorable telephone number, and the time-limited legacy-domain redirect.
+
 ### v0.6 — Responsive site shell, scalable navigation, and category overviews
 
 **Date:** *August 2, 2026*

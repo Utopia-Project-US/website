@@ -504,6 +504,19 @@ footer .footer-inner,
 .footer-inner > .footer-music { display: none; }
 
 @media (min-width: 1280px) {
+  /* Fill the desktop navigation column without crossing the card edge below.
+     The 58px crest and two 1.2-line wordmark rows share the same visual height. */
+  .shell-desktop-logo img {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  .brand-wordmark {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: 0.075em;
+  }
+
   body.site-shell-ready > header.site-shell-header-direct {
     display: grid !important;
     grid-template-columns: var(--shell-side-width) minmax(0, 1fr) var(--shell-side-width) !important;

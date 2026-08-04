@@ -34,6 +34,19 @@
   box-shadow: 0 10px 24px rgba(7, 27, 44, 0.07);
 }
 
+.social-card.is-pending {
+  border-color: #c6c5c0;
+  color: #6c7076;
+  background: #e9e8e3;
+  box-shadow: none;
+}
+
+.social-card.is-pending h3,
+.social-card.is-pending p,
+.social-card.is-pending .platform-handle {
+  color: #6c7076;
+}
+
 .social-card h3 {
   margin: 1rem 0 0.25rem;
   font-size: 1.35rem;
@@ -59,6 +72,14 @@
 }
 
 .is-live .social-status { color: #fff; background: #2f6f59; }
+.is-pending .social-status { color: #5d6065; background: #d2d1cc; }
+
+.channel-unavailable {
+  display: inline-block;
+  margin-top: 0.7rem;
+  color: #777a80;
+  font: 600 0.72rem/1.4 "IBM Plex Mono", ui-monospace, monospace;
+}
 
 .channel-link {
   display: inline-flex;
