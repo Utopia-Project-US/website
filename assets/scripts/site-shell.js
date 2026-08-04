@@ -353,7 +353,7 @@
 
     var desktopLogo = element('a', 'shell-desktop-logo');
     desktopLogo.href = 'index.html';
-    desktopLogo.setAttribute('aria-label', 'The Utopia Project US home');
+    desktopLogo.setAttribute('aria-label', 'Redrafting America home');
     desktopLogo.appendChild(originalImage.cloneNode(true));
 
     var trigger = element('button', 'site-nav-trigger');
@@ -369,8 +369,8 @@
 
     var wordmark = element('a', 'brand-wordmark');
     wordmark.href = 'index.html';
-    wordmark.setAttribute('aria-label', 'The Utopia Project US home');
-    ['THE', 'UTOPIA', 'PROJECT', 'US'].forEach(function (line) {
+    wordmark.setAttribute('aria-label', 'Redrafting America home');
+    ['REDRAFTING', 'AMERICA'].forEach(function (line) {
       wordmark.appendChild(element('span', '', line));
     });
 
@@ -399,7 +399,7 @@
     while (inner.firstChild) inner.removeChild(inner.firstChild);
 
     var copy = element('span', 'footer-copy');
-    copy.innerHTML = '&copy; 2026 Utopia Project US. All Rights Reserved.';
+    copy.innerHTML = '&copy; 2026 Redrafting America. All Rights Reserved.';
     var motto = element('span', 'footer-motto', 'Veritas Super Omnia');
     var updated = element('span', 'footer-updated');
     updated.id = 'last-updated';
@@ -493,7 +493,7 @@
     drawer.inert = true;
     drawer.setAttribute('aria-label', 'Site navigation and utilities');
     var drawerHeader = element('div', 'site-drawer-header');
-    drawerHeader.appendChild(element('strong', '', 'The Utopia Project US'));
+    drawerHeader.appendChild(element('strong', '', 'Redrafting America'));
     var closeButton = element('button', 'site-drawer-close', '×');
     closeButton.type = 'button';
     closeButton.setAttribute('aria-label', 'Close site navigation');

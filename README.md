@@ -1,6 +1,6 @@
-# The Utopia Project US — Website
+# Redrafting America — Website
 
-`utopiaproject.us` — the public-facing site for a nonprofit civic initiative designing **Constitution v2.0**, a modern constitutional framework built around truth, accountability, and human dignity.
+`redraftingamerica.org` — the public-facing site for a nonprofit civic initiative designing **Constitution v2.0**, a modern constitutional framework built around truth, accountability, and human dignity.
 
 ## TL;DR
 
@@ -8,9 +8,19 @@ This site is deliberately simple: static HTML, no framework, no database, no bui
 
 ---
 
+## Redrafting America Migration (August 4, 2026)
+
+- Renamed the public organization from **The Utopia Project US** to **Redrafting America** across current pages, metadata, RSS, contact links, and shared navigation.
+- Changed the canonical public origin to `https://redraftingamerica.org` and the contact address to `todd.mcguckin@redraftingamerica.org`.
+- Added the official Web and Print logo masters as `assets/images/redrafting-america-logo-web.png` and `assets/images/redrafting-america-logo-print.png`; public pages use the Web master.
+- Regenerated PNG browser and device icons from the official Web logo.
+- Preserved `archive/` snapshots unchanged as historical records; Vercel continues to serve them with `noindex, nofollow, noarchive` headers.
+
+---
+
 ## 1. Website Goals
 
-The site exists to present, explain, and evolve Constitution v2.0, and to represent The Utopia Project US as an organization. Current, real goals:
+The site exists to present, explain, and evolve Constitution v2.0, and to represent Redrafting America as an organization. Current, real goals:
 
 - Present Constitution v2.0 — its Articles, its companion Explainers, and the reasoning behind it — in a form people can actually read and understand.
 - Represent the organization honestly: its mission, its founding leadership, its current stage of formation.
@@ -211,7 +221,7 @@ Every page shares the same hand-maintained header, footer, navigation, and desig
 |---|---|
 | Framework | None — static HTML, CSS, vanilla JavaScript |
 | Hosting | Vercel |
-| Source control | GitHub (`Utopia-Project-US` org) |
+| Source control | GitHub (`redrafting-america` org) |
 | Database | None — Cultural Influences reads a static JSON file |
 | Styling | Plain CSS custom properties (no Tailwind, no component library) |
 | Fonts | Fraunces (display), Public Sans (body), IBM Plex Mono (utility/labels) |
@@ -269,11 +279,11 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 - Rebuilt Site Navigation as six vertically stacked pastel cards that share the right-panel design language. Category headings link to real overview pages, subtle category-colored dividers establish hierarchy, live links are visually prominent, and unfinished destinations are accessible muted text rather than dead links.
 - Promoted all six category overview pages from hidden scaffolds to public orientation pages. Each overview explains every subcategory, why it matters to the project, and links only to destinations whose public content is ready.
 - Moved the universal category-colored breadcrumb into the persistent header. Breadcrumb typography is now consistent across legacy and scaffold-derived pages, category levels link to their overview pages, and Drafting Room papers support the complete hierarchy—for example, `Home / Community / The Drafting Room / Paper No. 1`.
-- Standardized the permanent header identity around the crest and four-line **THE / UTOPIA / PROJECT / US** wordmark. The header now keeps the logo and navigation control left, breadcrumb center, and burgundy version pill right on desktop, tablet, and mobile. Shared parchment colors prevent individual page styles from changing the header or footer appearance.
+- Standardized the permanent header identity around the crest and two-line **REDRAFTING / AMERICA** wordmark. The header now keeps the logo and navigation control left, breadcrumb center, and burgundy version pill right on desktop, tablet, and mobile. Shared parchment colors prevent individual page styles from changing the header or footer appearance.
 - Replaced the homepage’s former **What We’re Building** section with the approved six-part **Start Here** experience so a new visitor can understand the mission, the constitutional work, the supporting reasoning, the publication channel, the project’s current stage, and the appropriate next step from the homepage.
 - Added and documented the formal paired content model for every constitutional Article and Explainer, including stable identifiers, official text, plain-language meaning, design reasoning, embedded sources, comparisons, status, version metadata, and coordinated revision histories. Working templates remain excluded from search indexing.
 - Expanded Careers with the full-resolution **Eleven Pillars of Leadership** proposed organizational model. Desktop and tablet display the complete graphic; phones retain readable role cards and receive a download link. The prelaunch and volunteer-status disclosure now closes the page immediately before the footer.
-- Standardized the footer as `© 2026 Utopia Project US. All Rights Reserved.` on the left, **Veritas Super Omnia** centered, and a right-aligned update timestamp explicitly calculated in Philadelphia’s `America/New_York` time zone and labeled **Philly time**. Long desktop fields remain on one line, while narrow screens stack before the fields can collide.
+- Standardized the footer as `© 2026 Redrafting America. All Rights Reserved.` on the left, **Veritas Super Omnia** centered, and a right-aligned update timestamp explicitly calculated in Philadelphia’s `America/New_York` time zone and labeled **Philly time**. Long desktop fields remain on one line, while narrow screens stack before the fields can collide.
 - Strengthened publication discipline: `site-work/` contains only active drafts and is emptied after publication; archives are created only for pages with significant changes in a numbered release, use page-specific folders and `pagename-vX.Y-YYYYMMDD.ext` filenames, are checksum-verified and read-only, and are recorded in `archive/manifest.tsv`. Git remains the user-controlled backup and deployment mechanism; Codex does not commit or push.
 - Advanced every public version pill from `v0.5 BETA` to `v0.6 BETA` after owner approval. The detailed development record below is retained as the chronological work log that led to this release.
 
@@ -298,7 +308,7 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 - Repaired fragment navigation affected by the new base-address system. Mission table-of-contents links, homepage section links, and accessibility skip links now identify both the physical page and the destination fragment, preventing local browsers from opening the website folder instead of the intended section.
 - Added `assets/data/cultural-influences.js` as a local-file-compatible mirror of the static JSON collection so Cultural Influences works both when opened directly and when deployed through Vercel.
 - Added the full-resolution **Eleven Pillars of Leadership** graphic to Careers and clearly identified it as the proposed organization being built. Desktop and iPad visitors see the complete tappable graphic; phone visitors retain the existing role-card presentation and receive a full-resolution download link. The detailed HTML role content remains available to assistive technology at larger widths.
-- Standardized the public header around a permanent four-line **THE / UTOPIA / PROJECT / US** wordmark at every viewport width. A shared `assets/styles/brand-lockup.css` file keeps the icon and stacked text at matching visual heights, scales them together on narrow phones, and prevents the older page breadcrumb from accidentally acting as a wrapped brand name.
+- Standardized the public header around a permanent two-line **REDRAFTING / AMERICA** wordmark at every viewport width. A shared `assets/styles/brand-lockup.css` file keeps the icon and stacked text at matching visual heights, scales them together on narrow phones, and prevents the older page breadcrumb from accidentally acting as a wrapped brand name.
 - Reclaimed mobile header space by reducing the stacked wordmark to the navigation-category type scale and shrinking the logo to the same visual height. Moved the background-music control from the header to the right side of the sticky footer on all six music-enabled pages, leaving the hamburger right-aligned. Centered the shorter `v0.5 BETA` pill in the mobile header.
 - Superseded the interim right-side hamburger and footer-music arrangement with the approved responsive site shell. The header and footer now run edge to edge around a three-column desktop body: Site Navigation on the left, page content in the center, and Digital Constitutional Convention controls with Site Audio beneath them on the right.
 - Made the crest the mobile navigation control, with a visible hamburger badge that changes to an X while open. The navigation drawer always enters from the left so its mobile behavior mirrors the desktop Site Navigation panel. The adjacent four-line wordmark remains a separate Home link.
@@ -311,8 +321,8 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 - Explicitly locked the shared Site Navigation container to one full-width vertical column. This overrides broad flexbox rules retained by several original pages and guarantees that all six pastel category boxes stack vertically in both the desktop left panel and the mobile drawer, matching the right-panel card arrangement.
 - Unified the left and right panel design language. Each pastel Navigation category now uses the same border, corner radius, interior padding, vertical spacing, and Fraunces heading treatment as the Digital Constitutional Convention and Site Audio cards. Added the **Navigation** utility heading above the first left-side card to balance the existing **Convention Controls** heading on the right.
 - Synchronized the six main categories to the approved concise nomenclature and order: **About**, **Constitution v2.0**, **Learn**, **Community**, **Newsroom**, and **Get Involved**. Added the Community page folder, moved The Drafting Room from Learn to Community, moved Cultural Influences from Learn to Newsroom, updated all physical local-file links, and retained the established public Drafting Room and Cultural Influences addresses through updated Vercel rewrites.
-- Separated documentation responsibilities: the project-root README now explains the entire Utopia Project workspace, while this file remains the authoritative website architecture, maintenance, and release record.
-- Moved the universal color-coded breadcrumb bar into the persistent full-width header. On desktop, the header now follows the same symmetrical three-column geometry as the body and footer: logo and wordmark left, breadcrumb centered, and the `v0.5 BETA` pill right. On smaller screens, the crest and version pill share the first row while the breadcrumb spans a second full-width row. Standardized the shared footer copyright to `© 2026 Utopia Project US. All Rights Reserved.` while retaining the centered motto and right-aligned update date; these changes remain part of v0.5 maintenance pending the owner-approved v0.6 release.
+- Separated documentation responsibilities: the project-root README now explains the entire Redrafting America workspace, while this file remains the authoritative website architecture, maintenance, and release record.
+- Moved the universal color-coded breadcrumb bar into the persistent full-width header. On desktop, the header now follows the same symmetrical three-column geometry as the body and footer: logo and wordmark left, breadcrumb centered, and the `v0.5 BETA` pill right. On smaller screens, the crest and version pill share the first row while the breadcrumb spans a second full-width row. Standardized the shared footer copyright to `© 2026 Redrafting America. All Rights Reserved.` while retaining the centered motto and right-aligned update date; these changes remain part of v0.5 maintenance pending the owner-approved v0.6 release.
 - Promoted the six hidden category scaffolds into public overview pages for **About**, **Constitution v2.0**, **Learn**, **Community**, **Newsroom**, and **Get Involved**. Each overview now explains every subcategory and why it matters; available destinations are linked while unfinished destinations remain descriptions rather than dead links. Category headings in Site Navigation and category levels in breadcrumbs now link to these overviews. Renamed Community’s former **Blog** label to **The Drafting Room**, standardized breadcrumb typography against legacy page styles, and expanded Paper No. 1 to the full hierarchy `Home / Community / The Drafting Room / Paper No. 1`.
 - Strengthened the visual hierarchy inside every Navigation card while retaining left alignment for fast scanning. Major category headings remain dark and prominent, a subtle category-colored divider now separates each heading from its destinations, live links use the primary text color and stronger weight, and unfinished destinations use a muted gray with no interactive hover or pointer treatment. The inactive gray was selected to retain readable contrast across all six pastel backgrounds.
 - Prevented the desktop footer’s copyright and update fields from wrapping inside their sidebar-aligned grid cells, allowing each field to use the otherwise open center space while preserving the symmetrical left/center/right anchors. Narrow screens now stack the three footer fields before their combined text can collide. Restored both date and time to the update field, explicitly formatted in the `America/New_York` time zone and labeled **Philly time** so daylight-saving changes are handled correctly without displaying an inaccurate fixed `EST` label.
@@ -330,7 +340,7 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 
 **Date:** *August 1, 2026*
 
-**What changed:** Launched **The Drafting Room** as the project's public essay and announcement section. Published **Paper No. 1 — Founder's Introduction** at a permanent URL, rebuilt from the approved draft in the site's cream/navy/gold visual system, and added Todd McGuckin's purpose-designed calligraphic author mark. Added The Drafting Room to desktop and mobile navigation across the site, included it in the 404-page search, and adjusted the navigation breakpoint so the expanded menu remains usable at intermediate screen widths. Added a standards-compliant RSS 2.0 feed, RSS autodiscovery metadata, and a subscription link in the homepage Contact section. Canonical and Open Graph URLs were aligned with the site's `www.utopiaproject.us` redirect.
+**What changed:** Launched **The Drafting Room** as the project's public essay and announcement section. Published **Paper No. 1 — Founder's Introduction** at a permanent URL, rebuilt from the approved draft in the site's cream/navy/gold visual system, and added Todd McGuckin's purpose-designed calligraphic author mark. Added The Drafting Room to desktop and mobile navigation across the site, included it in the 404-page search, and adjusted the navigation breakpoint so the expanded menu remains usable at intermediate screen widths. Added a standards-compliant RSS 2.0 feed, RSS autodiscovery metadata, and a subscription link in the homepage Contact section. Canonical and Open Graph URLs were aligned with the site's `redraftingamerica.org` redirect.
 
 **Why:** The project needed a durable publication channel for the reasoning behind Constitution v2.0, beginning with a personal explanation of why the work exists. RSS provides a platform-independent way for readers to follow future papers and constitutional releases without introducing accounts, a mailing-list platform, or a database.
 
@@ -344,7 +354,7 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 
 **Why:** The original single favicon did not provide consistent rendering across browser tabs, bookmarks, pinned shortcuts, and mobile home screens.
 
-**Result:** The Utopia Project US now presents a consistent visual identity across modern browsers and Apple touch surfaces.
+**Result:** Redrafting America now presents a consistent visual identity across modern browsers and Apple touch surfaces.
 
 ### v0.3 — Full visual system rebuild
 
@@ -374,7 +384,7 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 
 **Why:** The prior project needed a full restart — the organization relocated its legal home from NC to PA, and the existing codebase was unfinished and entangled with infrastructure (a Supabase project, an old Vercel deployment) that no longer matched the org's actual setup. A clean restart was judged easier than untangling the old one.
 
-**Result:** Site live on Vercel, under a properly organized GitHub organization (`Utopia-Project-US`), with four private repos (`bylaws`, `constitution2`, `phone`, `website`) replacing a scattered personal-account setup.
+**Result:** Site live on Vercel, under a properly organized GitHub organization (`redrafting-america`), with four private repos (`bylaws`, `constitution2`, `phone`, `website`) replacing a scattered personal-account setup.
 
 ---
 
@@ -408,10 +418,10 @@ Everything requiring real accounts, sessions, and live user interaction is scope
 
 ## 8. Deploying (Vercel)
 
-1. Push this repo to GitHub under the `Utopia-Project-US` org.
+1. Push this repo to GitHub under the `redrafting-america` org.
 2. In Vercel: New Project → Import → select this repo, scoped to the org (not a personal account — private-org repos require a Vercel Team).
 3. Framework preset: **Other**. No build command — it's static HTML (until the Astro migration lands; update this section when it does).
-4. Deploy. Attach the `utopiaproject.us` domain under project Settings.
+4. Deploy. Attach the `redraftingamerica.org` domain under project Settings.
 
 ## 9. Editing Conventions
 

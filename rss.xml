@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Drafting Room</title>
-    <link>https://www.utopiaproject.us/the-drafting-room.html</link>
-    <description>Papers from The Utopia Project US on constitutional design, institutional resilience, and the work of building Constitution v2.0.</description>
+    <link>https://redraftingamerica.org/the-drafting-room.html</link>
+    <description>Papers from Redrafting America on constitutional design, institutional resilience, and the work of building Constitution v2.0.</description>
     <language>en-us</language>
-    <copyright>Copyright 2026 Utopia Project US</copyright>
+    <copyright>Copyright 2026 Redrafting America</copyright>
     <lastBuildDate>Sat, 01 Aug 2026 00:00:00 -0400</lastBuildDate>
-    <atom:link href="https://www.utopiaproject.us/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://redraftingamerica.org/rss.xml" rel="self" type="application/rss+xml" />
     <image>
-      <url>https://www.utopiaproject.us/assets/images/utopia-project-logo.png</url>
+      <url>https://redraftingamerica.org/assets/images/redrafting-america-logo-web.png</url>
       <title>The Drafting Room</title>
-      <link>https://www.utopiaproject.us/the-drafting-room.html</link>
+      <link>https://redraftingamerica.org/the-drafting-room.html</link>
     </image>
     <item>
       <title>Paper No. 1: Founder’s Introduction</title>
-      <link>https://www.utopiaproject.us/drafting-room/paper-no-1.html</link>
-      <guid isPermaLink="true">https://www.utopiaproject.us/drafting-room/paper-no-1.html</guid>
+      <link>https://redraftingamerica.org/drafting-room/paper-no-1.html</link>
+      <guid isPermaLink="true">https://redraftingamerica.org/drafting-room/paper-no-1.html</guid>
       <pubDate>Sat, 01 Aug 2026 00:00:00 -0400</pubDate>
-      <author>info@utopiaproject.us (Todd McGuckin)</author>
-      <description><![CDATA[Why The Utopia Project began, why resilient institutions matter more than perfect leaders, and why Constitution v2.0 is an invitation rather than a final word.]]></description>
+      <author>todd.mcguckin@redraftingamerica.org (Todd McGuckin)</author>
+      <description><![CDATA[Why Redrafting America began, why resilient institutions matter more than perfect leaders, and why Constitution v2.0 is an invitation rather than a final word.]]></description>
     </item>
   </channel>
 </rss>
