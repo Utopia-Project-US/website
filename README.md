@@ -11,7 +11,7 @@ This site is deliberately simple: static HTML, no framework, no database, no bui
 ## Redrafting America Migration (August 4, 2026)
 
 - Renamed the public organization from **The Utopia Project US** to **Redrafting America** across current pages, metadata, RSS, contact links, and shared navigation.
-- Changed the canonical public origin to `https://redraftingamerica.org` and the contact address to `todd.mcguckin@redraftingamerica.org`.
+- Changed the canonical public origin to `https://redraftingamerica.org` and the public contact address to `info@redraftingamerica.org`.
 - Added the official Web and Print logo masters as `assets/images/redrafting-america-logo-web.png` and `assets/images/redrafting-america-logo-print.png`; public pages use the Web master.
 - Regenerated PNG browser and device icons from the official Web logo.
 - Preserved `archive/` snapshots unchanged as historical records; Vercel continues to serve them with `noindex, nofollow, noarchive` headers.
