@@ -467,6 +467,9 @@ body.site-shell-ready > header .header-right {
 /* Full-width footer with left, centered, and right-aligned information. */
 footer,
 .site-footer {
+  position: static !important;
+  inset: auto !important;
+  z-index: auto !important;
   width: 100%;
   color: var(--shell-muted) !important;
   background: var(--shell-paper) !important;

@@ -1,6 +1,6 @@
 # Redrafting America — Website
 
-`redraftingamerica.org` — the public-facing site for a nonprofit civic initiative designing **Constitution v2.0**, a modern constitutional framework built around truth, accountability, and human dignity.
+`www.redraftingamerica.org` — the canonical public-facing site for a nonprofit civic initiative designing **Constitution v2.0**, a modern constitutional framework built around truth, accountability, and human dignity.
 
 ## TL;DR
 
@@ -11,10 +11,20 @@ This site is deliberately simple: static HTML, no framework, no database, no bui
 ## Redrafting America Migration (August 4, 2026)
 
 - Renamed the public organization from **The Utopia Project US** to **Redrafting America** across current pages, metadata, RSS, contact links, and shared navigation.
-- Changed the canonical public origin to `https://redraftingamerica.org` and the public contact address to `info@redraftingamerica.org`.
+- Changed the canonical public origin to `https://www.redraftingamerica.org` and the public contact address to `info@redraftingamerica.org`.
 - Added the official Web and Print logo masters as `assets/images/redrafting-america-logo-web.png` and `assets/images/redrafting-america-logo-print.png`; public pages use the Web master.
 - Regenerated PNG browser and device icons from the official Web logo.
 - Preserved `archive/` snapshots unchanged as historical records; Vercel continues to serve them with `noindex, nofollow, noarchive` headers.
+
+---
+
+## Readability and Canonical-Domain Update (August 5, 2026)
+
+- Restored the website seal to `Veritas-Super-Omnia-v6_Web.png` while retaining later seal concepts in `graphics/` as design history.
+- Added `Official-Constitutional-Lexicon-v3_Landscape.png`, giving the Constitutional Institutions rows and reference footer more breathing room, and enlarged the Lexicon's homepage presentation.
+- Rebalanced the “Bots on the Street” response cards around their actual content width so quotations remain readable beside the desktop navigation panels and on mobile screens.
+- Removed inherited sticky-footer behavior that could obscure long pages, then audited all 47 active pages at desktop and mobile widths.
+- Changed canonical website, Open Graph, RSS, and public absolute URLs to `https://www.redraftingamerica.org`; the apex domain now redirects to `www`.
 
 ---
 
@@ -286,8 +296,8 @@ Not everything in the original plan was over-scoped. **Plausible/PostHog-style p
 - Completed the Microsoft 365 identity transition to `redraftingamerica.org`. Public website contact now uses the existing `info@redraftingamerica.org` shared mailbox, the founder retains `todd.mcguckin@redraftingamerica.org`, and `social@redraftingamerica.org` remains available for future channel administration.
 - Confirmed that `dmarc@redraftingamerica.org` is an alias on the `info@redraftingamerica.org` shared mailbox and published the initial monitoring policy `v=DMARC1; p=none; rua=mailto:dmarc@redraftingamerica.org; adkim=r; aspf=r; pct=100`. This collects aggregate reports without quarantining or rejecting mail while every legitimate sender is inventoried.
 - Created the **Redrafting America** GitHub organization, assigned `RTM135` as an owner, and transferred all nine organization repositories—including the `.github` repository and other dot-folder content—without discarding history. The public website repository is now `redrafting-america/website`, and the organization uses a GitHub Project board to track migration and ongoing work.
-- Renamed and transferred the Vercel project to the `redrafting-america` team, retained the GitHub deployment connection, and verified production deployment from the new repository. The canonical website is `https://redraftingamerica.org`; `www.redraftingamerica.org` permanently redirects to the apex.
-- Added path- and query-preserving permanent redirects from `utopiaproject.us`, `www.utopiaproject.us`, `redrafting.us`, `www.redrafting.us`, `redraftingamerica.us`, and `www.redraftingamerica.us` to the canonical apex. The former `utopiaproject.us` redirect will remain active through the domain's planned expiration in 2027.
+- Renamed and transferred the Vercel project to the `redrafting-america` team, retained the GitHub deployment connection, and verified production deployment from the new repository. The canonical website is `https://www.redraftingamerica.org`; `redraftingamerica.org` permanently redirects to the `www` host.
+- Added path- and query-preserving permanent redirects from `utopiaproject.us`, `www.utopiaproject.us`, `redrafting.us`, `www.redrafting.us`, `redraftingamerica.us`, and `www.redraftingamerica.us` to the canonical `www` host. The former `utopiaproject.us` redirect will remain active through the domain's planned expiration in 2027.
 - Verified automatically managed Let's Encrypt certificates and HTTPS on the canonical website and redirect domains. Vercel owns certificate renewal for the attached domains.
 - Cleaned obsolete Microsoft 365 DNS records from the personal `mcguckin.me` and `mcguckin.net` zones while preserving Apple Mail, web, Home Assistant, gateway, and other unrelated records. Their SPF policies now authorize iCloud only; `mcguckin.name` required no Microsoft cleanup.
 - Replaced the former public identity with the approved Redrafting America Web and Print logos, regenerated browser/device icons, standardized organization and contact copy, and retained the memorable public telephone display `215-4-UTOPIA` with its numeric dial target.
@@ -460,7 +470,7 @@ Everything requiring real accounts, sessions, and live user interaction is scope
 1. Push this repo to GitHub under the `redrafting-america` org.
 2. In Vercel: New Project → Import → select this repo, scoped to the org (not a personal account — private-org repos require a Vercel Team).
 3. Framework preset: **Other**. No build command — it's static HTML (until the Astro migration lands; update this section when it does).
-4. Deploy. Attach the `redraftingamerica.org` domain under project Settings.
+4. Deploy. Attach both `www.redraftingamerica.org` and `redraftingamerica.org` under project Settings, with `www` serving production and the apex redirecting permanently to `www`.
 
 ## 9. Editing Conventions
 

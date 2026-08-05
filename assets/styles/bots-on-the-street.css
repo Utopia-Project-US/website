@@ -110,7 +110,10 @@
 .field-note-down:hover,
 .field-note-down:focus-visible { background: var(--field-ink); color: var(--field-paper); transform: translateY(3px); }
 
-.interviews { padding: 2rem max(2rem, calc((100vw - 1180px) / 2)) 7.5rem; }
+.interviews {
+  container-type: inline-size;
+  padding: 2rem clamp(1rem, 3vw, 2rem) 7.5rem;
+}
 .field-note-rule {
   padding: 0.75rem 0;
   border-top: 4px solid var(--field-ink);
@@ -178,9 +181,10 @@
 .interview-card blockquote {
   margin: 2.5rem 0 1.9rem;
   font-family: 'Fraunces', serif;
-  font-size: clamp(1.55rem, 3vw, 2.35rem);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+  text-wrap: pretty;
 }
 .read-more {
   margin-top: auto;
@@ -196,12 +200,17 @@
 
 .your-turn {
   position: relative;
-  margin: 0 max(2rem, calc((100vw - 1180px) / 2));
+  margin: 0 clamp(1rem, 3vw, 2rem);
   padding: clamp(5rem, 10vw, 7rem) 8%;
   overflow: hidden;
   background: var(--field-ink);
   color: var(--field-paper);
   text-align: center;
+}
+
+@container (max-width: 760px) {
+  .interview-grid { grid-template-columns: 1fr; }
+  .interview-card blockquote { font-size: clamp(1.45rem, 5.2vw, 1.8rem); }
 }
 .your-turn::before { content: "?"; position: absolute; left: 4%; top: -25%; color: rgba(255, 255, 255, 0.04); font-family: 'Fraunces', serif; font-size: 30rem; line-height: 1; }
 .your-turn .field-note-kicker { color: #ff6b63; }
