@@ -122,6 +122,14 @@
       page = paperNumber.textContent.trim();
     }
 
+    var fieldNoteNumber = main.querySelector('.field-note-number');
+    var isDraftingRoomFieldNote = path.indexOf('/pages/community/drafting-room/field-notes/') !== -1 || path.indexOf('/drafting-room/field-notes/') !== -1;
+    if (fieldNoteNumber && isDraftingRoomFieldNote) {
+      section = 'The Drafting Room';
+      sectionHref = 'pages/community/drafting-room/index.html';
+      page = fieldNoteNumber.textContent.trim();
+    }
+
     return { key: key, category: category, page: page, section: section, sectionHref: sectionHref };
   }
 

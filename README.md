@@ -153,15 +153,19 @@ website/
 │   │   └── cultural-influences.html
 │   └── drafting-room/
 │       ├── index.html
-│       └── papers/
-│           └── paper-no-1.html
+│       ├── papers/                       # Sustained essays and developed arguments
+│       │   └── paper-no-1.html
+│       └── field-notes/                  # Interviews, experiments, observations, and open questions
+│           └── bots-on-the-street.html
 ├── assets/                                 # Shared resources, never page content
 │   ├── audio/
 │   ├── data/
 │   │   ├── cultural-influences.json        # Editorial source data
 │   │   └── cultural-influences.js          # Local-file-compatible browser data mirror
 │   ├── images/
+│   │   ├── bots-on-the-street/             # Production copies of the ten AI response records
 │   │   ├── citizen-portal.png                # Redrafting America civic-services concept
+│   │   ├── constitution-v2-draft-in-progress.png # Active Constitution v2.0 artifact graphic
 │   │   ├── constitution-v2-lexicon.png       # Landscape constitutional reference chart
 │   │   ├── constitution-v2-lexicon-portrait.png # Portrait constitutional reference chart
 │   │   ├── eleven-pillars-of-leadership.png  # Full-resolution Careers model

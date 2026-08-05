@@ -26,6 +26,10 @@
       "destination": "/pages/community/drafting-room/papers/paper-no-1.html"
     },
     {
+      "source": "/drafting-room/field-notes/bots-on-the-street.html",
+      "destination": "/pages/community/drafting-room/field-notes/bots-on-the-street.html"
+    },
+    {
       "source": "/images/:path*",
       "destination": "/assets/images/:path*"
     },
