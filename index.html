@@ -245,7 +245,15 @@
   @media (min-width: 860px) {
     .split { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
     .split.reverse > *:first-child { order: 2; }
-    .split.lexicon-feature { grid-template-columns: 1fr; gap: 2rem; }
+    .split.lexicon-feature {
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.62fr);
+      gap: 3.5rem;
+    }
+    .lexicon-feature .preview-card {
+      width: 100%;
+      max-width: 440px;
+      justify-self: end;
+    }
   }
 
   .split p { line-height: 1.75; color: var(--parchment-dim); font-size: 1rem; }
@@ -540,12 +548,12 @@
     <div class="wrap">
       <div class="split reverse lexicon-feature">
         <div class="preview-card">
-          <a href="assets/images/constitution-v2-lexicon.png" target="_blank" rel="noopener">
-            <img src="assets/images/constitution-v2-lexicon.png" alt="Redrafting America Constitution v2.0 Official Constitutional Lexicon chart, listing ten constitutional institutions with their functions and principles" loading="lazy" />
+          <a href="assets/images/constitution-v2-lexicon-portrait.png?v=20260805-2" target="_blank" rel="noopener">
+            <img src="assets/images/constitution-v2-lexicon-portrait.png?v=20260805-2" alt="Portrait edition of the Redrafting America Constitution v2.0 Official Constitutional Lexicon, listing ten constitutional institutions with their functions and principles" loading="lazy" />
           </a>
           <div class="preview-caption">
             <span>Constitution v2.0 Reference Standard &middot; Rev. 6</span>
-            <a href="assets/images/constitution-v2-lexicon.png" target="_blank" rel="noopener">View full size &rarr;</a>
+            <a href="assets/images/constitution-v2-lexicon-portrait.png?v=20260805-2" target="_blank" rel="noopener">View full size &rarr;</a>
           </div>
         </div>
         <div>
