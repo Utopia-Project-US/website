@@ -28,6 +28,14 @@ This site is deliberately simple: static HTML, no framework, no database, no bui
 
 ---
 
+## Search-Result Messaging Update (August 6, 2026)
+
+- Made the authorized Public Mission Statement the homepage's visible opening description and its search and social-sharing description.
+- Added the canonical homepage URL and Organization/WebSite structured data using the canonical `www` origin.
+- Excluded navigation, calls to action, contact information, and footer boilerplate from eligible search-result snippets so Google and Bing can prioritize the mission language while continuing to index the page normally.
+
+---
+
 ## 1. Website Goals
 
 The site exists to present, explain, and evolve Constitution v2.0, and to represent Redrafting America as an organization. Current, real goals:
