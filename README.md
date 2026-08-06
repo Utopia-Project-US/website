@@ -33,6 +33,9 @@ This site is deliberately simple: static HTML, no framework, no database, no bui
 - Made the authorized Public Mission Statement the homepage's visible opening description and its search and social-sharing description.
 - Added the canonical homepage URL and Organization/WebSite structured data using the canonical `www` origin.
 - Excluded navigation, calls to action, contact information, and footer boilerplate from eligible search-result snippets so Google and Bing can prioritize the mission language while continuing to index the page normally.
+- Added canonical public URLs to the active Mission, Cultural Influences, and Careers pages.
+- Added a root XML sitemap containing only the pages identified as active in the public HTML site map, and declared it in `robots.txt`.
+- Added right-sized WebP delivery assets and intrinsic image dimensions across active pages while retaining the original full-resolution artwork unchanged.
 
 ---
 
@@ -199,6 +202,7 @@ website/
 ├── archive/                                # Locked historical release copies
 ├── site-work/                              # Git-backed work in progress
 ├── rss.xml                                 # The Drafting Room RSS feed
+├── sitemap.xml                             # Canonical URLs for active public pages only
 ├── robots.txt                              # Search-engine exclusions
 ├── vercel.json                             # Stable public-route mapping and headers
 └── README.md                               # This file
@@ -481,6 +485,7 @@ Everything requiring real accounts, sessions, and live user interaction is scope
 2. In Vercel: New Project → Import → select this repo, scoped to the org (not a personal account — private-org repos require a Vercel Team).
 3. Framework preset: **Other**. No build command — it's static HTML (until the Astro migration lands; update this section when it does).
 4. Deploy. Attach both `www.redraftingamerica.org` and `redraftingamerica.org` under project Settings, with `www` serving production and the apex redirecting permanently to `www`.
+5. When the active public URL set changes, update `sitemap.xml`, deploy it, and submit `https://www.redraftingamerica.org/sitemap.xml` through Google Search Console and Bing Webmaster Tools.
 
 ## 9. Editing Conventions
 

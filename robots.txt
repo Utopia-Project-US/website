@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /archive/
 Disallow: /site-work/
 Disallow: /templates/
+
+Sitemap: https://www.redraftingamerica.org/sitemap.xml
