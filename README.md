@@ -35,7 +35,6 @@ This site is deliberately simple: static HTML, no framework, no database, no bui
 - Excluded navigation, calls to action, contact information, and footer boilerplate from eligible search-result snippets so Google and Bing can prioritize the mission language while continuing to index the page normally.
 - Added canonical public URLs to the active Mission, Cultural Influences, and Careers pages.
 - Added a root XML sitemap containing only the pages identified as active in the public HTML site map, and declared it in `robots.txt`.
-- Added right-sized WebP delivery assets and intrinsic image dimensions across active pages while retaining the original full-resolution artwork unchanged.
 
 ---
 
