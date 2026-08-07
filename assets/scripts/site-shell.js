@@ -13,7 +13,7 @@
         { label: 'Origins', future: true },
         { label: 'Mission Statement', href: 'pages/about/mission.html' },
         { label: 'Bylaws', future: true },
-        { label: 'Leadership', future: true },
+        { label: 'Leadership', href: 'pages/about/leadership.html' },
       ]
     },
     {

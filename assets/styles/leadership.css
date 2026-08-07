@@ -1,0 +1,105 @@
+.leadership-panel > p {
+  margin-top: 0.35rem;
+  color: #4b5964;
+}
+
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.leader-card {
+  display: grid;
+  gap: 0.72rem;
+  padding: 1.15rem 1.2rem;
+  border: 1px solid var(--line);
+  background: var(--paper-light);
+}
+
+.leader-card-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 1rem;
+  align-items: start;
+}
+
+.leader-heading {
+  display: grid;
+  gap: 0.52rem;
+  min-width: 0;
+}
+
+.leader-portrait {
+  width: 150px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  justify-self: end;
+  border: 1px solid rgba(16, 42, 67, 0.2);
+  box-shadow: 0 10px 25px rgba(7, 27, 44, 0.1);
+}
+
+.leader-name {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.leader-title {
+  margin: 0;
+  color: #5a6773;
+  font: 700 0.94rem/1.35 "Public Sans", system-ui, -apple-system, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.leader-bio {
+  margin: 0;
+  color: #44505e;
+}
+
+.leader-outside {
+  margin: 0;
+  padding-top: 0.45rem;
+  border-top: 1px dashed rgba(15, 42, 67, 0.2);
+}
+
+.leader-outside strong {
+  color: #7a521e;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.leadership-placeholder .leader-title,
+.leadership-placeholder .leader-bio,
+.leadership-placeholder .leader-outside {
+  color: #65717a;
+}
+
+.leadership-note {
+  margin: 1rem 0 0;
+  color: #5c6478;
+  font-size: 0.93rem;
+}
+
+@media (max-width: 640px) {
+  .leader-name {
+    font-size: 1.15rem;
+  }
+
+  .leader-title {
+    font-size: 0.88rem;
+  }
+
+  .leader-card-header {
+    grid-template-columns: 1fr;
+  }
+
+  .leader-portrait {
+    justify-self: start;
+    width: 120px;
+  }
+}
